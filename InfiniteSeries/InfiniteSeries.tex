@@ -1,0 +1,625 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\numberwithin{equation}{section}
+
+\title{Infinte series}
+\author{Polaris}
+\date{2025/01/13}
+
+\begin{document}
+
+\maketitle
+
+\section{Basic terms}
+We are going to introduce to some terms in series:
+\begin{enumerate}
+    \item Sequence: a list of number in a particular order, ex. {1, 4, 7, 10...}
+    \item n-th term formula: $a_n = 3n - 2$
+    \item Series: the sum of all terms in the sequence, if the series is a finite sum, the sequence converge, otherwise it diverge
+    \item Partial Sum: the first n term of the sequence.
+\end{enumerate}
+
+\section{Geometric Series}
+\subsection{Definition}
+Let $r$ be the common ratio between the terms, if the n-th term can be expressed as:
+\begin{equation}
+    a_n = a_0\cdot r^k
+\end{equation}
+
+Then the sequence is a geometric series
+
+\subsection{Convergence Test}
+\begin{enumerate}
+    \item The geometric series will diverge if $\abs{r} > 1$
+    \item The geometric series will converge if $0 < \abs{r} < 1$
+\end{enumerate}
+If the series converge, it will converge to:
+\begin{equation}
+    \sum_{n = k}^\infty a_k \cdot r^n = \frac{a_0}{1 - r}
+\end{equation}
+
+Where $a_k$ is the n-th term of the series, in other words, $a_k$ is the $k$-th term in the series (where $n = k$)
+
+\newpage
+
+\subsection{Example questions}
+State if the following geometric series diverge or find the value it converge to:
+\begin{enumerate}
+    \item \[\sum_{n = 0}^\infty 1.1^n \]
+    since $1.1 > 1$, this series diverge
+
+    \item \[\sum_{n = 1}^\infty \frac{3}{2^n} \]
+    since $\frac{1}{2} < 1$, this series converges, by equation $(2.2)$:
+    \[
+    \sum_{n = 1}^{\infty} 3(\frac{1}{2})^n = \frac{\frac{3}{2}}{1-\frac{1}{2}} = 3
+    \]
+
+    \item \[\sum_{n = 1}^{\infty} \left(\frac{3}{2} \right)^n \]
+    since $\frac{3}{2} > 1$, the series diverge
+
+    \item  \[\sum_{n = 0}^{\infty} \left( -\frac{e}{\pi}\right)^n\]
+    since $0 < \abs{\frac{-e}{\pi}} < 1$, the series converge, by equation $(2.2)$:
+    \[
+        \sum_{n = 0}^{\infty} \left( -\frac{e}{\pi}\right)^n = \frac{1}{1 - \frac{-e}{\pi}} = \frac{\pi}{e}
+    \]
+\end{enumerate}
+
+\newpage
+\section{n-th Term Convergence Test}
+
+\begin{equation}
+    \text{For an infinte series} \sum_{n = 1}^{\infty} a_n \text{ , if }\sum_{n = 1}^{\infty} a_n \text{ converges, then} \lim_{x\to \infty} a_n = 0 
+\end{equation}
+
+However the converse of the statement is NOT TRUE, or:
+\begin{equation}
+    \text{If } \lim_{x\to \infty} a_n = 0  \text{, then} \sum_{n = 1}^{\infty} a_n \text{ don't have to converge}
+\end{equation}
+An example will be harmoic series, which will be developed later.
+
+The introduced theorem is usually used in its contrapositive form:
+\begin{equation}
+    \text{If } \lim_{x\to \infty} a_n \neq 0  \text{, then} \sum_{n = 1}^{\infty} a_n \text{ diverge}
+\end{equation}
+
+
+\subsection{Example Questions}
+State if the following series diverge or converge
+\begin{enumerate}
+    \item \[\sum_{n = 1}^{\infty} \left(\frac{n}{n + 100}\right)\]
+    For this series, if $\lim_{n\to \infty} \frac{n}{n+100}$ doesn't equal to 0, we can prove that it diverges:
+    \[
+        \lim_{n\to \infty} \frac{n}{n+100} = \lim_{n\to \infty} \frac{1}{1} = 1
+    \]
+    Which means the original series diverge.
+
+    \item \[\sum_{n = 1}^{\infty} \left(\frac{1}{n}\right)^2\]
+    Examine this limit: 
+    \[
+        \lim_{x\to \infty} \left(\frac{1}{n}\right)^2 = 0
+    \]
+    By theorem $(3.2)$, we have no way to prove that the series converge or diverge through this method(though the integral converge, the Basel Problem)
+\end{enumerate}
+
+\newpage
+\section{Integral Test for convergence}
+If $f$ is a \textbf{positive}, \textbf{continous} and \textbf{decreasing} for $x \geq m$, where $m \geq 1$
+
+and the n-th term expression $a_n = f(x)$, then:
+
+\begin{equation}
+    \sum_{n = 1}^{\infty} a_n \text{ and } \int_{1}^{\infty} f(x) \mathrm{d}x
+\end{equation}
+
+both converge or diverge.
+
+\subsection{Example questions}
+\begin{enumerate}
+    \item Evaluate this series:
+    \[
+        \sum_{n = 1}^{\infty} \frac{n}{n^2 + 1} 
+    \]
+    First, check for the three criteria: positive, coutinous, decreasing
+    \begin{enumerate}
+        \item Positive: obviously $f(x) = \frac{x}{x^2 + 1}$ is positive in $[1 , \infty)$
+        \item Continous: the function is continous for all real number
+        \item Decreasing: $f'(x) = -\frac{x^2 - 1}{(x^2 + 1)^2}$, and $f'(x) < 0$ when $x > 1$
+    \end{enumerate}
+    Now evaluate the indefinite integral:
+    \[
+        \begin{split}
+            \int_{1}^{\infty} \frac{x}{x^2 + 1} \mathrm{d}x &= \lim_{b\to \infty} \int_{1}^{b} \frac{x}{x^2 + 1} \mathrm{d}x\\
+            & = \lim_{b\to \infty} \frac{1}{2}\int_{1}^{b} \frac{1}{x^2 + 1} \mathrm{d}(x^2 + 1)\\
+            & = \frac{1}{2} \lim_{b\to \infty} (\ln \abs{b^2 + 1} - \ln \abs{1^2 + 1})\\
+            & = \infty
+        \end{split}
+    \]
+    The integral diverges, meaning that the series also diverges
+
+    \item Evaluate this series:
+    \[
+        \sum_{n = 1}^{\infty} \frac{1}{n^2 + 1}
+    \]
+    Let 
+    \[
+        a_n = f(x) = \frac{1}{x^2 + 1}
+    \]
+    Checking if the method work is omitted, but it does work
+    Then we can construct and solve this improper integral:
+    \[
+        \begin{split}
+            \int_{1}^{\infty} \frac{1}{x^2 + 1} \mathrm{d}x & = \lim_{b\to \infty} \int_{1}^{b} \frac{1}{x^2 + 1}\mathrm{d}x\\
+            & = \lim_{b\to \infty} \arctan b - \arctan 1\\
+            & = \frac{\pi}{2} - \frac{\pi}{4} = \frac{\pi}{4}\\
+        \end{split}
+    \]
+    Meaning the series converge, \textbf{but the series doesn't necessarily converge to} $\pi/4$
+\end{enumerate}
+
+\newpage
+\section{Harmoic Series and p-Series Test}
+A \textbf{p-Series} is a sereis that has the form of
+\[
+    \sum_{n = 1}^{\infty} \frac{1}{n^p} = \frac{1}{1^p} + \frac{1}{2^p} + \frac{1}{3^p} + ... + \frac{1}{n^p}
+\]
+Where $p > 0$.
+
+The series converge if $p > 1$, diverge if $0 < p \leq 1$.
+
+When $p = 1$, the series is called \textbf{harmoic series}, which diverges (by integral test)
+
+\subsection{Example Problem}
+    \[
+    \sum_{n = 1}^{\infty} \frac{1}{\sqrt[4]{k^3}}
+    \]
+    The exponent can be written as $3/4 < 1$, which means it diverges 
+
+
+\section{Comparison Test for Convergence}
+\subsection{Direct Comparison Test for Convergence}
+\[
+    \text{Let } a_n \text{ and } b_n \text{ be two series, if } 0 < a_n \leq b_n \textbf{ for a } n > 0\\
+\]
+\begin{enumerate}
+    \item
+    \[
+    \text{If } \sum_{n = 1}^{\infty} b_n \text{ converge, then } \sum_{n = 1}^{\infty} a_n \text{ converge}\\
+    \]
+    \item 
+    \[
+    \text{If } \sum_{n = 1}^{\infty} a_n \text{ diverge, then } \sum_{n = 1}^{\infty} b_n \text{ diverge}
+    \]
+\end{enumerate}
+\subsubsection{Example Questions}
+\begin{enumerate}
+    \item Determine the convergence of this series
+    \[
+        \sum_{n = 1}^{\infty} \frac{1}{2 + 3^n}
+    \]
+    Note that this series looks similar to this series, which converges:
+    \[
+        \sum_{n = 1}^{\infty} \frac{1}{3^n}
+    \]
+    It can be proven that (taking limit to infinity)
+    \[
+        \frac{1}{3^n} > \frac{1}{2 + 3^n}
+    \]
+    Which means the original series converges.
+
+    \newpage
+    \item Determine the convergence of this series:
+    \[
+        \sum_{n = 1}^{\infty} \frac{1}{5 + \sqrt{n}}
+    \]
+    Note that this series look similar to this series:
+    \[
+        \sum_{n = 1}^{\infty} \frac{1}{\sqrt{n}} 
+    \]
+    Notice that 
+    \[
+        \frac{1}{5 + \sqrt{n}} < \frac{1}{\sqrt{n}}
+    \]
+    When $n > 1$. But if we try to apply the convergence test here, we notice that we cannot draw any conclusion,
+    because if the second series diverge, the first one don't have to. We must switch to a new series to solve the problem:
+    \[
+        \sum_{n = 1}^{\infty}\frac{1}{n}
+    \]
+    Notice that 
+    \[
+        \frac{1}{5 + \sqrt{n}} > \frac{1}{n}
+    \]
+    When $n > 8$, this means we can apply the direct comparison test, we know that the second series diverge, 
+    which means the original series \textbf{converges}.
+\end{enumerate}
+
+\subsection{Limit Comparison Test}
+
+\[
+    \text{If } a_n > 0 \text{ and } b_n > 0 \text{ and } \lim_{n\to \infty} \frac{a_n}{b_n} = L 
+\]
+where $L$ is finite and positive, then the series both converge or diverge
+
+\subsubsection{Example Questions}
+\begin{enumerate}
+    \item Determine the convergence of this series:
+    \[
+        \sum_{n = 1}^{\infty} \frac{\sqrt{n}}{n^2 + 1}
+    \]
+    Let's examine this series:
+    \[
+        \sum_{n = 1}^{\infty} \frac{\sqrt{n}}{n^2} = \sum_{n = 1}^{\infty} \frac{1}{n^{\frac{3}{2}}}
+    \]
+    Which is a convergent p-series, now we apply the limit comparison test and use L'Hôpital's rule:
+    \[
+        \begin{split}
+            \lim_{x\to \infty} \frac{\sqrt{n}}{n^2 + 1} \frac{n^2}{\sqrt{n}} & = \lim_{x\to \infty} \frac{n^2}{n^2 + 1}\\
+            & = 1
+        \end{split}
+    \]
+    Which means the original series \textbf{converges}
+
+    \newpage
+    \item Determine the convergence of this series:
+    \[
+        \sum_{n = 1}^{\infty} \frac{n2^n}{4n^3 + 1}
+    \]
+    Let's examine this series, to find its convergence, we use the n-th term test:
+    \[
+        \sum_{n = 1}^{\infty} \frac{2^n}{n^2}
+    \]
+    \[
+    \begin{split}
+        \lim_{x\to \infty} \frac{2^n}{n^2} & = \lim_{x\to \infty} \frac{\ln 2\cdot 2^n}{2n}\\
+        & = \lim_{x\to \infty} \frac{\ln 2 \cdot \ln 2 \cdot 2^n}{2} > 0\\
+    \end{split}
+    \]
+    Meaning that this series diverges, then we apply the limit comparison test:
+    \[
+        \begin{split}
+            \lim_{x\to \infty} \frac{n\cdot 2^n}{4n^3 + 1} \frac{n^2}{2^n} & = \lim_{n\to \infty} \frac{n^3}{4n^3 + 1}\\
+            & = \frac{1}{4}
+        \end{split}
+    \]
+    Which means the original series \textbf{diverge}
+\end{enumerate}
+
+\newpage
+\section{Alternating Series Test for Convergence}
+\subsection{Alternating Series}
+Definition: The sign of the terms switch from positive to negative, or negative to positive.
+ex.
+\[
+    \sum_{n = 0}^{\infty} (-1)^n a_n \text{ and } \sum_{n = 1}^{\infty} \cos(n\pi) a_n
+\]
+
+\subsection{Convergence Test}
+Let $a_n > 0$, the alternating series:
+\[
+    \sum_{n = 1}^{\infty} (-1)^n a_n \text{ and } \sum_{n = 1}^{\infty} (-1)^{n+1} a_n
+\]
+converge if the following two requirements are met:
+\begin{enumerate}
+    \item $\lim_{n\to \infty} a_n = 0$
+    \item $a_{n+1} \leq a_n$ ($a_n$ is decreasing)
+\end{enumerate}
+
+\subsection{Example Questions}
+\begin{enumerate}
+    \item Determine if the series converge or diverge:
+    \[
+        \sum_{n = 1}^{\infty} (-1)^{n+1}\frac{1}{n}
+    \]
+    Check the two requirements:
+    \begin{enumerate}
+        \item $\lim_{n\to\infty} \frac{1}{n} = 0$
+        \item $a_{n+1} \leq a_n$ (this function is decreasing in $[1,\infty)$)
+    \end{enumerate}
+    Both requirements fit, meaning that this series \textbf{converge}, although this series look like the harmoic series.
+\end{enumerate}
+
+\newpage
+\section{Ratio Test for Convergence}
+Consider an infinite series:
+\begin{equation}
+    \sum_{n = 1}^{\infty} \text{ converge if } \lim_{n\to \infty} \abs{\frac{a_{n+1}}{a_n}} < 1
+\end{equation}
+\begin{equation}
+    \sum_{n = 1}^{\infty} \text{ diverge if } \lim_{n\to \infty} \abs{\frac{a_{n+1}}{a_n}} > 1 \text{ or } \lim_{n\to \infty} \abs{\frac{a_{n+1}}{a_n}} = \infty
+\end{equation}
+Note that if the limit is $1$, this test cannot draw any conclusion about the convergence and divergence of the series.
+
+\subsection{Example Questions}
+\begin{enumerate}
+    \item Determine the convergence of the series:
+    \[
+        \sum_{n = 1}^{\infty} \frac{2^n}{n!}
+    \]
+    From equation $(8.2)$, we can see that
+    \[
+        \begin{split}
+            \lim_{n\to \infty} \abs{\frac{2^{n+1}}{(n+1)!} \frac{n!}{2^n}} &= \lim_{n\to \infty} \abs{\frac{2}{(n+1)}}\\
+            & = 0 < 1
+        \end{split}
+    \]
+    Meaning this series \textbf{converge}.
+    \item Determine the convergence of this series:
+    \[
+        \sum_{n = 1}^{\infty} \frac{n^2 2^{n+1}}{3^n}
+    \]
+    We use the ratio test:
+    \[
+        \begin{split}
+            \lim_{n\to \infty} \frac{(n+1)^2 2^{n+2}}{3^{n+1}} \frac{3^n}{n^22^{n+1}} & = \lim_{n\to \infty} \frac{2}{3} \left(\frac{n+1}{n}\right)^2\\
+            & = \frac{2}{3} \left(\lim_{n\to\infty} \frac{n+1}{n}\right)^2\\
+            & = \frac{2}{3} < 1
+        \end{split}
+    \]
+    Meaning this series \textbf{converge}.
+\end{enumerate}
+
+\newpage
+\section{Absolute/Conditional Convergence}
+Let $\sum a_n$ be an infinte series, if 
+\begin{enumerate}
+    \item $\sum \abs{a_n}$ converges, then the series is \textbf{absolutely convergent}.
+    \item $\sum a_n$ converges but $\sum \abs{a_n}$ diverge, then the series is \textbf{conditionally convergent}
+\end{enumerate}
+
+\subsection{Example Questions}
+\begin{enumerate}
+    \item Determine if the series converge absolutely, conditionally, or diverge
+    \[
+    \sum_{n = 1}^{\infty} \frac{(-1)^n}{\sqrt[3]{n}}
+    \]
+    Notice that 
+    \[
+    \lim_{n\to\infty} \frac{1}{\sqrt[3]{n}} \text{ and } \frac{1}{\sqrt[3]{n + 1}} < \frac{1}{\sqrt[3]{n}}
+    \]
+    Which means by Alternating Series Test, this series converge. By p-series test, the absolute value of original series diverge,
+
+    which means the original series \textbf{converge conditionally}.
+
+    \item Determine if the series converge absolutely, conditionally or diverge
+    \[
+    \sum_{n = 1}^{\infty} \frac{\sin n}{n^2}
+    \]
+    Note that this series is \textbf{not} an alternating series. By direct comparison test, we have:
+    \[
+        \sum_{n = 1}^{\infty} \frac{\sin n}{n^2} \leq \sum_{n = 1}^{\infty} \frac{1}{n^2}
+    \]
+    Meaning the original series \textbf{converge absolutely}
+\end{enumerate}
+
+\newpage
+\section{Alternating Series Error Bound}
+Consider an alternating series:
+\[
+    \sum_{n = 1}^{\infty} (-1)^{n+1}\frac{1}{n}
+\]
+This series converge, but how far is the first n-th (say 5) terms from the actual convergence value? 
+We introduce the Alternating Series Error Bound Theorem:
+\begin{equation}
+    \text{If a alternating series converge, then ERROR} = \abs{S - S_n} \leq \abs{a_{n+1}} 
+\end{equation}
+
+\subsection{Example}
+\begin{enumerate}
+    \item Estimate the convergence value of this series (give an estimation on upper and lower bound):
+    \[
+    \sum_{n = 1}^{\infty} (-1)^{n+1}\frac{1}{n}
+    \]
+    Let's first add up the first 5 term of the series:
+    \[
+        1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \frac{1}{5} = \frac{47}{60}
+    \]
+    By theorem (10.1), we have ERROR $\leq \abs{a_6}$, or ERROR $\leq \abs{\frac{1}{6}}$, meaning that:
+    \[
+    \frac{47}{60} - \frac{1}{6} \leq \sum_{n = 1}^{\infty} (-1)^{n+1}\frac{1}{n} \leq \frac{47}{60} + \frac{1}{6}
+    \]
+    \[
+        \frac{37}{60} \leq \sum_{n = 1}^{\infty} (-1)^{n+1}\frac{1}{n} \leq \frac{19}{20} 
+    \]
+    This series actually converge to $\ln(2) \approx 0.693$, which is with in the error bound
+\end{enumerate}
+
+\newpage
+\section{Taylor Series}
+Talyor series can approximate an elementary function.
+
+\subsection{Intuitive understanding}
+Consider someone walking, which cannot be modeled using limited polynomials, if we know where the person started, his velocity, his acceleration at his starting point, we can approximate his path using kinematic equations.
+(assuming constant acceleration)
+\[
+    r = r_0 + v_0t + \frac{1}{2}a_0t^2
+\]
+If we know the jerk (derivative of acceleration) at a point, we can furthur approximate its path:
+\[
+    r = r_0 + v_0t + \frac{1}{2}a_0t^2 + \frac{1}{6} j_0 t^3
+\]
+We can do this further if we know the snap (derivative of jerk), crackle (derivative of snap) and pop (derivative of crackle), we can approximate his path as this:
+\[
+    r = r_0 + v_0t + \frac{1}{2}a_0 t^2 + \frac{1}{6} j_0 t^3 + \frac{1}{24} s_0 t^4 + \frac{1}{120} c_0 t^5 + \frac{1}{720} p_0 t^6
+\]
+(These are all real terms)
+
+This is essentially Taylor Series, it finds the change of a function at one point, then the change of change of function at one point, and so on.
+
+\subsection{Formula}
+Assume we can approximate the function like this:
+\[
+    P_n(x) = a_0 + a_1 (x-c) + a_2 (x-c)^2 + ... + a_n (x-c)^n
+\]
+We require that $P_n(c) = f(c)$, $P'_n(c) = f'(c)$, $P''_n(c) = f''(c)$ and so on.
+
+Thus Taylor Series is:
+\[
+    f(x) = \sum_{n = 0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n
+\]
+If $a=0$, then the series is called the Maclaurin Series.
+
+\subsection{Some Important Taylor Series}
+\begin{enumerate}
+    \item 
+    \[
+    e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + ... + \frac{x^n}{n!}
+    \]
+    \item 
+    \[
+    \sin x = \sum_{n=0}^{\infty} \frac{(-1)^nx^{2n+1}}{(2n+1)!} = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + ... + \frac{(-1)^nx^{2n+1}}{(2n+1)!}
+    \]
+    \item 
+    \[
+    \cos x = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n)!} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + ... + \frac{(-1)^n x^{2n}}{(2n)!}
+    \]
+\end{enumerate}
+
+\newpage
+\subsection{Largrange Error Bound}
+With Taylor Series and Lagrange Error Bound, we can approximate a function further:
+\[
+    f(x) = P_n(x) + R_n(x)
+\]
+Where $P_n(x)$ is the Taylor Polynomial to nth degree, and $R_n(x)$ is the error between the approximation and real function.
+This error function can be written as:
+\[
+    R_n(x) = \frac{f^{(n+1)}(z)}{(n+1)!}(x-c)^{n+1}
+\]
+Where $z$ is within $x$ and $c$, Lagrange proved that:
+
+\[
+    R_n(x) \leq M\frac{{\abs{x-c}^{n+1}}}{(n+1)!}
+\]
+Where 
+\[
+    \abs{f^{(n+1)}(z)} \leq M
+\]
+In other words, $M$ is the maximum value of the derivative within the interval of $x$ and $c$.
+On the exam $M$ is usually given, either directly or indirecly.
+
+\section{Radius and Interval of Convergence of Power Series}
+A Power Series takes in a form of
+\[
+    \sum_{n = 1}^{\infty}a_n (x-c)^n
+\]
+Where $c$ is the center of the series, since there is an extra $x$, for some $x$ the series might diverge, this is exactly what will be developed later.
+
+There are 3 posibilities of the convergence of a power series:
+\begin{enumerate}
+    \item Converges only at the center (every power series converge at center)
+    \item Converges for some value within a finite distance to the center (we call this distance Radius of Convergence)
+    \item Converge for all values
+\end{enumerate}
+
+\subsection{Interval of Convergence}
+\begin{enumerate}
+    \item Within the radius of convergence, the series will converge \textbf{absolutely}
+    \item At the endpoint of the interval, the series could \textbf{converge absolutely, conditionally or diverge.}
+\end{enumerate}
+
+\newpage
+\subsection{Example Questions}
+\begin{enumerate}
+\item Find the radius of convergence of this power series:
+\[
+\sum_{n=0}^{\infty}(x+3)^n
+\]
+
+By ratio test:
+\[
+    \lim_{n\to \infty} \abs{\frac{a_{n+1}}{a_n}} = \lim_{n\to\infty} \abs{\frac{(x+3)^{n+1}}{(x+3)^n}} = \lim_{n\to\infty}\abs{x+3} = \abs{x+3}
+\]
+
+For the series to converge:
+\[
+\abs{x+3} < 1
+\]
+Thus the radius of convergence is 1, in general, if
+\[
+\abs{x-c} < k
+\]
+The radius of convergence $R = k$
+
+\item Find the radius of convergence of this power series:
+\[
+\sum_{n=1}^{\infty}\frac{(-1)^n x^{n+1}}{n^2}
+\]
+
+By ratio test:
+\[
+\lim_{n\to \infty} \abs{\frac{x^{n+2}}{(n+1)^2} \frac{n^2}{x^{n+1}}} = \lim_{n\to \infty} \abs{x\frac{n^2}{(n+1)^2}} = \abs{x}
+\]
+
+Assuming the series converge:
+\[
+\abs{x} < 1
+\]
+The radius of convergence is 1.
+
+To check for the behaviour at the endpoints, substitute the endpoint and check if the series diverge or not.
+\end{enumerate}
+
+\newpage
+\section{Geometric Series and Taylor Series}
+Consider a Geometric Series that converge ($\abs{x} < 1$) and define a function that is equal to this geometric series:
+\[
+    f(x) = \sum_{n=0}^{\infty} a_0 x^n
+\]
+To start, let $a_0 = 1$, thus (remember $\abs{x} < 1$):
+\[
+    f(x) = \sum_{n=0}^{\infty} x^n
+\]
+On one hand, the series can be written as:
+\[
+    \sum_{n=0}^{\infty} x^n = 1 + x + x^2 + ... + x^n
+\]
+On the other hand, the series converge to 
+\[
+    f(x) = \sum_{n=0}^{\infty} x^n = \frac{1}{1-x}
+\]
+
+\subsection{Example Questions}
+\begin{enumerate}
+    \item Let
+    \[
+    g(x) = \sum_{n = 0}^{\infty} 3 x^n
+    \]
+    where $\abs{x} < 1$, find an expression for $g(x)$
+
+    The series converge to 
+    \[
+        \sum_{n = 0}^{\infty} 3 x^n = \frac{3}{1-x}
+    \]
+    Thus 
+    \[
+    g(x) = \frac{3}{1-x}
+    \]
+
+    \item Let
+    \[
+        h(x) = \frac{12}{3+x}
+    \]
+    Construct a power series centered at $x=0$
+
+    A geometric series will converge into 
+    \[
+        S = \frac{a_0}{1 - r}
+    \]
+    Which means we need to turn this function into a function where the denominator stars at 1:
+    \[
+        h(x) = \frac{12}{3+x} = \frac{4}{1-(-\frac{x}{3})}
+    \]
+    Thus, we know that $a_0 = 4$, $r = -\frac{x}{3}$, thus, the series will be:
+    \[
+    h(x) = \sum_{n = 0}^{\infty} 4(-\frac{x}{3})^n
+    \]
+\end{enumerate}
+\end{document}

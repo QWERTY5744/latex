@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\numberwithin{equation}{section}
+
+\title{Integration using subsitution}
+\author{assassin3552}
+\date{2025/03/26}
+
+\begin{document}
+\maketitle
+
+\section{U-subsitution}
+\subsection{Indefinite integral}
+U-subsutition is the first techniques we will learn, let's first look at an example question:
+
+Evaluate
+\[
+\int 2x e^{-x^2} \mathrm{d}x
+\]
+
+To solve this integral: Let $u = -x^2$, then $\mathrm{d}u = -2x \mathrm{d}x$, let's first substitute $u$ back to the integral:
+
+\[
+\int 2x e^u \mathrm{d}x
+\]
+
+At first glance it seems that we make this integral more complicated as we introduce 2 variables in,
+but if we examine the integral carefully, we notice that we already have $2x\mathrm{d}x$ present in the integrand, we just need a minus sign.
+So if we add the minus sign like this, we can substitute $\mathrm{d}u$ in and evaluate the integral:
+
+\[
+\int - e^u(-2x \mathrm{d}x) = \int -e^u \mathrm{d}u = -e^u+C
+\]
+
+All that is left is to do is substitute $u=-x^2$ back and we get the final result:
+
+\[
+\int 2xe^{-x^2} \mathrm{d}x = -e^{-x^2}+C
+\]
+
+If we differentiate our results, we will arrive at the integrand, meaning that our process is correct.
+
+This is essentially U-substitution, our thought process can be summarized as follow:
+\begin{enumerate}
+    \item Let something equals to $u$
+    \item Calculate $\mathrm{d}u = \text{some expression} \cdot \mathrm{d}x$
+    \item Manipulate the integral so we found the $\text{some expression} \cdot \mathrm{d}x$
+    \item Substitute $\mathrm{d}u$ and evaluate the integral
+    \item Replace $u$ with $x$ and finish the integral
+\end{enumerate}
+
+\newpage
+Let's look at another example:
+\[
+\int 2x \sin(x^2) \mathrm{d}x
+\]
+\end{document}
