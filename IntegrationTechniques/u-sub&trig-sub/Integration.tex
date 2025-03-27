@@ -18,8 +18,7 @@
 \begin{document}
 \maketitle
 
-\section{U-subsitution}
-\subsection{Indefinite integral}
+\section{Indefinite integral}
 U-subsutition is the first techniques we will learn, let's first look at an example question:
 
 Evaluate
@@ -63,4 +62,48 @@ Let's look at another example:
 \[
 \int 2x \sin(x^2) \mathrm{d}x
 \]
+
+We can complete this integral with u-substitution, let $u=x^2$, $\mathrm{d}u = 2x \mathrm{d}x$, the integral turns to:
+\[
+\int \sin(u)\mathrm{d}u = -\cos(u) + C
+\]
+Substitute $u = x^2$ back to the integral:
+\[
+\int 2x \sin(x^2)\mathrm{d}x = -\cos(x^2) + C
+\]
+
+Another example would be:
+\[
+\int \frac{x}{x^2+8}\mathrm{d}x
+\]
+This looks tricky, but we do see a $x^2$ term and $x$ term, and the derivative of $x^2$ is $2x$.
+Let $u = x^2+8$, $\mathrm{d}u = 2x \mathrm{d}x$:
+\[
+\int \frac{1}{2u} \mathrm{d}u = \frac{1}{2} \ln{\abs{u}} + C = \frac{1}{2} \ln{\abs{x^2+8}} + C
+\]
+
+\section{Definite Integral}
+Definite integral can be treated the same as indefinite integral, however we need to account for the upper and lower bound.
+
+Let's take a look at an example:
+\[
+\int_{0}^{2} \frac{x}{x^2+8}\mathrm{d}x
+\]
+In our previous example, we let $u(x) = x^2+8$, we introduce a new function to simplify the integrand,
+so we also need to change the upper and lower bound of integration to match the newly created integrand.
+
+Since $u(0) = 8$ and $u(2) = 12$, we substitute this into the integration bound:
+
+\[
+\int_{0}^{2} \frac{x}{x^2+8}\mathrm{d}x = \int_{8}^{12} \frac{1}{2u}\mathrm{d}u = \frac{1}{2} (\ln{12}-\ln{8}) = \ln{\frac{\sqrt{6}}{2}}
+\]
+
+Thought process for definite integral would be:
+\begin{enumerate}
+    \item Let something equals to $u$
+    \item Calculate $\mathrm{d}u = \text{some expression} \cdot \mathrm{d}x$
+    \item Replace the upper and lower bound with $u(a)$ and $u(b)$, where $a$ and $b$ are old integration bounds
+    \item Manipulate the integral so we found the $\text{some expression} \cdot \mathrm{d}x$
+    \item Substitute $\mathrm{d}u$ and evaluate the integral
+\end{enumerate}
 \end{document}
