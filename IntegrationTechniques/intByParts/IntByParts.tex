@@ -1,0 +1,118 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\numberwithin{equation}{section}
+
+\title{Integration by parts}
+\author{assassin3552}
+\date{2025/03/27}
+
+\begin{document}
+\maketitle
+
+\section{Indefinite Integral}
+The formula for integration by parts is simple:
+\[
+\int u \mathrm{d}v = uv - \int v \mathrm{d}u
+\]
+
+First let's start with an example question:
+\[
+\int x e^x \mathrm{d}x
+\]
+At first glance we don't see the $\mathrm{d}v$ structure, but notice that $e^x \mathrm{d}x = \mathrm{d}(e^x)$:
+\[
+\int x e^x \mathrm{d}x = \int x \mathrm{d}(e^x)
+\]
+Now we completed the $u\mathrm{d}v$ structure and we can use integration by parts:
+\[
+    \int x \mathrm{d}(e^x) = x e^x - \int e^x \mathrm{d}x = x e^x - e^x + C
+\]
+
+The key of integration by parts is turn $\text{some expression}\cdot \mathrm{d}x$ into $\mathrm{d}(\text{some expression})$, 
+thus finding the expression becomes a skill, here are some expression to consider:
+\begin{enumerate}
+    \item $e^x$
+    \item $\sin x$ and $\cos x$
+    \item $x^n$
+\end{enumerate}
+
+Let's take a look at another another example:
+\[
+\int x\cos x \mathrm{d}x
+\]
+Let $u = x$ and $\mathrm{d}v = \mathrm{d}(\sin x) = \cos x \mathrm{d}x$, we can apply integration by parts:
+\[
+\int x \mathrm{d}(\sin x) = x\sin x \int \sin x \mathrm{d}x = x \sin x - \cos x + C
+\]
+
+\newpage
+Sometimes we need to apply integration by parts more than once, for example:
+\[
+\int e^x \sin x \mathrm{d}x
+\]
+Let $u = \sin x$, $\mathrm{d}v = \mathrm{d}(e^x) = e^x \mathrm{d}x$, by integration by parts:
+\[
+\int e^x \sin x \mathrm{d}x = \int \sin x \mathrm{d}(e^x) = e^x \sin x - \int e^x \cos x \mathrm{d}x
+\]
+Here we arrived at a new integral of $\int e^x \cos x \mathrm{d}x$, which again can be evaluated by integration by parts:
+
+Let $u = \sin x$, $\mathrm{d}v = \mathrm{d}(e^x) = e^x \mathrm{d}x$, by integration by parts:
+\[
+\int e^x \cos x \mathrm{d}x = \int \cos x \mathrm{d}(e^x) = e^x \cos x + \int e^x \sin x \mathrm{d}x
+\]
+
+Here we see a problem, it seems that we need to evaluate our original integral to get an expression for our original integral, but this can be easliy bypassed,
+notice that
+\[
+\int e^x \sin x \mathrm{d}x = e^x \sin x - e^x \cos x - \int e^x \sin x \mathrm{d}x
+\]
+We can treat our original integral as an unknown value and solve this equation, thus:
+\[
+2 \int e^x \sin x \mathrm{d}x = e^x \sin x - e^x \cos x + C
+\]
+It is not hard to see that
+\[
+\int e^x \sin x \mathrm{d}x = \frac{1}{2}e^x (\sin x - \cos x) + C
+\]
+
+Integration by parts can be used to calculate the indefinite integral of inverse trig function:
+\[
+\int \arcsin x \mathrm{d}x
+\]
+We immediately see a $u\mathrm{d}v$ structure, let $u=\arcsin x$ and $\mathrm{d}v = \mathrm{d}x$:
+\[
+\int \arcsin x \mathrm{d}x = x\arcsin x - \int x \mathrm{d}(\arcsin x) = x\arcsin x - \int \frac{x}{\sqrt{1-x^2}} \mathrm{d}x
+\]
+The last integral can be evaluate with a u-substitution, thus we arrive at our final example:
+\[
+\int \arcsin x \mathrm{d}x = x\arcsin x + \sqrt{1-x^2} + C
+\]
+
+\newpage
+\section{Definite Integral}
+For definite integral, the formula for integration by parts turn to:
+\[
+\int_{a}^{b} u\mathrm{d}v = uv \Big|_a^b - \int_{a}^{b} v\mathrm{d}u
+\]
+
+An example would be:
+\[
+\int_{0}^{\frac{1}{2}} \arcsin x \mathrm{d}x
+\]
+Previously we derived that
+\begin{align*}
+    \int_{0}^{\frac{1}{2}} \arcsin x \mathrm{d}x &= x\arcsin x \Big|_0^{\frac{1}{2}}- \int_{0}^{\frac{1}{2}} \frac{x}{\sqrt{1-x^2}} \mathrm{d}x\\
+    &= \frac{1}{2} \arcsin \frac{1}{2} + \sqrt{1-x^2} \Big|_{0}^{\frac{1}{2}}\\
+    &= \frac{\pi}{12} + \frac{\sqrt{3}}{2} - 1
+\end{align*}
+
+\end{document}
