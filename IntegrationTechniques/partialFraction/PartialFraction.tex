@@ -36,5 +36,63 @@ Assume we have split the fraction like this:
 \[
 \frac{x + 1}{(x - 2)(x - 3)} = \frac{A}{(x - 2)} + \frac{B}{(x - 3)}
 \]
-Here and $A$ and $B$ are different  
+Here and $A$ and $B$ are different constant, let's try to combine them together:
+\[
+\frac{A(x - 3) +B(x - 2)}{(x - 2)(x - 3)} = \frac{Ax - 3A + Bx - 2B}{(x-2)(x-3)} = \frac{(A+B)x + (-3A-2B)}{(x-2)(x-3)}
+\]
+
+Notice that we reformed the denominator into $\text{constant} \cdot x + \text{constant}$, which does indeed look like $x+1$ in the original integrand,
+thus we have this relation:
+\[
+\begin{cases}
+    A+B = 1\\
+    -3A - 2B = 1
+\end{cases}
+\]
+This linear set of equation can be easily solved, which gives the solution of $A = -3$ and $B = 4$. Thus we turned this integrand into a fraction of sum:
+\[
+\int \frac{x + 1}{x^2 - 5x + 6} \mathrm{d}x= \int \left(-\frac{3}{(x - 2)} + \frac{4}{(x - 3)} \right) \mathrm{d}x
+\]
+
+Then we can evaluate the integral easily:
+\[
+\int \left(-\frac{3}{(x - 2)} + \frac{4}{(x - 3)} \right) \mathrm{d}x = -3\ln\abs{x-2} + 4\ln\abs{x-3} + C
+\]
+
+\newpage
+In general, partial fraction follow this process:
+
+Consider a integrand where the denominator can be factored, first split the fraction into a sum of fractions:
+\[
+\frac{Ax + B}{(x + C)(x + D)} = \frac{E}{(x + C)} + \frac{F}{(x + D)} = \frac{(E + F)x + (DE + CF)}{(x + C)(x + D)}
+\]
+Where $A, B, C, D, E, F$ are all constants, thus:
+\[
+\begin{cases}
+    E + F = A\\
+    DE + CF = B\\
+\end{cases}
+\]
+Then solve for $E$ and $F$ to complete the fraction split.
+
+Here is another example:
+\[
+\int \frac{2x - 1}{x^2 - 4x + 3} \mathrm{d}x = \int \frac{x + 1}{(x - 3)(x - 1)} \mathrm{d}x
+\]
+%so this is how to insert comment
+Split the fraction into a sum of fraction:
+\[
+\frac{A}{x - 3} + \frac{B}{x - 1} = \frac{A(x - 1) + B(x - 3)}{(x - 3)(x - 1)} = \frac{(A+B)x +(-A -3B)}{(x-3)(x-1)}
+\]
+Solve for $A$ and $B$:
+\[
+\begin{cases}
+    A+B = 1\\
+    -A-3B = 1\\
+\end{cases}
+\]
+Thus $A = 2$ and $B = -1$, and the integral turns to 
+\[
+\int \left(\frac{2}{x-3} - \frac{1}{x-1} \right) \mathrm{d}x = 2\ln\abs{x-3} - \ln\abs{x-1} + C
+\]
 \end{document}
