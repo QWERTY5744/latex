@@ -11,7 +11,7 @@
 \usepackage{subcaption}
 \numberwithin{equation}{section}
 
-\title{Integration using subsitution}
+\title{Integration using Subsitution}
 \author{assassin3552}
 \date{2025/03/26}
 
@@ -63,9 +63,9 @@ Let's look at another example:
 \int 2x \sin(x^2) \mathrm{d}x
 \]
 
-We can complete this integral with u-substitution, let $u=x^2$, $\mathrm{d}u = 2x \mathrm{d}x$, the integral turns to:
+We can complete this integral with u-substitution, let $u=x^2$, $\mathrm{d}u = 2x \mathrm{d}x$, thus $x = \sqrt{u}$ and $\mathrm{d}x = \frac{1}{2x}\mathrm{d}u$, the integral turns to:
 \[
-\int \sin(u)\mathrm{d}u = -\cos(u) + C
+\int 2\sqrt{u} \sin(u) \frac{1}{2\sqrt{u}}\mathrm{d}u = -\cos(u) + C
 \]
 Substitute $u = x^2$ back to the integral:
 \[
@@ -77,9 +77,9 @@ Another example would be:
 \int \frac{x}{x^2+8}\mathrm{d}x
 \]
 This looks tricky, but we do see a $x^2$ term and $x$ term, and the derivative of $x^2$ is $2x$.
-Let $u = x^2+8$, $\mathrm{d}u = 2x \mathrm{d}x$:
+Let $u = x^2+8$, $\mathrm{d}u = 2x \mathrm{d}x$, thus $x = \sqrt{u - 8}$, $\mathrm{d}x = 1/2x \mathrm{d}u$:
 \[
-\int \frac{1}{2u} \mathrm{d}u = \frac{1}{2} \ln{\abs{u}} + C = \frac{1}{2} \ln{\abs{x^2+8}} + C
+\int \frac{\sqrt{u - 8}}{u} \frac{1}{2\sqrt{u - 8}}\mathrm{d}u\int \frac{1}{2u} \mathrm{d}u = \frac{1}{2} \ln{\abs{u}} + C = \frac{1}{2} \ln{\abs{x^2+8}} + C
 \]
 
 \section{Definite Integral}

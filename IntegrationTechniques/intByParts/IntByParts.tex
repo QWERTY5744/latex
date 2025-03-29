@@ -17,7 +17,23 @@
 
 \begin{document}
 \maketitle
+\section{Proving Integration by Parts Formula}
+Start from the product rule of differentiation:
+\[
+\frac{\mathrm{d}}{\mathrm{d}x} (uv) = u'v + v'u
+\]
 
+If we multiply both side by $\mathrm{d}x$ on both side and take the indefinite integral, we have:
+\[
+\int \mathrm{d}(uv) = \int u'v \mathrm{d}x + \int v'u \mathrm{d}x
+\]
+Evaluate the integral, we have 
+\[
+\int u \mathrm{d}v = uv - \int v\mathrm{d}u
+\]
+Here we introduced a new variable that $v = v'\mathrm{d}x$ and $u = u'\mathrm{d}x$, you can see them as completely new variable and have no relation with the original $u$ and $v$
+
+\newpage
 \section{Indefinite Integral}
 The formula for integration by parts is simple:
 \[

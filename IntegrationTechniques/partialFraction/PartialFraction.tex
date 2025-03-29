@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\numberwithin{equation}{section}
+
+\title{Partial Fraction}
+\author{assassin3552}
+\date{2025/03/29}
+
+\begin{document}
+\maketitle
+
+Consider this integral:
+\[
+\int \frac{x + 1}{x^2 -5x + 6} \mathrm{d}x
+\]
+This integral looks scary, but notice that we can factor the denominator:
+$x^2 - 5x + 6 = (x-2)(x-3)$
+
+Let's first take at look at fraction addition:
+\[
+\frac{A}{B} + \frac{C}{D} = \frac{AD + BC}{BD}
+\]
+Since the integrand is a fraction, and we successfully write the denominator as a product,
+we should be able to split the fraction into a sum of two fraction.
+
+Assume we have split the fraction like this:
+\[
+\frac{x + 1}{(x - 2)(x - 3)} = \frac{A}{(x - 2)} + \frac{B}{(x - 3)}
+\]
+Here and $A$ and $B$ are different  
+\end{document}
