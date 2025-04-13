@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.8)  9 APR 2025 18:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.8)  12 APR 2025 20:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**d:/CodingStuff/latex/InfiniteSeries/InfiniteSeries.tex
-(d:/CodingStuff/latex/InfiniteSeries/InfiniteSeries.tex
+**d:/CodingStuff/latex/AP_Website/LongDivision/LongDivision.tex
+(d:/CodingStuff/latex/AP_Website/LongDivision/LongDivision.tex
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
 (C:\Users\leoli\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -223,35 +223,60 @@ Package caption Info: New subtype `subfigure' on input line 238.
 \c@subfigure=\count308
 Package caption Info: New subtype `subtable' on input line 238.
 \c@subtable=\count309
-) (InfiniteSeries.aux)
-\openout1 = `InfiniteSeries.aux'.
+) (C:\Users\leoli\AppData\Local\Programs\MiKTeX\tex/latex/polynom\polynom.sty
+Package: polynom 2017/07/17 0.19 (CH,HA)
+\pld@currstage=\count310
+) (C:\Users\leoli\AppData\Local\Programs\MiKTeX\tex/latex/longdivision\longdivision.sty
+Package: longdivision 
+\l__longdiv_quotient_int=\count311
+\l__longdiv_position_int=\count312
+\l__longdiv_point_digit_dividend_int=\count313
+\l__longdiv_point_digit_quotient_int=\count314
+\l__longdiv_repeat_digit_int=\count315
+\l__longdiv_digit_group_length=\count316
+\g__longdiv_temp_dim=\dimen169
+\l__longdiv_extra_digits_int=\count317
+\l__longdiv_max_extra_digits_int=\count318
+\l__longdiv_digits_requested_int=\count319
+\l__longdiv_display_divisions_int=\count320
+\longdiv@tempcount=\count321
+\l__longdiv_temp_int=\count322
+\l__longdiv_temp_length_int=\count323
+\l__longdiv_tempwidth_dim=\dimen170
+\l__longdiv_rulethickness_dim=\dimen171
+\longdiv@dividendlength=\skip57
+\longdiv@dividendheight=\skip58
+\longdiv@divisorheight=\skip59
+\longdiv@maxheight=\skip60
+) (LongDivision.aux)
+\openout1 = `LongDivision.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
  (C:\Users\leoli\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count310
-\scratchdimen=\dimen169
+\scratchcounter=\count324
+\scratchdimen=\dimen172
 \scratchbox=\box57
-\nofMPsegments=\count311
-\nofMParguments=\count312
+\nofMPsegments=\count325
+\nofMParguments=\count326
 \everyMPshowfont=\toks32
-\MPscratchCnt=\count313
-\MPscratchDim=\dimen170
-\MPnumerator=\count314
-\makeMPintoPDFobject=\count315
+\MPscratchCnt=\count327
+\MPscratchDim=\dimen173
+\MPnumerator=\count328
+\makeMPintoPDFobject=\count329
 \everyMPtoPDFconversion=\toks33
 ) (C:\Users\leoli\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -295,11 +320,11 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 20.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 21.
 (C:\Users\leoli\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 20.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 21.
  (C:\Users\leoli\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -310,53 +335,24 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 [2]
 
-[3]
-
-[4]
-
-[5]
-
-[6]
-
-[7]
-
-[8]
-
-[9]
-
-[10]
-
-[11]
-
-[12]
-Overfull \hbox (1.87268pt too wide) in paragraph at lines 490--493
-\OT1/cmr/m/n/10 Where $\OML/cmm/m/it/10 P[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )$ is the Tay-lor Poly-no-mial to nth de-gree, and $\OML/cmm/m/it/10 R[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )$ is the er-ror be-tween the ap-prox-i-ma-tion
- []
-
-
-
-[13]
-
-[14]
-
-[15] (InfiniteSeries.aux)
+[3] (LongDivision.aux)
  ***********
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 6273 strings out of 473682
- 99907 string characters out of 5719216
- 504901 words of memory out of 5000000
- 29282 multiletter control sequences out of 15000+600000
- 566551 words of font info for 69 fonts, out of 8000000 for 9000
+ 6876 strings out of 473682
+ 112680 string characters out of 5719216
+ 524751 words of memory out of 5000000
+ 29880 multiletter control sequences out of 15000+600000
+ 565317 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 79i,19n,93p,607b,290s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/leoli/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/leoli/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/leoli/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/leoli/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/leoli/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/leoli/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/leoli/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/leoli/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/leoli/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/leoli/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/leoli/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/leoli/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on InfiniteSeries.pdf (15 pages, 185071 bytes).
+ 79i,11n,93p,614b,214s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/leoli/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/leoli/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/leoli/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/leoli/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/leoli/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/leoli/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/leoli/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/leoli/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on LongDivision.pdf (3 pages, 101824 bytes).
 PDF statistics:
- 111 PDF objects out of 1000 (max. 8388607)
+ 52 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
