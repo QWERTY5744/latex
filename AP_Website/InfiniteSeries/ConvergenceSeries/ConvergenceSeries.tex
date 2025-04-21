@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\numberwithin{equation}{section}
+
+\title{Defining Convergent and Divergent Infinite Series}
+\author{Polaris}
+\date{2025/04/17}
+
+\begin{document}
+
+\maketitle
+
+We are going to introduce to some terms about this unit:
+\begin{enumerate}
+    \item Sequence: a list of number in a particular order, ex. {1, 4, 7, 10...}
+    \item n-th term formula: the formula for the $n$th term of the sequence, in the sequence given above, $a_n = 3n - 2$
+    \item Series: the sum of all terms in the sequence.
+    \item Partial Sum: the first $n$ term of the sequence.
+\end{enumerate}
+
+With this we can define the \textbf{convergence} and \textbf{divergence} of infinite series.
+
+Let $S_n$ be the partial sum of a sequence for the first $n$th term, if 
+\[
+\lim_{n\to \infty}S_n = L
+\]
+Then we say this infinte series \textbf{converge to} $L$, if the limit does not exist, we say this infinte series \textbf{diverge}.
+
+We can also understand the convergence series as sequence with a finite sum, while divergent series as sequence with infinte sum.
+
+It is also important to look at how to denote series, for example:
+\[
+\sum_{n=1}^{\infty} \frac{1}{n^2} = 1+ \frac{1}{2^2} + \frac{1}{3^2} + ... + \frac{1}{n^2}
+\]
+is the sum of all the reciprocal of natrual number squared. 
+(This series is also called the Basel Problem, later on, we will prove that it converges, you can look up how to calculate the value the series converge to on the internet)
+
+In general, we use Greek letter $\displaystyle \Sigma$ to represent sum, it is used like this:
+\[
+\sum_{n=\text{first term}}^{\text{last term}} n\text{th term formula}
+\]
+
+For example
+\[
+\sum_{n = 1}^{5} n^2 = 1^2 + 2^2 + 3^2 + 4^2 + 5^2
+\]
+means adding $1^2$ to $5^2$, while
+\[
+\sum_{n = 1}^{\infty} n^2 = 1^2 + 2^2 + 3^2 + 4^2 + 5^2 + ... + n^2
+\]
+means adding $1^2$ all the way to infinity.
+\end{document}
