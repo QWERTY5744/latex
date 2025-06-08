@@ -1,0 +1,85 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+
+\title{Surprise}
+\author{Polaris}
+\date{2025/06/01}
+
+\begin{document}
+\maketitle
+
+\section{Stellar Interiors}
+The density profile of a hypothetical star given by:
+\[
+\rho(r) = \rho_0\left(1-\alpha\left(\frac{r}{R}\right)^2\right)
+\]
+where $r$ is the distance of a random point from the center of the star, $R$ is the
+radius of the star, and $\alpha$ is a constant.
+
+\begin{enumerate}
+    \item What region of this star has the density $\rho_0$
+    \item What is the mean density of the star
+    \item Find $m(r)$ and total mass of the star
+    \item Find the change of pressure $P$ with respect to $r$, $\displaystyle \dfrac{dP}{dr}$,
+    in terms of $G$, $M$, $R$ and $r$.
+    \item Give a possible range of $\alpha$ and explain your reasoning
+\end{enumerate}
+
+\newpage
+\section{Solutions}
+\begin{enumerate}
+    \item When $\rho(r) = \rho_0$, it is not hard to notice that $r = 0$ when this happens.
+    Thus, the answer is the core of the star.
+
+    \item By the definition of average, one can write:
+    \begin{align*}
+        \overline{\rho} &= \frac{1}{R-0} \int_{0}^{R} \rho(r) dr\\
+        &= \frac{1}{R} \int_{0}^{R} \rho_0\left(1-\alpha\left(\frac{r}{R}\right)^2\right) dr\\
+        &= \frac{1}{R} \int_{0}^{R} \left(\rho_0- \frac{1}{R} \rho_0\alpha\left(\frac{r}{R}\right)^2\right) dr\\
+        &= \frac{1}{R} \int_{0}^{R}\rho_0 dr - \frac{1}{R} \int_{0}^{R}\rho_0 \alpha \left(\frac{r}{R}\right)^2 dr\\
+        &= \frac{1}{R} \rho_0 R - \frac{1}{R} \frac{\rho_0 \alpha}{R^2} \int_{0}^{R} r^2 dr\\
+        &= \rho_0 - \frac{\rho_0 \alpha}{R^3} \frac{1}{3}R^3\\
+        &= \frac{3 - \alpha}{3}\rho_0\\
+    \end{align*}
+
+    \item $m(r)$ can be given by integrating density with a volume element
+    \begin{align*}
+        m(r) &= \int_{0}^{r}\rho(r) dV\\
+        &= \int_{0}^{r} \rho_0\left(1-\alpha\left(\frac{r}{R}\right)^2\right) 4\pi r^2 dr\\
+        &= 4\pi \rho_0 \int_{0}^{r}r^2\left(1-\alpha\left(\frac{r}{R}\right)^2\right) dr\\
+        &= 4\pi \rho_0 \int_{0}^{r}r^2 dr - \frac{4\pi \alpha \rho_0}{R^2} \int_{0}^{r}r^4 dr\\
+        &=\frac{4}{3}\pi\rho_0 r^3 - \frac{4\pi\alpha\rho_0}{5R^2}r^5\\
+    \end{align*}
+    Total mass is thus given by $M = m(R)$:
+    \begin{align*}
+        M = m(R) &= \frac{4}{3}\pi\rho_0 R^3 - \frac{4\pi\alpha\rho_0}{5R^2}R^5\\
+        &= \frac{4}{3}\pi R^3\rho_0 - \frac{4}{5}\alpha\pi R^3\rho_0\\
+        &= 4\pi R^3\rho_0(\frac{1}{3}- \frac{1}{5}\alpha)\\
+        &= \frac{4}{15}\pi R^3\rho_0 (5-3\alpha)\\
+    \end{align*}
+
+    \item By hydrostatic equalibrium equation:
+    \[
+    \dfrac{dP}{dr} = -\frac{Gm(r)\rho(r)}{r^2}
+    \]
+    Subsitute both $\rho(r)$ and $m(r)$ in, one get:
+    \begin{align*}
+        \dfrac{dP}{dr} &= -\frac{G}{r^2} \left(\frac{4}{3}\pi\rho_0 r^3 - \frac{4\pi\alpha\rho_0}{5R^2}r^5\right) \rho_0\left(1-\alpha\left(\frac{r}{R}\right)^2\right)\\
+        &= -4\pi G\rho_0^2 r \left(\frac{1}{3} - \frac{\alpha r^2}{5R^2}\right) \left(1-\alpha\left(\frac{r}{R}\right)^2\right)\\
+        &= -4\pi G\rho_0^2 r \left(\frac{5R^2}{15R^2} - \frac{3\alpha r^2}{15R^2}\right) \left(\frac{R^2 - \alpha r^2}{R^2}\right)\\
+        &= -4\pi G\rho_0^2 r \left(\frac{5R^2 - 3\alpha r^2}{15R^2}\right) \left(\frac{R^2 - \alpha r^2}{R^2}\right)\\ 
+        &= -4\pi G\rho_0^2 r \frac{5R^4 - 8\alpha R^2 r^2 + 3 \alpha^2 r^4}{15R^4}\\
+        &= -\frac{4\pi G\rho_0^2 r}{15R^4} 5R^4 + \frac{4\pi G\rho_0^2 r}{15R^4} 8\alpha R^2 r^2 - \frac{4\pi G\rho_0^2 r}{15R^4} 3\alpha^2 r^4\\
+        &= -\frac{4\pi G\rho_0^2 r}{3} + \frac{32\pi G\rho_0^2 r^3}{15R^2} \alpha - \frac{4\pi G\rho_0^2 r^5}{5R^4} \alpha^2\\
+    \end{align*}
+\end{enumerate}
+\end{document}
