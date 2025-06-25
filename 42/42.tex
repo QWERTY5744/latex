@@ -1,0 +1,189 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\usepackage{derivative}
+
+\title{42}
+\author{Polaris}
+
+\begin{document}
+
+\maketitle
+
+\begin{equation}
+    1 + 1 = 2
+\end{equation}
+
+\begin{equation}
+    \frac{\sin \alpha}{a} = \frac{\sin \beta}{b} = \frac{\sin \gamma}{c}
+\end{equation}
+
+\begin{equation}
+    c^2 = a^2 + b^2 - 2ab\cos \gamma
+\end{equation}
+
+\begin{equation}
+    \log xy = \log x + \log y
+\end{equation}
+
+\begin{equation}
+    e = \lim_{n\to \infty} \left(1+\frac{1}{n}\right)^n
+\end{equation}
+
+\begin{equation}
+    \dfrac{d}{dx}f(x) = \lim_{h\to 0}\frac{f(x+h) - f(x)}{h}
+\end{equation}
+
+\begin{equation}
+    \int_{a}^{b} f(x) \mathrm{d}x = F(b) - F(a)
+\end{equation}
+
+\begin{equation}
+    i^2 = -1
+\end{equation}
+
+\begin{equation}
+    e^{i x}  = \cos x + i\sin x
+\end{equation}
+
+\begin{equation}
+    r = \frac{p}{1 + e \cos \theta}
+\end{equation}
+
+\begin{equation}
+    f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n
+\end{equation}
+
+\begin{equation}
+    \widehat{f}(\xi) = \int_{-\infty}^{\infty} f(x) e^{2\pi i x \xi} \mathrm{d}x
+\end{equation}
+
+\begin{equation}
+    F(s) = \int_{0}^{\infty} f(t) e^{-st} \mathrm{d}t
+\end{equation}
+
+\begin{equation}
+    \int_{\partial \Omega} \omega = \int_\Omega \mathrm{d} \omega
+\end{equation}
+
+\begin{equation}
+    \oint_C (L\, dx + M\, dy) = \iint_{D} \left(\frac{\partial M}{\partial x} - \frac{\partial L}{\partial y}\right) dA
+\end{equation}
+
+\begin{equation}
+    f(x) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+\end{equation}
+
+\begin{equation}
+    H = -\sum_{x}^{}p(x)\log p(x)
+\end{equation}
+
+\begin{equation}
+    \mathbf{F} = \frac{GMm}{r^3}\mathbf{r}
+\end{equation}
+
+\begin{equation}
+    \mathbf{F} =\frac{d}{dt}\mathbf{p} = m\mathbf{a}
+\end{equation}
+
+\begin{equation}
+    E_{mech} = K + U
+\end{equation}
+
+\begin{equation}
+    \mathbf{L} = \frac{d}{dt}\mathrm{\mathbf{\tau}} = \mathbf{r} \cross \mathbf{p} = I\omega
+\end{equation}
+
+\begin{equation}
+    F_{con} = -\frac{\partial U}{\partial x}
+\end{equation}
+
+\begin{equation}
+    \nabla^2 \Psi = 4\pi G\rho
+\end{equation}
+
+\begin{equation}
+    \nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_0}\\
+\end{equation}
+
+\begin{equation}
+    \nabla \cdot \mathbf{B} = 0\\
+\end{equation}
+
+\begin{equation}
+    \nabla \times \mathbf{E} = -\pdv{\mathbf{B}}{t}\\
+\end{equation}
+
+\begin{equation}
+    \nabla \times \mathbf{B} = \mu_0\left(\mathbf{J} + \epsilon \pdv{\mathbf{E}}{t}\right)
+\end{equation}
+
+\begin{equation}
+    p + \frac{1}{2}\rho v^2 + \rho g h = C
+\end{equation}
+
+\begin{equation}
+    pV = nRT
+\end{equation}
+
+\begin{equation}
+    \mathrm{d}E_{int} = \delta Q - \delta W
+\end{equation}
+
+\begin{equation}
+    \oint \frac{\delta Q}{T} \leq 0
+\end{equation}
+
+\begin{equation}
+    \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}
+\end{equation}
+
+\begin{equation}
+    \rho \left[\frac{\partial \mathbf{v}}{\partial t} + \mathbf{v} \cdot \nabla \mathbf{v}\right] = -\nabla p + \mu\nabla^2 \mathbf{v}^2 + \mathbf{f}
+\end{equation}
+
+\begin{equation}
+    \frac{1}{\mu} + \frac{1}{\nu} = \frac{1}{f}
+\end{equation}
+
+\begin{equation}
+    m_1 - m_2 = -2.5 \lg \left(\frac{F_1}{F_2}\right)
+\end{equation}
+
+\begin{equation}
+    f(v) = 4\pi v^2 \left(\frac{m}{2\pi kT}\right)^{3/2} \exp{-\frac{mv^2}{2kT}}
+\end{equation}
+
+\begin{equation}
+    B_\nu (T) = \frac{2h\nu^3}{c^2}\frac{1}{\exp{\frac{h\nu}{kT}}-1}
+\end{equation}
+
+\begin{equation}
+    E = \gamma mc^2
+\end{equation}
+
+\begin{equation}
+    \Delta x \Delta p \geq \frac{\hbar}{2}
+\end{equation}
+
+\begin{equation}
+    i\hbar \frac{\partial}{\partial t}\Psi (x,t) = \left[-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2} + V(x,t)\right]\Psi(x,t)
+\end{equation}
+
+\begin{equation}
+    G_{\mu \nu} = -\frac{8\pi G}{c^4} T_{\mu \nu}
+\end{equation}
+
+\begin{equation}
+    H^2 = \frac{8\pi G}{3c^2}\epsilon - \frac{\kappa c^2}{R_0^2 a^2} + \frac{\Lambda}{3}
+\end{equation}
+
+\end{document}
