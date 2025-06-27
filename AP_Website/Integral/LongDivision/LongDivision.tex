@@ -19,16 +19,16 @@
 
 \begin{document}
 \maketitle
-
+This article will guide you through what is long division, what is complete the squares, and how to apply it to integration
 \section{Long Division}
-Before we begin, we need to learn about polynomial long division,
-it is division design for dividing two polynomials, for example, 
+\subsection{What is Long Division}
+\emph{Long division} is also known as \emph{polynomial division}, it is division design for dividing two polynomials, for example, 
 if we want to find the result of $\displaystyle \frac{x^3+x^2-1}{x-1}$, 
 we can set up this division
 \[
     \polylongdiv[stage=1]{x^3+x^2-1}{x-1}
 \]
-Which is just like division we learn in primary school. Now we want to bind a quadratic term multiplied with $x-1$ produce something
+Which is just like division we learn in primary school. Now we want to find a quadratic term multiplied with $x-1$ produce something
 like $x^3 + x^2$ (just like normal division), first try $x^2$:
 \[
     \polylongdiv[stage=2]{x^3+x^2-1}{x-1}
@@ -45,7 +45,6 @@ Finally, we try $2$ as a part of the quotient and multiply it with $x-1$:
 \[
     \polylongdiv{x^3+x^2-1}{x-1}
 \]
-\newpage
 
 The remainder of $1$ means there is a leftover term with $1$ as its numerator,
 overall, we can write the following equation:
@@ -55,14 +54,20 @@ overall, we can write the following equation:
 You can verify this by combining the two fraction and see if it returns 
 to the original fraction.
 
-We can apply this techniques in integrations, if we want to compute this integral:
+\subsection{Application to Integration}
+Consider this integral:
+\[
+\int \frac{x^3+x^2-1}{x-1} \mathrm{d}x
+\]
+
+It is hard to preform a u-substitution or a trig substitution, that's where we try long division, we know that the integrant can be rewritten as such:
 \[
 \int \frac{x^3+x^2-1}{x-1} \mathrm{d}x = \int \left(x^2+2x+2 + \frac{1}{x-1}\right) \mathrm{d}x
 \]
 
 We can split the integral and easily compute the result of this integral:
 \[
-\int \frac{x^3+x^2-1}{x-1} \mathrm{d}x = \frac{1}{3}x^3 + x^2 + 2x + \ln\abs{x-1} + C
+\int \frac{x^3+x^2-1}{x-1} \mathrm{d}x = \int \left(x^2+2x+2 + \frac{1}{x-1}\right) \mathrm{d}x = \frac{1}{3}x^3 + x^2 + 2x + \ln\abs{x-1} + C
 \]
 
 Let's take a look at another example:
@@ -91,13 +96,12 @@ When we want to complete the square, we want to fit a quadratic equation into th
 \end{align*}
 
 In general, consider a quadratic expression of $x^2 + bx + c$, in order to turn this into a form
-that looks like the standard form of quadratic function, we apply the following transformation:
+that looks like the standard form of quadratic function, we add $\displaystyle \left(\frac{b}{2}\right)^2$ to the equation:
 \begin{align*}
     x^2 + bx + c &= x^2 + bx + \left(\frac{b}{2}\right)^2 - \left(\frac{b}{2}\right)^2 + c\\
     &= \left(x+ \frac{b}{2}\right)^2 - \frac{b^2-4c}{4}
 \end{align*}
 
-\newpage
 Let's take a look at an example:
 \[
 \int \frac{8}{x^2 + 6x + 10}\mathrm{d}x
@@ -106,7 +110,7 @@ We know that $x^2 + 6x + 10 = (x+3)^2 +1$, thus:
 \begin{align*}
     \int \frac{8}{x^2 + 6x + 10}\mathrm{d}x &= 8\int \frac{1}{(x+3)^2 + 1}\mathrm{d}x\\
     &= 8 \int \frac{1}{u^2 + 1}\mathrm{d}u\\
-    &= 8\arctan{u}+C = 8 \arctan{x+3}+C
+    &= 8\arctan{u}+C = 8 \arctan{(x+3)}+C
 \end{align*}
 Here we preformed an u-substitution of $u = x+3$ and $\mathrm{d}u = \mathrm{d}x$ 
 
@@ -118,6 +122,7 @@ First complete the square for $-x^2 + 10 x -24$:
 \begin{align*}
     -x^2 + 10x + 24 &= -(x^2 - 10x + 24)\\
     &= - (x^2 - 10x + 25 -25 + 24)\\
+    &=-((x-5)^2 - 1)\\
     &= 1-(x-5)^2\\
 \end{align*}
 Thus:
@@ -127,5 +132,63 @@ Thus:
     &= 2 \arcsin{u} + C\\
     &= 2\arcsin{(x-5)} +C\\
 \end{align*}
-Here we used an u-substitution of $u=x-5$ and $\mathrm{d}u = \mathrm{d}x$
+Here we preformed an u-substitution of $u=x-5$ and $\mathrm{d}u = \mathrm{d}x$
+
+\section{Exercises}
+\begin{enumerate}
+    \item $\displaystyle \int \frac{x^3}{x+3}\mathrm{d}x$
+    \item $\displaystyle \int \frac{6x^3-7x^2+1}{2x-1}\mathrm{d}x$
+    \item $\displaystyle \int \frac{2x+3}{x^2 + 3x + 10}\mathrm{d}x$
+    \item $\displaystyle \int \frac{1}{x^2-2x+5}\mathrm{d}x$
+    \item $\displaystyle \int \frac{3}{3x^2-5x+4}\mathrm{d}x$
+\end{enumerate}
+Finish the exercises first and then check your answer
+
+\section{Solutions}
+\begin{enumerate}
+    \item First, preform long division
+    \[
+    \polylongdiv{x^3}{x+3}
+    \]
+    We can convert the integral into the following
+    \begin{align*}
+        \int \frac{x^3}{x+3}\mathrm{d}x &= \int \left(x^2 - 3x + 9 - \frac{27}{x+3}\right) \mathrm{d}x\\
+        &= \frac{1}{3}x^3 - \frac{3}{2} x^2 + 9x - 27\ln{\abs{x+3}} + C\\
+    \end{align*}
+    \item First, preform a long division
+    \[
+    \polylongdiv{6x^3-7x^2+1}{2x-1}
+    \]
+    We can now split the integral as such
+    \begin{align*}
+        \int \frac{6x^3-7x^2+1}{2x-1}\mathrm{d}x &= \int \left(3x^2-2x-1\right) \mathrm{d}x\\
+        &= x^3 - x^2 - x + C\\
+    \end{align*}
+    \item Surprisingly, this question does not involve any of the method taught in this article, it is a review of simple u-substitution.
+    
+    Let $u = x^2 + 3x + 10$, thus $\mathrm{d}u = (2x+3)\mathrm{d}x$, we can turn the integral into
+    \begin{align*}
+        \int \frac{2x+3}{x^2 + 3x + 10}\mathrm{d}x &= \int \frac{1}{u}\mathrm{d}u\\
+        &= \ln \abs{u} + C = \ln \abs{x^2+3x+10}+C
+    \end{align*}
+    \item \begin{align*}
+        \int \frac{1}{x^2-2x+5}\mathrm{d}x &= \int \frac{1}{(x-1)^2 + 4}\mathrm{d}x\\
+        &= \int \frac{1}{\left(\frac{x-1}{2}\right)^2+1} \mathrm{d}u\\
+        &= \int \frac{1}{u^2 + 1}\frac{\mathrm{d}u}{2}\\
+        &=\frac{1}{2}\arctan u + C \\
+        &= \frac{1}{2}\arctan \left(\frac{x-1}{2}\right) + C\\
+    \end{align*}
+    Here we preformed a u-substitution of $u = \frac{x-1}{2}$ and $\mathrm{d}u = \frac{1}{2}\mathrm{d}x$
+    \item \begin{align*}
+        \int \frac{3}{3x^2-5x+4}\mathrm{d}x &= \int \frac{3}{3(x^2-\frac{5}{3}x+\frac{4}{3})}\mathrm{d}x\\
+        &= \int \frac{1}{x^2 - \frac{5}{3}x + \left(\frac{5}{6}\right)^2 - \left(\frac{5}{6}\right)^2 + \frac{4}{3}}\mathrm{d}x\\
+        &= \int \frac{1}{\left(x+\frac{5}{6}\right)^2 + \frac{23}{36}}\mathrm{d}x\\
+        &=\int \frac{1}{\frac{23}{36}\left(\left(\frac{36}{23}\left(x+\frac{5}{6}\right)^2\right)+1\right)}\mathrm{d}x\\
+        &= \frac{36}{23} \int \frac{1}{\left(\frac{6}{\sqrt{23}}\left(x+\frac{5}{6}\right)^2\right)+1}\mathrm{d}x\\
+        &=\frac{36}{23}\frac{\sqrt{23}}{6}\int\frac{1}{u^2+1}\mathrm{d}u\\
+        &= \frac{6\sqrt{23}}{23}\arctan u + C\\
+        &= \frac{6\sqrt{23}}{23}\arctan \left(\frac{6x+5}{\sqrt{23}}\right)\\
+    \end{align*}
+    Here we preform a u-substitution of $\displaystyle u = \frac{6}{\sqrt{23}}\left(x+\frac{5}{6}\right) = \frac{6x+5}{\sqrt{23}}$, $\displaystyle\mathrm{d}u = \frac{6}{\sqrt{23}}\mathrm{d}x$
+\end{enumerate}
 \end{document}

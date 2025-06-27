@@ -17,6 +17,7 @@
 
 \begin{document}
 \maketitle
+This article will introduce the integration method of \emph{integration by parts}, the derivation of its formula and its application
 \section{Proving Integration by Parts Formula}
 Start from the product rule of differentiation:
 \[
@@ -40,6 +41,7 @@ The formula for integration by parts is simple:
 \int u \mathrm{d}v = uv - \int v \mathrm{d}u
 \]
 
+\subsection{Basic Examples}
 First let's start with an example question:
 \[
 \int x e^x \mathrm{d}x
@@ -71,6 +73,7 @@ Let $u = x$ and $\mathrm{d}v = \mathrm{d}(\sin x) = \cos x \mathrm{d}x$, we can 
 \]
 
 \newpage
+\subsection{Applying Integraion by Parts more than once}
 Sometimes we need to apply integration by parts more than once, for example:
 \[
 \int e^x \sin x \mathrm{d}x
@@ -100,6 +103,7 @@ It is not hard to see that
 \int e^x \sin x \mathrm{d}x = \frac{1}{2}e^x (\sin x - \cos x) + C
 \]
 
+\subsection{Inverse Trigonometric Function}
 Integration by parts can be used to calculate the indefinite integral of inverse trig function:
 \[
 \int \arcsin x \mathrm{d}x
@@ -111,6 +115,10 @@ We immediately see a $u\mathrm{d}v$ structure, let $u=\arcsin x$ and $\mathrm{d}
 The last integral can be evaluate with a u-substitution, thus we arrive at our final example:
 \[
 \int \arcsin x \mathrm{d}x = x\arcsin x + \sqrt{1-x^2} + C
+\]
+As an exersice, prove that
+\[
+\int \arctan{x} \mathrm{d}x = x\arctan{x} -\frac{1}{2}\ln{\abs{x^2 + 1}} + C
 \]
 
 \newpage
