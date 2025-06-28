@@ -17,8 +17,8 @@
 
 \begin{document}
 \maketitle
-This article will introduce the integration method of \emph{integration by parts}, the derivation of its formula and its application
-\section{Proving Integration by Parts Formula}
+Welcome to this guide on Integration by Parts of the FiveHive Calculus BC course. This article will guide you through what is integration by parts and how to preform this technique.
+\section{Deriving Integration by Parts Formula}
 Start from the product rule of differentiation:
 \[
 \frac{\mathrm{d}}{\mathrm{d}x} (uv) = u'v + v'u
@@ -46,30 +46,25 @@ First let's start with an example question:
 \[
 \int x e^x \mathrm{d}x
 \]
-At first glance we don't see the $\mathrm{d}v$ structure, but notice that $e^x \mathrm{d}x = \mathrm{d}(e^x)$:
+Let $u=x$, $dv = e^x dx$, thus $du = dx$, $v = e^x$, by integration of parts, we have 
 \[
-\int x e^x \mathrm{d}x = \int x \mathrm{d}(e^x)
-\]
-Now we completed the $u\mathrm{d}v$ structure and we can use integration by parts:
-\[
-    \int x \mathrm{d}(e^x) = x e^x - \int e^x \mathrm{d}x = x e^x - e^x + C
+\int x e^x \mathrm{d}x = xe^x - \int e^x dx = xe^x - e^x +C
 \]
 
-The key of integration by parts is turn $\text{some expression}\cdot \mathrm{d}x$ into $\mathrm{d}(\text{some expression})$, 
-thus finding the expression becomes a skill, here are some expression to consider:
+The key of integration by parts is to find the correct $dv$, it must be easy to integrate, here are some expressions you should consider choosing as $dv$:
 \begin{enumerate}
-    \item $e^x$
-    \item $\sin x$ and $\cos x$
-    \item $x^n$
+    \item $e^x dx$
+    \item $\sin x dx$ and $\cos x dx$
+    \item $x^n dx$
 \end{enumerate}
 
 Let's take a look at another another example:
 \[
 \int x\cos x \mathrm{d}x
 \]
-Let $u = x$ and $\mathrm{d}v = \mathrm{d}(\sin x) = \cos x \mathrm{d}x$, we can apply integration by parts:
+Let $u = x$ and $\mathrm{d}v = \cos x \mathrm{d}x$, thus $du = dx$ and $v = \sin x$, we can apply integration by parts:
 \[
-\int x \mathrm{d}(\sin x) = x\sin x \int \sin x \mathrm{d}x = x \sin x - \cos x + C
+\int x \cos x dx = x\sin x - \int \sin x \mathrm{d}x = x \sin x - \cos x + C
 \]
 
 \newpage
@@ -78,13 +73,13 @@ Sometimes we need to apply integration by parts more than once, for example:
 \[
 \int e^x \sin x \mathrm{d}x
 \]
-Let $u = \sin x$, $\mathrm{d}v = \mathrm{d}(e^x) = e^x \mathrm{d}x$, by integration by parts:
+Let $u = \sin x$, $\mathrm{d}v = e^x \mathrm{d}x$, thus $du = \cos x dx$, $v = e^x$, by integration by parts:
 \[
-\int e^x \sin x \mathrm{d}x = \int \sin x \mathrm{d}(e^x) = e^x \sin x - \int e^x \cos x \mathrm{d}x
+\int e^x \sin x \mathrm{d}x = e^x \sin x - \int e^x \cos x \mathrm{d}x
 \]
 Here we arrived at a new integral of $\int e^x \cos x \mathrm{d}x$, which again can be evaluated by integration by parts:
 
-Let $u = \sin x$, $\mathrm{d}v = \mathrm{d}(e^x) = e^x \mathrm{d}x$, by integration by parts:
+Let $u = \sin x$, $\mathrm{d}v = e^x \mathrm{d}x$, thus $du = -\cos x dx$ and $v = e^x$, by integration by parts:
 \[
 \int e^x \cos x \mathrm{d}x = \int \cos x \mathrm{d}(e^x) = e^x \cos x + \int e^x \sin x \mathrm{d}x
 \]
@@ -108,17 +103,13 @@ Integration by parts can be used to calculate the indefinite integral of inverse
 \[
 \int \arcsin x \mathrm{d}x
 \]
-We immediately see a $u\mathrm{d}v$ structure, let $u=\arcsin x$ and $\mathrm{d}v = \mathrm{d}x$:
+We immediately see a $u\mathrm{d}v$ structure, let $u=\arcsin x$ and $\mathrm{d}v = \mathrm{d}x$, thus $du = \frac{1}{\sqrt{1-x^2}} dx$, $v = x$:
 \[
-\int \arcsin x \mathrm{d}x = x\arcsin x - \int x \mathrm{d}(\arcsin x) = x\arcsin x - \int \frac{x}{\sqrt{1-x^2}} \mathrm{d}x
+\int \arcsin x \mathrm{d}x = x\arcsin x - \int \frac{x}{\sqrt{1-x^2}} \mathrm{d}x
 \]
 The last integral can be evaluate with a u-substitution, thus we arrive at our final example:
 \[
 \int \arcsin x \mathrm{d}x = x\arcsin x + \sqrt{1-x^2} + C
-\]
-As an exersice, prove that
-\[
-\int \arctan{x} \mathrm{d}x = x\arctan{x} -\frac{1}{2}\ln{\abs{x^2 + 1}} + C
 \]
 
 \newpage
@@ -139,4 +130,118 @@ Previously we derived that
     &= \frac{\pi}{12} + \frac{\sqrt{3}}{2} - 1
 \end{align*}
 
-\end{document}
+\newpage
+\section{Practice Problems}
+Evaluate the following integrals
+\begin{enumerate}
+    \item $\displaystyle\int \arctan{x} \mathrm{d}x$
+    
+    A. $\displaystyle x\arctan{x} -\frac{1}{2}\ln{(x^2 + 1)} + C$
+
+    B. $\displaystyle x\arctan x + \frac{1}{2}\ln (x^2+1)+C$
+
+    C. $\displaystyle x\arctan{x} - \ln(x^2+1)+C$
+
+    D.$\displaystyle x\arctan{x} -+ \sqrt{1-x^2} +C$
+
+    \item $\displaystyle \int x\sin x dx$
+    
+    A. $x\cos x + \sin x +C$
+
+    B. $-x\cos x - \sin x +C$
+
+    C. $-x\cos x + \sin x +C$
+
+    D. $x\cos x -\sin x +C$
+
+    \item $\displaystyle \int e^{2x} \sin x \mathrm{d}x$
+    
+    A. $\displaystyle \frac{1}{2} e^{2x} \sin x - \frac{1}{2}e^{2x} \cos x + C$
+
+    B. $\displaystyle \frac{2}{3}e^{2x}\sin x - \frac{1}{3} e^{2x} \cos x + C$
+
+    C. $\displaystyle \frac{2}{5} e^{2x} \sin x - \frac{1}{5} e^{2x} \cos x + C$
+
+    D. $\displaystyle \frac{1}{3} e^{2x} \sin x - \frac{1}{3} e^{2x} \cos x +C$
+
+    \item $\displaystyle \int_{0}^{1} x e^{-x} dx$
+    
+    A. $\displaystyle \frac{2}{e} - 1$
+
+    B. $\displaystyle -\frac{2}{e} +1$
+
+    C. $\displaystyle -\frac{2}{e} - 1$
+
+    D. $\displaystyle -\frac{2}{e} +1$
+
+    \item $\displaystyle \int_{0}^{\frac{\pi}{2}} e^{2x}\cos x dx$
+    
+    A. $\displaystyle \frac{e^\pi - 2}{3}$
+
+    B. $\displaystyle \frac{2-e^\pi}{5}$
+
+    C. $\displaystyle \frac{-e^\pi - 2}{3}$
+
+    D. $\displaystyle \frac{e^\pi - 2}{5}$
+\end{enumerate}
+
+\newpage 
+\section{Solution}
+\begin{enumerate}
+    \item Let $u = \arctan x$, $dv = dx$, thus $du = \frac{1}{1+x^2} dx$, $v=x$:
+    \begin{align*}
+        \int \arctan x dx &= x\arctan x - \int \frac{x}{1+x^2}dx\\
+        &= x\arctan x - \frac{1}{2}\int \frac{2x}{1+x^2} dx\\
+        &= x\arctan x - \frac{1}{2} \int \frac{1}{u} du\\
+        &= x\arctan x - \frac{1}{2} \ln \abs{u} +C\\
+        &= x\arctan x - \frac{1}{2} \ln (x^2+1)+C\\
+    \end{align*}
+    Here a u-substitution of $u = 1+x^2$ and $du = 2x dx$ is preformed, note that the absolute sign is dropped because $x^2 + 1 > 0$ always holds true.
+
+    The answer is A.
+
+    \item Let $u = x$, $dv = \sin x dx = -d(\cos x)$, thus $du = dx$, $v = -\cos x$
+    \begin{align*}
+        \int x\sin x dx &= -x\cos x - \left(-\int \cos x dx\right)\\
+        &= -x\cos x + \sin x +C\\
+    \end{align*}
+    The answer is C.
+
+    \item Let $\displaystyle I = \int e^{2x} \sin x \mathrm{d}x$, $u = \sin x$, $dv = e^{2x} dx$, thus $du = \cos x dx$, $v = \frac{1}{2}e^{2x}$
+    \begin{align*}
+        \int e^{2x} \sin x \mathrm{d}x & = \frac{1}{2} e^{2x} \sin x - \frac{1}{2} \int e^{2x} \cos x \mathrm{d}x \\
+    \end{align*}
+    $\text{Let } u=\cos x \text{, } dv = e^{2x}dx \text{ thus, } du = -\sin x dx \text{ , } v = \frac{1}{2}e^{2x}$
+    \begin{align*}
+        & = \frac{1}{2} e^{2x} \sin x - \frac{1}{2}\left(e^{2x} \cos x -\int e^{2x} \mathrm{d}(\cos x)\right) \\
+        & = \frac{1}{2} e^{2x} \sin x - \frac{1}{4} e^{2x} \cos x -\frac{1}{4}\int e^{2x} \sin x \mathrm{d}x \\
+        I & = \frac{1}{2} e^{2x} \sin x - \frac{1}{4} e^{2x} \cos x -\frac{1}{4}I \\
+        \frac{5}{4} I & = \frac{1}{2} e^{2x} \sin x - \frac{1}{4} e^{2x} \cos x \\
+        I & =  \frac{2}{5} e^{2x} \sin x - \frac{1}{5} e^{2x} \cos x + C \\
+    \end{align*}
+    The answer is C.
+
+    \item Let $u = x$, $dv = e^{-x}dx$, thus $du = dx$, $v = -e^{-x}$
+    \begin{align*}
+        \int_{0}^{1} x e^{-x} dx &= -xe^{-x} \Big|_0^1 + \int_{0}^{1} e^{-x} dx\\
+        &= -\frac{1}{e} - e^{-x} \Big|_0^1\\
+        &= -\frac{1}{e} -\left(\frac{1}{e} - 1\right)\\
+        &= -\frac{2}{e} + 1
+    \end{align*}
+    The answer is B
+
+    \item Let $I = \displaystyle \int_{0}^{\frac{\pi}{2}} e^{2x}\cos x dx$, $u = \cos x$, $dv = e^{2x}dx$, thus $ du = -\sin x dx$, $v = \frac{1}{2}e^{2x}$
+    \begin{align*}
+        I = \int_{0}^{\frac{\pi}{2}} e^{2x}\cos x dx &= \frac{1}{2}e^{2x} \cos x \Big|_0^{\frac{\pi}{2}} + \frac{1}{2}\int_{0}^{\frac{\pi}{2}} e^{2x} \sin x dx\\
+    \end{align*}
+    Let $u = \sin x$, $dv = e^{2x}dx$, thus $du = \cos x dx$, $v = \frac{1}{2}e^{2x}$
+    \begin{align*}
+        I &= \frac{1}{2} (0-1) + \frac{1}{2} \left(\frac{1}{2}e^{2x} - \frac{1}{2}\int_{0}^{\frac{\pi}{2}} e^{2x}\cos x\right)\\
+        &= -\frac{1}{2} + \frac{1}{4}e^{2x} \sin x \Big|_0^{\frac{\pi}{2}} - \frac{1}{4} \int_{0}^{\frac{\pi}{2}} e^{2x} \cos x\\
+        I &= -\frac{1}{2} + \frac{1}{4}(e^\pi - 0) - \frac{1}{4} I\\
+        \frac{5}{4} I &= \frac{1}{2} + \frac{1}{4}e^\pi\\
+        I &= \frac{4}{5} \left(\frac{1}{2} + \frac{1}{4} e^\pi\right)\\
+        I &= \frac{e^\pi - 2}{5}
+    \end{align*}
+\end{enumerate}
+\end{document} 
