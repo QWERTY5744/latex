@@ -19,7 +19,7 @@
 
 \begin{document}
 \maketitle
-This article will guide you through what is long division, what is complete the squares, and how to apply it to integration
+Welcome to the Long Division and Complete the Square method for integration of the FiveHive Calculus BC course. This article will guide you through what is long division, what is complete the squares, and how to apply it to integration.
 \section{Long Division}
 \subsection{What is Long Division}
 \emph{Long division} is also known as \emph{polynomial division}, it is division design for dividing two polynomials, for example, 
@@ -134,13 +134,78 @@ Thus:
 \end{align*}
 Here we preformed an u-substitution of $u=x-5$ and $\mathrm{d}u = \mathrm{d}x$
 
+Let's take a look at a final example:
+\[
+\int \frac{1}{x^2 - 4x + 10} \mathrm{d}x
+\]
+First complete the square:
+\begin{align*}
+    x^2 -4x + 10 &= x^2 - 4x + 4 + 6\\
+    &=(x-2)^2 +6\\
+\end{align*}
+Thus
+\[
+\int \frac{1}{x^2 - 4x + 10} \mathrm{d}x = \int \frac{1}{(x-2)^2 +6} \mathrm{d}x
+\]
+However here we see that the constant behind the squared expression is not $1$, to make a $1$, we factor the $6$ out from the expression:
+\begin{align*}
+    \int \frac{1}{(x-2)^2 +6} \mathrm{d}x &= \int \frac{1}{\frac{1}{6}\left(6(x-2)^2 + 1\right)}\mathrm{d}x\\
+    &= 6\int \frac{1}{\left(\frac{x-2}{\sqrt{6}}\right)^2 +1}\mathrm{d}x\\
+    &= 6\sqrt{6} \int \frac{1}{u^2+1} \mathrm{d}u\\
+    &= 6\sqrt{6} \arctan u +C\\
+    &= 6\sqrt{6} \arctan \left(\frac{x-2}{\sqrt{6}}\right)+C
+\end{align*}
+Here we preformed a u-substitution of $\displaystyle u = \frac{x-2}{\sqrt{6}}$ and $\displaystyle \mathrm{d}u = \frac{1}{\sqrt{6}}\mathrm{d}x$
 \section{Exercises}
 \begin{enumerate}
     \item $\displaystyle \int \frac{x^3}{x+3}\mathrm{d}x$
+
+    A. $\displaystyle \frac{1}{3}x^3 - \frac{3}{2}x^2 + 9x - 27\ln\abs{x+3}+C$
+    
+    B. $\displaystyle \frac{1}{3}x^3 - \frac{3}{2}x^2 + 9x - 9\ln\abs{x+3} + C$
+    
+    C. $\displaystyle \frac{1}{3}x^3 - \frac{3}{2}x^2 + 9x +C$
+
+    D. $\displaystyle \frac{1}{3}x^3 + \frac{3}{2} x^2 + 9x +C$
     \item $\displaystyle \int \frac{6x^3-7x^2+1}{2x-1}\mathrm{d}x$
+    
+    A. $\displaystyle \frac{1}{2} \arctan \left(\frac{3x-1}{2}x\right) + C$
+
+    B. $\displaystyle \frac{9}{8} \arctan \left(\frac{6x-2}{9}\right) +C$
+
+    C. $\displaystyle -x^3 + x^2 +x +C$
+
+    D. $\displaystyle x^3 - x^2 - x + C$
+
     \item $\displaystyle \int \frac{2x+3}{x^2 + 3x + 10}\mathrm{d}x$
+    
+    A. $\ln \left(x^2+3x\right)+C$
+
+    B. $\displaystyle \frac{1}{(x^2+3x+10)^2} +C$
+
+    C. $\ln \left(x^2+3x+10\right)+C$
+
+    D. $\ln \abs{x^2+3x+10}+C$
+ 
     \item $\displaystyle \int \frac{1}{x^2-2x+5}\mathrm{d}x$
+    
+    A. $\displaystyle \arctan (x-2)+C$
+
+    B. $\displaystyle \frac{1}{2}\arctan \left(\frac{x-1}{2}\right) +C$
+
+    C. $\displaystyle \frac{1}{4}\arctan\left(\frac{x-1}{4}\right) +C$
+
+    D. $\displaystyle \frac{1}{2}\arcsin \left(\frac{x-1}{2}\right) +C$
+
     \item $\displaystyle \int \frac{3}{3x^2-5x+4}\mathrm{d}x$
+
+    A. $\displaystyle \frac{36}{23} \arctan (x+\frac{5}{6}) +C$
+
+    B. $\displaystyle \frac{216}{23\sqrt{23}}\arctan \left(\frac{\sqrt{23}\left(x+\frac{5}{6}\right)}{6}\right) +C$
+
+    C. $\displaystyle \frac{6\sqrt{23}}{23}\arctan \left(\frac{6x+5}{\sqrt{23}}\right) +C$
+
+    D. $\displaystyle \frac{6\sqrt{23}}{23}\arcsin \left(\frac{6x+5}{\sqrt{23}}\right) +C$
 \end{enumerate}
 Finish the exercises first and then check your answer
 
@@ -155,6 +220,7 @@ Finish the exercises first and then check your answer
         \int \frac{x^3}{x+3}\mathrm{d}x &= \int \left(x^2 - 3x + 9 - \frac{27}{x+3}\right) \mathrm{d}x\\
         &= \frac{1}{3}x^3 - \frac{3}{2} x^2 + 9x - 27\ln{\abs{x+3}} + C\\
     \end{align*}
+    The correct answer is A.
     \item First, preform a long division
     \[
     \polylongdiv{6x^3-7x^2+1}{2x-1}
@@ -164,6 +230,7 @@ Finish the exercises first and then check your answer
         \int \frac{6x^3-7x^2+1}{2x-1}\mathrm{d}x &= \int \left(3x^2-2x-1\right) \mathrm{d}x\\
         &= x^3 - x^2 - x + C\\
     \end{align*}
+    The correct answer is D
     \item Surprisingly, this question does not involve any of the method taught in this article, it is a review of simple u-substitution.
     
     Let $u = x^2 + 3x + 10$, thus $\mathrm{d}u = (2x+3)\mathrm{d}x$, we can turn the integral into
@@ -171,6 +238,8 @@ Finish the exercises first and then check your answer
         \int \frac{2x+3}{x^2 + 3x + 10}\mathrm{d}x &= \int \frac{1}{u}\mathrm{d}u\\
         &= \ln \abs{u} + C = \ln \abs{x^2+3x+10}+C
     \end{align*}
+
+    The correct answer is D
     \item \begin{align*}
         \int \frac{1}{x^2-2x+5}\mathrm{d}x &= \int \frac{1}{(x-1)^2 + 4}\mathrm{d}x\\
         &= \int \frac{1}{\left(\frac{x-1}{2}\right)^2+1} \mathrm{d}u\\
@@ -179,6 +248,8 @@ Finish the exercises first and then check your answer
         &= \frac{1}{2}\arctan \left(\frac{x-1}{2}\right) + C\\
     \end{align*}
     Here we preformed a u-substitution of $u = \frac{x-1}{2}$ and $\mathrm{d}u = \frac{1}{2}\mathrm{d}x$
+
+    The correct answer is B.
     \item \begin{align*}
         \int \frac{3}{3x^2-5x+4}\mathrm{d}x &= \int \frac{3}{3(x^2-\frac{5}{3}x+\frac{4}{3})}\mathrm{d}x\\
         &= \int \frac{1}{x^2 - \frac{5}{3}x + \left(\frac{5}{6}\right)^2 - \left(\frac{5}{6}\right)^2 + \frac{4}{3}}\mathrm{d}x\\
@@ -187,8 +258,10 @@ Finish the exercises first and then check your answer
         &= \frac{36}{23} \int \frac{1}{\left(\frac{6}{\sqrt{23}}\left(x+\frac{5}{6}\right)^2\right)+1}\mathrm{d}x\\
         &=\frac{36}{23}\frac{\sqrt{23}}{6}\int\frac{1}{u^2+1}\mathrm{d}u\\
         &= \frac{6\sqrt{23}}{23}\arctan u + C\\
-        &= \frac{6\sqrt{23}}{23}\arctan \left(\frac{6x+5}{\sqrt{23}}\right)\\
+        &= \frac{6\sqrt{23}}{23}\arctan \left(\frac{6x+5}{\sqrt{23}}\right) +C\\
     \end{align*}
     Here we preform a u-substitution of $\displaystyle u = \frac{6}{\sqrt{23}}\left(x+\frac{5}{6}\right) = \frac{6x+5}{\sqrt{23}}$, $\displaystyle\mathrm{d}u = \frac{6}{\sqrt{23}}\mathrm{d}x$
+    
+    The correct answer is C.
 \end{enumerate}
 \end{document}

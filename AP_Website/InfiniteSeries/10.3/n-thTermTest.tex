@@ -1,0 +1,96 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\numberwithin{equation}{section}
+
+\title{n-th Term Test}
+\author{Polaris}
+\date{2025/06/27}
+
+\begin{document}
+
+\maketitle
+This article will guide you through how to preform a n-th Term Test to determine a convergence of a series.
+
+\section{n-th Term Test}
+\[
+    \text{For an infinte series} \sum_{n = 1}^{\infty} a_n \text{ , if }\lim_{x\to \infty} a_n \neq 0 \text{ or the limit does not exist, then} \sum_{n = 1}^{\infty} a_n \text{ diverge}
+\]
+This theorem is the \emph{n-th term test}, it is important to point out that if the limit equals to $0$, this test \emph{cannot draw any conclusion}.
+\[
+    \text{If } \lim_{x\to \infty} a_n = 0  \text{, then} \sum_{n = 1}^{\infty} a_n \text{ don't have to converge}
+\]
+We will not go over the proof of this test, but we can intuitively understand this test, for a series to diverge, the n-th term of a sequence 
+needs to be larger than $0$, otherwise there is a chance of this series converging, hence we require that the limit of n-th term is not equal to $0$.
+\section{Example Questions}
+State if the following series diverge or converge
+\begin{enumerate}
+    \item \[\sum_{n = 1}^{\infty} \left(\frac{n}{n + 100}\right)\]
+    For this series, if $\displaystyle\lim_{n\to \infty} \frac{n}{n+100} \neq 0$, the series diverges:
+    \[
+        \lim_{n\to \infty} \frac{n}{n+100} = \lim_{n\to \infty} \frac{1}{1} = 1
+    \]
+    Which means the original series diverge.
+
+    \item \[\sum_{n = 1}^{\infty} \left(\frac{1}{n}\right)^2\]
+    Examine this limit: 
+    \[
+        \lim_{x\to \infty} \left(\frac{1}{n}\right)^2 = 0
+    \]
+    By the n-th term test, we have no way to prove that the series converge or diverge through this method(though the series converge, it is the Basel Problem)
+\end{enumerate}
+
+\section{Practice Problem}
+State if the following series diverge or converge.
+\begin{enumerate}
+    \item \[\sum_{n=1}^{\infty}\frac{1}{n}\]
+    \item \[\sum_{n=1}^{\infty} \left(\frac{e^n}{\ln n}\right)\]
+    \item \[\sum_{n=1}^{\infty} \left(\sin \frac{1}{n}\right)\]
+    \item \[\sum_{n=1}^{\infty} \left(n\sin \left(\frac{1}{n}\right)\right)\]
+    \item \[\sum_{n=1}^{\infty} n\tan n\]
+\end{enumerate}
+
+\section{Answer Key}
+\begin{enumerate}
+    \item Apply the n-th term test for this series: \[\lim_{n\to\infty}\frac{1}{n} = 0\]
+    Which means this test is inconclusive, we cannot draw any conclusion from this test.
+    \item Apply the n-th term test for this series
+    \begin{align*}
+        \lim_{x\to \infty} \frac{e^x}{\ln x} &= \lim_{n\to \infty} \frac{e^x}{1/x}\\
+        &= \lim_{x\to \infty} xe^x\\
+        &= \infty
+    \end{align*}
+    Which means this series diverge.
+    \item Apply the n-th term test for this series:
+    \[\lim_{x\to \infty} \sin \frac{1}{x}\]
+    We know that 
+    \[
+    -\frac{1}{x} \leq \sin \frac{1}{x} \leq \frac{1}{x}
+    \]
+    By squeeze theorem, we have 
+    \begin{align*}
+        \lim_{x\to \infty} -\frac{1}{x} \leq &\lim_{x\to \infty}\sin \frac{1}{x} \leq \lim_{x\to \infty} \frac{1}{x}\\
+        0 \leq &\lim_{x\to \infty} \sin \frac{1}{x} \leq 0\\
+    \end{align*}
+    Which gives \[\lim_{x\to \infty} \sin \frac{1}{x} = 0\]
+
+    This means this test is inconclusive for this series.
+    \item Apply the n-th term test for this series:
+    \begin{align*}
+        \lim_{x\to \infty} x\sin \frac{1}{x} &= \frac{\sin \frac{1}{x}}{\frac{1}{x}}\\
+        &= 1
+    \end{align*}
+    Which means this test is inconclusive for this series.
+    \item Apply the n-th term test for this series:
+    \[\lim_{x\to \infty} x\tan x = \text{DNE}\]
+    Which means this series diverge.
+\end{enumerate}
+\end{document}

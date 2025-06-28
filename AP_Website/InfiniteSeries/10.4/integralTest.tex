@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\numberwithin{equation}{section}
+
+\title{Integral Test}
+\author{Polaris}
+\date{2025/06/27}
+
+\begin{document}
+\section{Integral Test for convergence}
+If $f$ is a \textbf{positive}, \textbf{continous} and \textbf{decreasing} for $x \geq m$, where $m \geq 1$
+
+and the n-th term expression $a_n = f(x)$, then:
+
+\begin{equation}
+    \sum_{n = 1}^{\infty} a_n \text{ and } \int_{1}^{\infty} f(x) \mathrm{d}x
+\end{equation}
+
+both converge or diverge.
+
+\subsection{Example questions}
+\begin{enumerate}
+    \item Evaluate this series:
+    \[
+        \sum_{n = 1}^{\infty} \frac{n}{n^2 + 1} 
+    \]
+    First, check for the three criteria: positive, coutinous, decreasing
+    \begin{enumerate}
+        \item Positive: obviously $f(x) = \frac{x}{x^2 + 1}$ is positive in $[1 , \infty)$
+        \item Continous: the function is continous for all real number
+        \item Decreasing: $f'(x) = -\frac{x^2 - 1}{(x^2 + 1)^2}$, and $f'(x) < 0$ when $x > 1$
+    \end{enumerate}
+    Now evaluate the indefinite integral:
+    \[
+        \begin{split}
+            \int_{1}^{\infty} \frac{x}{x^2 + 1} \mathrm{d}x &= \lim_{b\to \infty} \int_{1}^{b} \frac{x}{x^2 + 1} \mathrm{d}x\\
+            & = \lim_{b\to \infty} \frac{1}{2}\int_{1}^{b} \frac{1}{x^2 + 1} \mathrm{d}(x^2 + 1)\\
+            & = \frac{1}{2} \lim_{b\to \infty} (\ln \abs{b^2 + 1} - \ln \abs{1^2 + 1})\\
+            & = \infty
+        \end{split}
+    \]
+    The integral diverges, meaning that the series also diverges
+
+    \item Evaluate this series:
+    \[
+        \sum_{n = 1}^{\infty} \frac{1}{n^2 + 1}
+    \]
+    Let 
+    \[
+        a_n = f(x) = \frac{1}{x^2 + 1}
+    \]
+    Checking if the method work is omitted, but it does work
+    Then we can construct and solve this improper integral:
+    \[
+        \begin{split}
+            \int_{1}^{\infty} \frac{1}{x^2 + 1} \mathrm{d}x & = \lim_{b\to \infty} \int_{1}^{b} \frac{1}{x^2 + 1}\mathrm{d}x\\
+            & = \lim_{b\to \infty} \arctan b - \arctan 1\\
+            & = \frac{\pi}{2} - \frac{\pi}{4} = \frac{\pi}{4}\\
+        \end{split}
+    \]
+    Meaning the series converge, \textbf{but the series doesn't necessarily converge to} $\pi/4$
+\end{enumerate}
+\end{document}

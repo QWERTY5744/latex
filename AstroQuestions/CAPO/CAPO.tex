@@ -1,0 +1,59 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\numberwithin{equation}{section}
+
+\begin{document}
+\section{疲倦的光子（高年组）}
+在大爆炸模型提出的早期，有人为了反对大爆炸模型同时解释哈勃定律，提出了“疲倦的光子”假说。
+该假说认为宇宙是静态的，而光子会随着自己在宇宙中穿梭而失去能量。单位距离内损失的能量由下式表达：
+\[
+\frac{dE}{dr}=-kE
+\]
+其中$k$为一常数，$E$为光子的能量。
+
+请证明当$z<<1$，上述假说会给出一个线性的红移-距离关系（即哈勃定律），并求出满足这个条件的$k$。
+
+\subsection{参考答案}
+解微分方程，有：
+\begin{align*}
+    \frac{dE}{dr}&=-kE\\
+    \frac{dE}{E}&=-k dr\\
+    \int_{E_0}^{E} \frac{dE}{E}&= -k \int_{0}^{r} dr\\
+    \ln \frac{E}{E_0} &= -kr\\
+    E(r) &= E_0 e^{-kr}
+\end{align*}
+其中$E_0$为光子初始的能量，$r$是光子走过的距离。
+
+红移和能量也有关系：
+\begin{align*}
+    z = \frac{\lambda - \lambda_0}{\lambda_0} &= \frac{\frac{hc}{E}-\frac{hc}{E_0}}{\frac{hc}{E_0}}\\
+    &= \frac{\frac{1}{E}-\frac{1}{E_0}}{\frac{1}{E_0}}\\
+    &= E_0\cdot\frac{E_0-E}{EE_0}\\
+    &= \frac{E_0 - E}{E}
+\end{align*}
+带入能量的表达式，有：
+\begin{align*}
+    z &= \frac{E_0 - E_0 e^{-kr}}{E_0 e^{-kr}}\\
+    &= e^{kr}\left(1-e^{-kr}\right)\\
+    &= e^{kr} - 1\\
+\end{align*}
+当$z<<1$，即$kr<<1$时，有
+\begin{align*}
+    z \approx kr
+\end{align*}
+同时带入多普勒效应($v = cz$)
+\begin{align*}
+    cz &= H_0 r\\
+    c kr & = H_0 r\\
+    k &= \frac{H_0}{c} = 2.267\cdot 10^{-4} \text{Mpc}^{-1}
+\end{align*}
+\end{document}
