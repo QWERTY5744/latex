@@ -164,16 +164,6 @@ Evaluate the following integrals
 
     D. $\displaystyle \frac{1}{3} e^{2x} \sin x - \frac{1}{3} e^{2x} \cos x +C$
 
-    \item $\displaystyle \int_{0}^{1} x e^{-x} dx$
-    
-    A. $\displaystyle \frac{2}{e} - 1$
-
-    B. $\displaystyle -\frac{2}{e} +1$
-
-    C. $\displaystyle -\frac{2}{e} - 1$
-
-    D. $\displaystyle -\frac{2}{e} +1$
-
     \item $\displaystyle \int_{0}^{\frac{\pi}{2}} e^{2x}\cos x dx$
     
     A. $\displaystyle \frac{e^\pi - 2}{3}$
@@ -183,6 +173,30 @@ Evaluate the following integrals
     C. $\displaystyle \frac{-e^\pi - 2}{3}$
 
     D. $\displaystyle \frac{e^\pi - 2}{5}$
+
+    \item If $\displaystyle \int_{0}^{1} f'(x)g(x)dx = 5$, find $\displaystyle \int_{0}^{1} f(x)g'(x)dx$
+    
+    \begin{tabular}{||c c c||} 
+    \hline
+     & $0$ & $1$ \\ [0.5ex] 
+    \hline\hline
+    $f(x)$ & $2$ & $4$\\ 
+    \hline
+    $f'(x)$ & $6$ & $-3$\\
+    \hline
+    $g(x)$ & $-4$ & $3$\\
+    \hline
+    $g'(x)$ & $2$ & $-1$\\
+    \hline
+    \end{tabular}
+
+    A. -14
+
+    B. -13
+
+    C. 7
+
+    D. 15
 \end{enumerate}
 
 \newpage 
@@ -221,15 +235,6 @@ Evaluate the following integrals
     \end{align*}
     The answer is C.
 
-    \item Let $u = x$, $dv = e^{-x}dx$, thus $du = dx$, $v = -e^{-x}$
-    \begin{align*}
-        \int_{0}^{1} x e^{-x} dx &= -xe^{-x} \Big|_0^1 + \int_{0}^{1} e^{-x} dx\\
-        &= -\frac{1}{e} - e^{-x} \Big|_0^1\\
-        &= -\frac{1}{e} -\left(\frac{1}{e} - 1\right)\\
-        &= -\frac{2}{e} + 1
-    \end{align*}
-    The answer is B
-
     \item Let $I = \displaystyle \int_{0}^{\frac{\pi}{2}} e^{2x}\cos x dx$, $u = \cos x$, $dv = e^{2x}dx$, thus $ du = -\sin x dx$, $v = \frac{1}{2}e^{2x}$
     \begin{align*}
         I = \int_{0}^{\frac{\pi}{2}} e^{2x}\cos x dx &= \frac{1}{2}e^{2x} \cos x \Big|_0^{\frac{\pi}{2}} + \frac{1}{2}\int_{0}^{\frac{\pi}{2}} e^{2x} \sin x dx\\
@@ -243,5 +248,14 @@ Evaluate the following integrals
         I &= \frac{4}{5} \left(\frac{1}{2} + \frac{1}{4} e^\pi\right)\\
         I &= \frac{e^\pi - 2}{5}
     \end{align*}
+    The answer is D.
+
+    \item Let $u = f(x)$, $dv = g'(x) dx$, thus $du = f'(x)dx$ and $v = g(x)$, by integration by parts:
+    \begin{align*}
+        \int_{0}^{1} f(x)g'(x)dx &= f(x)g(x)\Big|_0^1 - \int_{0}^{1} f'(x)g(x) dx\\
+        &= 4*3 - 2*(-4) - 5\\
+        &= 15
+    \end{align*}
+    The answer is D
 \end{enumerate}
 \end{document} 

@@ -17,6 +17,10 @@
 
 \begin{document}
 \maketitle
+\section{Partial Fraction technique}
+Welcome to this guide on integration using Partial Fraction of the FiveHive Calculus BC course. This article will guide you through how to preform a partial fraction integration technique.
+
+Partial fraction is a technique that focus on spliting a fraction into a sum of multiple fractions, the example below demonstrate this technique well.
 
 Consider this integral:
 \[
@@ -41,7 +45,7 @@ Here and $A$ and $B$ are different constant, let's try to combine them together:
 \frac{A(x - 3) +B(x - 2)}{(x - 2)(x - 3)} = \frac{Ax - 3A + Bx - 2B}{(x-2)(x-3)} = \frac{(A+B)x + (-3A-2B)}{(x-2)(x-3)}
 \]
 
-Notice that we reformed the denominator into $\text{constant} \cdot x + \text{constant}$, which does indeed look like $x+1$ in the original integrand,
+Notice that the numerator is the same form as before: $\text{constant} \cdot x + \text{constant}$, which does indeed look like $x+1$ in the original integrand,
 thus we have this relation:
 \[
 \begin{cases}
@@ -77,9 +81,8 @@ Then solve for $E$ and $F$ to complete the fraction split.
 
 Here is another example:
 \[
-\int \frac{2x - 1}{x^2 - 4x + 3} \mathrm{d}x = \int \frac{x + 1}{(x - 3)(x - 1)} \mathrm{d}x
+\int \frac{2x - 1}{x^2 - 4x + 3} \mathrm{d}x = \int \frac{2x - 1}{(x - 3)(x - 1)} \mathrm{d}x
 \]
-%so this is how to insert comment
 Split the fraction into a sum of fraction:
 \[
 \frac{A}{x - 3} + \frac{B}{x - 1} = \frac{A(x - 1) + B(x - 3)}{(x - 3)(x - 1)} = \frac{(A+B)x +(-A -3B)}{(x-3)(x-1)}
@@ -87,12 +90,194 @@ Split the fraction into a sum of fraction:
 Solve for $A$ and $B$:
 \[
 \begin{cases}
-    A+B = 1\\
-    -A-3B = 1\\
+    A+B = 2\\
+    -A-3B = -1\\
 \end{cases}
 \]
-Thus $A = 2$ and $B = -1$, and the integral turns to 
+Thus $A = \frac{5}{2}$ and $B = -\frac{1}{2}$, and the integral turns to 
 \[
-\int \left(\frac{2}{x-3} - \frac{1}{x-1} \right) \mathrm{d}x = 2\ln\abs{x-3} - \ln\abs{x-1} + C
+\int \left(\frac{5}{2}\frac{1}{x-3} - \frac{1}{2}\frac{1}{x-1} \right) \mathrm{d}x = \frac{5\ln \abs{x-3} - \ln \abs{x-1}}{2} + C
 \]
+
+\newpage
+\section{Practice}
+Evaluate the following integrals
+\begin{enumerate}
+    \item $\displaystyle \int \frac{x}{(x+1)(x+2)} dx$
+    
+    A. $\ln \abs{x+1} - 2 \ln \abs{x+2} +C$
+
+    B. $-\ln \abs{x+1} + 2\ln \abs{x+2} +C$
+
+    C. $2\ln \abs{x+1} - \ln\abs{x+2} +C$
+
+    D. $-2\ln \abs{x+1} + \ln \abs{x+2} +C$
+
+    \item $\displaystyle \int \frac{1}{x^2-1} dx$
+    
+    A. $\displaystyle \frac{1}{2} \ln \abs{x^2-1} +C$
+    
+    B. $\displaystyle \frac{1}{2}\ln \abs{\frac{x+1}{x-1}}+C$
+
+    C. $\displaystyle \frac{1}{2}\ln \abs{\frac{x-1}{x+1}} +C$
+
+    D. $\displaystyle \arctan x + C$
+
+    \item $\displaystyle \int \frac{3x+1}{x^2-5x+6} dx$
+    
+    A. $7 \ln \abs{x-2} - 10\ln \abs{x-3}+C$
+
+    B. $-7 \ln \abs{x-2} +10\ln \abs{x-3}+C$
+
+    C. $10 \ln \abs{x-2} - 7 \ln \abs{x-3}+C$
+
+    D. $-10 \ln \abs{x-2} + 7 \ln \abs{x-3} +C$
+
+    \item $\displaystyle \int_{0}^{1} \frac{3x+2}{x^2 -3x-10}dx$
+    
+    A. $\displaystyle \frac{4(\ln 5 - \ln 4) + 17 (\ln 2 - \ln 3)}{7}$
+
+    B. $\displaystyle \frac{17(\ln 5 - \ln 4) + 17 (\ln 2- \ln 3)}{7}$
+
+    C. $\displaystyle\frac{4(\ln 4 -\ln 5) + 17 (\ln 3 - \ln 2)}{7}$
+
+    D. $\displaystyle \frac{17(\ln 4 - \ln 5) + 4(\ln 3 - \ln 2)}{7}$
+
+    \item $\displaystyle \int_{0}^{1} \frac{5x + 4}{x^2 + 7x + 6}dx$
+    
+    A. $\displaystyle \frac{26(\ln7 - \ln 6) - \ln 2}{5}$
+
+    B. $\displaystyle \frac{\ln 7 - \ln 6 - 26 \ln 2}{5}$
+
+    C. $\displaystyle \frac{-26(\ln 7 - \ln 6) + \ln 2}{5}$
+
+    D. $\displaystyle \frac{-\ln 7 + \ln 6 + 26\ln 2}{5}$
+\end{enumerate}
+
+\section{Solution}
+\begin{enumerate}
+    \item 
+    \begin{align*}
+        \frac{x}{(x+1)(x+2)} &= \frac{A}{(x+1)} + \frac{B}{(x+2)}\\
+        &= \frac{A(x+1) + B(x+2)}{(x+1)(x+2)}\\
+        &= \frac{(A+B)x + (A+2B)}{(x+1)(x+2)}\\
+    \end{align*}
+    Thus 
+    \[
+    \begin{cases}
+        A + B = 1\\
+        A + 2B = 0\\
+    \end{cases}
+    \]
+    The solution is $A = -1$, $B=2$, substitute this back:
+    \begin{align*}
+        \int \frac{x}{(x+1)(x+2)} dx &= \int \left(-\frac{1}{(x+1)} + \frac{2}{x+2}\right)dx\\
+        &= -\int \frac{1}{x+1}dx + 2\int \frac{1}{x+2} dx\\
+        &= -\ln \abs{x+1} + 2\ln \abs{x+2} +C\\
+    \end{align*}
+    The answer is B.
+
+    \item 
+    \begin{align*}
+    \frac{1}{x^2-1} &= \frac{1}{(x+1)(x-1)}\\
+    &= \frac{A}{(x-1)} + \frac{B}{(x+1)}\\
+    &= \frac{A(x+1) + B(x-1)}{(x+1)(x-1)}\\
+    &= \frac{(A+B)x + (A-B)}{(x+1)(x-1)}\\
+    \end{align*}
+    Thus 
+    \[
+    \begin{cases}
+        A + B = 0\\
+        A - B = 1\\
+    \end{cases}
+    \]
+    The solution is $A=\frac{1}{2}$, $B = -\frac{1}{2}$, substitute this back:
+        \begin{align*}
+        \int \frac{1}{(x+1)(x-1)} dx &= \int \left(\frac{1}{2(x-1)} - \frac{1}{2(x+1)}\right)dx\\
+        &= \frac{1}{2}\int \frac{1}{x-1}dx - \frac{1}{2}\int \frac{1}{x+1} dx\\
+        &= \frac{1}{2} \left(\ln \abs{x-1} -\ln \abs{x+1}\right)+C\\
+        &= \frac{1}{2} \ln \abs{\frac{x-1}{x+1}} +C\\
+    \end{align*}
+    The answer is C.
+
+    \item 
+    \begin{align*}
+    \frac{3x+1}{x^2-5x+6} &= \frac{3x+1}{(x-2)(x-3)}\\
+    &= \frac{A}{(x-2)} + \frac{B}{(x-3)}\\
+    &= \frac{A(x-3) + B(x-2)}{(x-2)(x-3)}\\
+    &= \frac{(A+B)x + (-3A-2B)}{(x-2)(x-3)}\\
+    \end{align*}
+    Thus
+    \[
+    \begin{cases}
+        A + B = 3\\
+        -3A - 2B = 1\\
+    \end{cases}
+    \]
+    The solution is $A = -7$, $B = 10$, substitute this back:
+    \begin{align*}
+        \int \frac{3x+1}{(x-2)(x-3)} dx &= \int \left(-\frac{7}{x-2} + \frac{10}{x-3}\right)dx\\
+        &= -7\int \frac{1}{x-2}dx + 10\int \frac{1}{x-3} dx\\
+        &= -7 \ln \abs{x-2} +10\ln \abs{x-3}+C\\
+    \end{align*}
+    The answer is B.
+
+    \item 
+    \begin{align*}
+    \frac{3x+2}{x^2-3x-10} &= \frac{3x-2}{(x-5)(x+2)}\\
+    &= \frac{A}{(x-5)} + \frac{B}{(x+2)}\\
+    &= \frac{A(x+2) + B(x-5)}{(x+2)(x-5)}\\
+    &= \frac{(A+B)x + (2A-5B)}{(x+2)(x-5)}\\
+    \end{align*}
+    Thus
+    \[
+    \begin{cases}
+        A + B = 3\\
+        2A - 5B = -2\\
+    \end{cases}
+    \]
+    The solution is $A = \frac{17}{7}$, $B = \frac{4}{7}$, substitute this back:
+    \begin{align*}
+        \int \frac{3x+2}{(x-5)(x+2)} dx &= \int \left(\frac{17}{7}\frac{1}{x-5} + \frac{4}{7}\frac{1}{x+2}\right)dx\\
+        &= \frac{17}{7}\int \frac{1}{x-5}dx + \frac{4}{7}\int \frac{1}{x+2} dx\\
+        &= \frac{17}{7} \ln \abs{x-5} +\frac{4}{7}\ln \abs{x+2}+C\\
+    \end{align*}
+    Hence
+    \begin{align*}
+        \int_{0}^{1} \frac{3x+2}{x^2 -3x-10}dx &= \frac{17}{7} \ln \abs{x-5} +\frac{4}{7}\ln \abs{x+2} \Big|_0^1\\
+        &= \frac{17}{7} \ln \abs{1-5} + \frac{4}{7}\ln \abs{1+2} - \left(\frac{17}{7}\ln \abs{0-5} + \frac{4}{7} \ln \abs{0-2}\right)\\
+        &= \frac{17 \ln 4 + 4 \ln 3 - 17\ln 5 + 4\ln 2}{7}\\
+        &= \frac{17(\ln 4 - \ln 5) + 4(\ln 3 - \ln 2)}{7}
+    \end{align*}
+    The answer is D.
+
+    \item 
+    \begin{align*}
+    \frac{5x + 4}{x^2 + 7x + 6}dx &= \frac{5x+4}{(x+1)(x+6)}\\
+    &= \frac{A}{(x+1)} + \frac{B}{(x+6)}\\
+    &= \frac{A(x+6) + B(x+1)}{(x+1)(x+6)}\\
+    &= \frac{(A+B)x + (6A+B)}{(x+1)(x+6)}\\
+    \end{align*}
+    Thus
+    \[
+    \begin{cases}
+        A + B = 5\\
+        6A +B = 4\\
+    \end{cases}
+    \]
+    The solution is $A = -\frac{1}{5}$, $B = \frac{26}{5}$, substitute this back:
+    \begin{align*}
+        \int \frac{5x-4}{(x+1)(x+6)} dx &= \int \left(-\frac{1}{5}\frac{1}{x+1} + \frac{26}{5}\frac{1}{x+6}\right)dx\\
+        &= -\frac{1}{5}\int \frac{1}{x+1}dx + \frac{26}{5}\int \frac{1}{x+6} dx\\
+        &= -\frac{1}{5} \ln \abs{x+1} +\frac{26}{5}\ln \abs{x+6}+C\\
+    \end{align*}
+    Hence
+    \begin{align*}
+        \int_{0}^{1} \frac{5x + 4}{x^2 + 7x + 6}dx &=-\frac{1}{5} \ln \abs{x+1} +\frac{26}{5}\ln \abs{x+6} \Big|_0^1\\
+        &= -\frac{1}{5} \ln \abs{1+1} + \frac{26}{5}\ln \abs{1+6} - \left(-\frac{1}{5}\ln \abs{1+0} - \frac{26}{5} \ln \abs{0+6}\right)\\
+        &= \frac{- \ln 2 + 26 \ln 7 + \ln 1 + 26\ln 6}{5}\\
+        &= \frac{26(\ln 7 - \ln 6) -\ln 2}{5}
+    \end{align*}
+    The answer is A.
+\end{enumerate}
 \end{document}
