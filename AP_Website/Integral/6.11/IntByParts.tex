@@ -142,7 +142,17 @@ Evaluate the following integrals
 
     C. $\displaystyle x\arctan{x} - \ln(x^2+1)+C$
 
-    D.$\displaystyle x\arctan{x} -+ \sqrt{1-x^2} +C$
+    D.$\displaystyle x\arctan{x} + \sqrt{1-x^2} +C$
+
+    \item $\displaystyle \int \ln x dx$
+    
+    A. $\displaystyle-\frac{\ln x}{x} - x +C$
+
+    B. $\displaystyle\frac{\ln x}{x} + x +C$
+
+    C. $-x\ln x + x +C$
+
+    D. $x\ln x - x +C$
 
     \item $\displaystyle \int x\sin x dx$
     
@@ -214,7 +224,14 @@ Evaluate the following integrals
 
     The answer is A.
 
-    \item Let $u = x$, $dv = \sin x dx = -d(\cos x)$, thus $du = dx$, $v = -\cos x$
+    \item Let $u = \ln x$, $dv = dx$, thus $du = \displaystyle \frac{1}{x}$ and $v = x$.
+    \begin{align*}
+        \int \ln x dx &= x \ln x - \int x \frac{1}{x} dx\\
+        &= x\ln x - \int dx\\
+        &= x\ln x - x +C
+    \end{align*}
+    The answer is D.
+    \item Let $u = x$, $dv = \sin x dx $, thus $du = dx$, $v = -\cos x$
     \begin{align*}
         \int x\sin x dx &= -x\cos x - \left(-\int \cos x dx\right)\\
         &= -x\cos x + \sin x +C\\

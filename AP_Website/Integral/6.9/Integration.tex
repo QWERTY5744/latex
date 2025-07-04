@@ -26,7 +26,7 @@ Evaluate
 \int 2x e^{-x^2} \mathrm{d}x
 \]
 
-To solve this integral: Let $u = -x^2$, then $\mathrm{d}u = -2x \mathrm{d}x$, let's first substitute $u$ back to the integral:
+To solve this integral: Let $u = -x^2$, then $\displaystyle \frac{d{u}}{d{x}} = -2x$, or $\mathrm{d}u = -2x \mathrm{d}x$, let's first substitute $u$ back to the integral:
 
 \[
 \int 2x e^u \mathrm{d}x
@@ -77,10 +77,11 @@ Another example would be:
 \int \frac{x}{x^2+8}\mathrm{d}x
 \]
 This looks tricky, but we do see a $x^2$ term and $x$ term, and the derivative of $x^2$ is $2x$.
-Let $u = x^2+8$, $\mathrm{d}u = 2x \mathrm{d}x$, thus $x = \sqrt{u - 8}$, $\mathrm{d}x = 1/2x \mathrm{d}u$:
+Let $u = x^2+8$, $\mathrm{d}u = 2x \mathrm{d}x$, thus $\displaystyle x = \sqrt{u - 8}$, $\mathrm{d}x = \frac{1}{2}x \mathrm{d}u$:
 \[
-\int \frac{\sqrt{u - 8}}{u} \frac{1}{2\sqrt{u - 8}}\mathrm{d}u\int \frac{1}{2u} \mathrm{d}u = \frac{1}{2} \ln{\abs{u}} + C = \frac{1}{2} \ln{\abs{x^2+8}} + C
+\int \frac{\sqrt{u - 8}}{u} \frac{1}{2\sqrt{u - 8}}\mathrm{d}u\int \frac{1}{2u} \mathrm{d}u = \frac{1}{2} \ln{\abs{u}} + C = \frac{1}{2} \ln{(x^2+8)} + C
 \]
+Note here the absolute value is dropped because $x^2 + 8 >0$ always holds true
 
 \section{Definite Integral}
 Definite integral can be treated the same as indefinite integral, however we need to account for the upper and lower bound.
@@ -106,4 +107,7 @@ Thought process for definite integral would be:
     \item Manipulate the integral so we found the $\text{some expression} \cdot \mathrm{d}x$
     \item Substitute $\mathrm{d}u$ and evaluate the integral
 \end{enumerate}
+
+\newpage
+\section{Practice Problems}
 \end{document}

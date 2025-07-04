@@ -17,9 +17,7 @@
 
 \begin{document}
 \section{Integral Test for convergence}
-If $f$ is a \textbf{positive}, \textbf{continous} and \textbf{decreasing} for $x \geq m$, where $m \geq 1$
-
-and the n-th term expression $a_n = f(x)$, then:
+If $f$ is a \textbf{positive}, \textbf{continous} and \textbf{decreasing} for $x \geq m$, where $m \geq 1$, and the n-th term expression $a_n = f(x)$, then:
 
 \begin{equation}
     \sum_{n = 1}^{\infty} a_n \text{ and } \int_{1}^{\infty} f(x) \mathrm{d}x
@@ -43,11 +41,11 @@ both converge or diverge.
     \[
         \begin{split}
             \int_{1}^{\infty} \frac{x}{x^2 + 1} \mathrm{d}x &= \lim_{b\to \infty} \int_{1}^{b} \frac{x}{x^2 + 1} \mathrm{d}x\\
-            & = \lim_{b\to \infty} \frac{1}{2}\int_{1}^{b} \frac{1}{x^2 + 1} \mathrm{d}(x^2 + 1)\\
             & = \frac{1}{2} \lim_{b\to \infty} (\ln \abs{b^2 + 1} - \ln \abs{1^2 + 1})\\
             & = \infty
         \end{split}
     \]
+    Here a u-substitution of $u = x^2+1$ and $du = 2x$ is performed. 
     The integral diverges, meaning that the series also diverges
 
     \item Evaluate this series:
@@ -69,4 +67,138 @@ both converge or diverge.
     \]
     Meaning the series converge, \textbf{but the series doesn't necessarily converge to} $\pi/4$
 \end{enumerate}
+
+\section{Practice}
+Determine whether the following series converge or diverge using the integral test.
+\[
+\sum_{n=1}^{\infty} \frac{1}{n^2}
+\]
+A. Converge 
+
+B. Diverge 
+
+C. Insufficient information
+
+\[
+\sum_{n=1}^{\infty} \sin n 
+\]
+A. Converge 
+
+B. Diverge 
+
+C. Insufficient information
+
+\[
+\sum_{n=2}^{\infty} \frac{1}{n \ln n}
+\]
+
+A. Converge 
+
+B. Diverge 
+
+C. Insufficient information
+
+\[
+\sum_{n=1}^{\infty} \frac{6n^2}{n^3+1}
+\]
+
+A. Converge 
+
+B. Diverge 
+
+C. Insufficient information
+
+\[
+\sum_{n=1}^{\infty} e^{-n}
+\]
+
+A. Converge 
+
+B. Diverge 
+
+C. Insufficient information
+\section{Solution}
+1. First check if the series fit the requirement of integral test
+
+Positive: obviously $\displaystyle f(x) = \frac{1}{x^2}$ is positive in $[1 , \infty)$
+
+Continous: the function is continous for all real number except at $x=0$
+
+Decreasing: $\displaystyle f'(x) = -\frac{2}{x^3}$, and $f'(x) < 0$ when $x > 1$
+
+Thus meaning we can apply the integral test to test the convergence of this series:
+
+$\displaystyle \int_{1}^{\infty} \frac{1}{x^2}dx$
+$\displaystyle = \lim_{b\to \infty}\int_{1}^{b} \frac{1}{x^2}dx$
+$\displaystyle = \lim_{b\to \infty}-\frac{1}{x}\Big|_1^b$
+$\displaystyle = -\lim_{b\to \infty} \frac{1}{b} + 1$
+$\displaystyle = 1$
+
+Which means this integral converge, the answer is A.
+
+2. First check if the series meet the requirement of integral test:
+
+Positive: $\displaystyle f(x) = \sin x$ is positive in some interval, but not positive in $[1,\infty)$
+
+Continous: the function is continous for all real number 
+
+Decreasing: $\displaystyle f'(x) = \cos x$, $f'(x) < 0$ for only certain $x$
+
+This means the integral test cannot be applied to this test, the answer is C.
+
+3. First check if the series meet the requirement of integral test:
+
+Positive: $\displaystyle f(x) = \frac{1}{x\ln x}$ is positive in $[2,\infty)$
+
+Continous: the function is continous in its domain
+
+Decreasing: $\displaystyle f'(x) = \frac{\ln x +1}{(x\ln x)^2}$, where $f'(x) < 0$ when $x>1$.
+
+This means we can apply the integral test to test the convergence of this series
+
+$\displaystyle \int_{2}^{\infty} \frac{1}{x\ln x}dx$
+$=\displaystyle \int_{2}^{\infty} \frac{1}{x} \frac{1}{\ln x}dx$
+$=\displaystyle \int_{\ln 2}^{\infty} \frac{1}{u} du$
+$=\displaystyle \infty$
+
+The integral diverge, thus this series diverge. The answer is B.
+
+4. First check if the series meet the requirement of integral test:
+
+Positive: $\displaystyle f(x) = \frac{6x^2}{x^3+1}$ is positive in $[1,\infty)$
+
+Continous: the function is continous in its domain
+
+Decreasing: $\displaystyle f'(x) = \frac{-6x(x^3-2)}{(x^3+1)^2}$, where $f'(x) < 0$ when $x>\sqrt[3]{2}$.
+
+This means we can apply the integral test to test the convergence of this series.
+
+Let $u = x^3+1$, $du = 3x^2$, thus 
+
+$\displaystyle \int_{1}^{\infty} \frac{2}{u}du$ 
+$\displaystyle = 2\lim_{b\to \infty}\int_{1}^{b} \frac{1}{u}du$
+$\displaystyle = 2\lim_{b\to \infty} \ln b \Big|_1^b$
+$\displaystyle = 2 \lim_{b\to \infty} \ln b$
+$\displaystyle = \infty$
+
+5. First check if the series meet the requirement of integral test:
+
+Positive: $\displaystyle f(x) = e^{-x}$ is positive in $[1,\infty)$
+
+Continous: the function is continous in its domain
+
+Decreasing: $\displaystyle f'(x) = -e^{-x}$, where $f'(x) < 0$ when $x>1$.
+
+This means we can apply the integral test to test the convergence of this series.
+
+Let $u = -x$, $du = -dx$, thus 
+
+$\displaystyle \int_{1}^{\infty} e^{-x} dx$ 
+$\displaystyle = -\lim_{b\to \infty}\int_{1}^{b} e^{u}du$
+$\displaystyle = -\lim_{b\to \infty} e^u \Big|_1^b$
+$\displaystyle = -\lim_{b\to \infty} e^{-x} \Big|_1^b$
+$\displaystyle = -\lim_{b\to \infty} e^{-x} + 0$
+$\displaystyle = \frac{1}{e}$
+
+The integral converge, this means the series also converge, the answer is A.
 \end{document}
