@@ -1,0 +1,143 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\numberwithin{equation}{section}
+
+\title{Alternating Series Test for Convergence}
+\author{Polaris}
+\date{2025/07/11}
+
+\begin{document}
+
+\maketitle
+Previously, we are all working with sequence with only positive number, now we will deal with sequence with both positive and negative number.
+
+\section{Alternating Series}
+We define alternating series as a series where the sign of terms switch from positive to negative, or negative to positive.
+ex.
+\[
+    \sum_{n = 0}^{\infty} (-1)^n a_n \text{ and } \sum_{n = 1}^{\infty} \cos(n\pi) a_n
+\]
+
+\subsection{Convergence Test}
+Let $a_n > 0$, the alternating series:
+\[
+    \sum_{n = 1}^{\infty} (-1)^n a_n \text{ and } \sum_{n = 1}^{\infty} (-1)^{n+1} a_n
+\]
+converge if the following two requirements are met:
+\begin{enumerate}
+    \item $\lim_{n\to \infty} a_n = 0$
+    \item $a_{n+1} \leq a_n$ ($a_n$ is decreasing)
+\end{enumerate}
+\textbf{Do not use this test to test for divergence}
+
+\subsection{Example Questions}
+\begin{enumerate}
+    \item Determine if the series converge or diverge:
+    \[
+        \sum_{n = 1}^{\infty} (-1)^{n+1}\frac{1}{n}
+    \]
+    Check the two requirements:
+    \begin{enumerate}
+        \item $\lim_{n\to\infty} \frac{1}{n} = 0$
+        \item $a_{n+1} \leq a_n$ (this function is decreasing in $[1,\infty)$)
+    \end{enumerate}
+    Both requirements fit, meaning that this series \textbf{converge}, although this series look like the harmoic series.
+\end{enumerate}
+
+\newpage
+\section{Practice Question}
+Determine if the following series converge using the Alternating Series Convergence Test:
+
+1. 
+\[
+\sum_{n=1}^{\infty} (-1)^n\frac{n^2}{n^2+5}
+\]
+A. Converge 
+
+B. Cannot be determined by Alternating Series Convergence Test
+
+2. 
+\[
+\sum_{n=2}^{\infty} \frac{\cos(n\pi)}{\sqrt{n}}
+\]
+A. Converge 
+
+B. Cannot be determined by Alternating Series Convergence Test
+
+3. 
+\[
+\sum_{n=0}^{\infty}(-1)^{n-1} \frac{n}{3^{n-1}}
+\]
+A. Converge 
+
+B. Cannot be determined by Alternating Series Convergence Test
+
+4. 
+\[
+\sum_{n=0}^{\infty}(-1)^{n-1} \frac{1}{\ln (n-1)}
+\]
+A. Converge 
+
+B. Cannot be determined by Alternating Series Convergence Test
+
+5. 
+\[
+\sum_{n=0}^{\infty}(-1)^{n-1} \frac{n}{\ln (n-1)}
+\]
+A. Converge 
+
+B. Cannot be determined by Alternating Series Convergence Test
+\section{Solutions}
+1.
+\[
+\lim_{n\to \infty} \frac{n^2}{n^2+5}
+= \lim_{n\to \infty} \frac{2n}{2n}
+= 1
+\]
+Which means one cannot determine the convergence of this series. Although this series diverge because $\displaystyle \lim_{n\to \infty} (-1)^n \frac{n^2}{n^2+5}$ DNE
+
+The answer is B.
+
+2. First, recognize that $\cos (n\pi) = (-1)^n$, thus the original series become
+\[
+\sum_{n=2}^{\infty} (-1)^n \frac{1}{\sqrt{n}}
+\]
+Apply the test to this series:
+\[
+\lim_{n\to\infty} \frac{1}{\sqrt{n}}
+= 0
+\]
+and $\displaystyle \frac{1}{\sqrt{n}}$ is decreasing, thus the series is convergent, the answer is A.
+
+3. Apply the test to this limit:
+\[
+\lim_{n\to\infty} \frac{n}{3^{n-1}} 
+=\lim_{n\to\infty} \frac{1}{\ln 3 \cdot 3^{n-1}}
+=0
+\]
+and the series is decreasing, meaning the series converge, the answer is A.
+
+4. Apply the test to the limit:
+\[
+\lim_{n\to\infty} \frac{1}{\ln(n-1)} = 0
+\]
+and the series is decreasing, meaning that the series converge, the answer is A.
+
+5. Apply the test to the limit:
+\[
+\lim_{n\to \infty} \frac{n}{\ln(n-1)}
+= \lim_{n\to\infty} \frac{1}{\frac{1}{n-1}}
+= \lim_{n\to\infty} n-1
+= \infty
+\]
+Which means this test is not applicable to this series, the convergece of the series cannot be determined by Alternating Series Convergence Test
+\end{document}

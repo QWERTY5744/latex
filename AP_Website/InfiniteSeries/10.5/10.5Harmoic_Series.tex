@@ -1,0 +1,85 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\numberwithin{equation}{section}
+
+\title{Harmoic Series and p-Series}
+\author{Polaris}
+\date{2025/01/13}
+
+\begin{document}
+
+\maketitle
+
+A \textbf{p-Series} is a series that has the form of
+\[
+    \sum_{n = 1}^{\infty} \frac{1}{n^p} = 1 + \frac{1}{2^p} + \frac{1}{3^p} + ... + \frac{1}{n^p}
+\]
+Where $p > 0$.
+
+\section{Convergence of p-series}
+Through integral test, one can determine the convergence of a p-series, first, check if the requirement of integral test is met:
+    \begin{enumerate}
+        \item Positive: $\displaystyle f(x) = \frac{1}{x^p}$ is positive in $(0 , \infty)$
+        \item Continous: the function is continous for all real number expect $x=0$
+        \item Decreasing: $\displaystyle f'(x) = -\frac{p}{x^{p+1}}$ is negative when $x > 0$
+    \end{enumerate}
+
+This means we can apply the integral test to this series, set up this integral:
+\[
+\int_{1}^{\infty} \frac{1}{x^p}dx = \lim_{b\to \infty} \int_{1}^{b} \frac{1}{x^p} dx = \lim_{b\to \infty}\frac{1}{-p+1}x^{-p+1}\Big|_1^b = \lim_{b\to \infty} \frac{1}{-p+1} b^{-p+1} - \frac{1}{-p+1}
+\]
+
+We know that $\displaystyle \frac{1}{-p+1}$ is a real number that has a finite value, so we should examine this limit $\displaystyle  \lim_{b\to \infty} \frac{1}{-p+1} b^{-p+1}$ to determine the convergence of the series.
+
+\[
+ \lim_{b\to \infty} \frac{1}{-p+1} b^{-p+1} = \frac{1}{-p+1} \lim_{b\to \infty}b^{-p+1} 
+\]
+This limit has a finite value when $-p+1 < 0$, or $p>1$, thus the series converge if $p > 1$, diverge if $0 < p \leq 1$.
+
+When $p = 1$, the series is called \textbf{harmoic series}, which diverges.
+
+\section{Example Problem}
+    \[
+    \sum_{n = 1}^{\infty} \frac{1}{\sqrt[4]{k^3}}
+    \]
+    The exponent can be written as $3/4 < 1$, which means it diverges
+
+\section{Practice Problems}
+Determine if the following series converge:
+\[
+\sum_{n=1}^{\infty} \frac{1}{\sqrt[5]{n}}
+\]
+A. Converge
+
+B. Diverge 
+
+\[
+\sum_{n=1}^{\infty} \frac{1}{n^5}
+\]
+A. Converge
+
+B. Diverge 
+
+\[
+\sum_{n=1}^{\infty} \frac{1}{3^n}
+\]
+A. Converge
+
+B. Diverge 
+
+\section{Solution}
+1. $\displaystyle \frac{1}{5} < 1$, meaning this series diverge, the answer is B.
+
+2. $\displaystyle 5>1$, meaning this series converge, the answer is A.
+
+3. This is not a p-series, but a harmonic series, $\displaystyle \frac{1}{3} < 1$, meaning this series converge, the answer is A.
+\end{document}

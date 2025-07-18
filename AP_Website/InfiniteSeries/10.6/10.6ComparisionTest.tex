@@ -1,0 +1,236 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\numberwithin{equation}{section}
+
+\title{Comparision Test for Convergence}
+\author{Polaris}
+\date{2025/07/05}
+
+\begin{document}
+
+\maketitle
+
+\section{Direct Comparison Test for Convergence}
+Let $a_n$ and $b_n$ be two infinte series, if $0 < a_n \leq b_n$ for all $n>0$:
+
+\begin{enumerate}
+    \item If $\displaystyle \sum_{n = 1}^{\infty}$ converge, then $\displaystyle \sum_{n = 1}^{\infty} a_n$ converge.
+    \item If $\displaystyle \sum_{n = 1}^{\infty} a_n$ diverge, then $\displaystyle \sum_{n = 1}^{\infty} b_n$ diverge.
+\end{enumerate}
+\subsection{Example Questions}
+\begin{enumerate}
+    \item Determine the convergence of this series
+    \[
+        \sum_{n = 1}^{\infty} \frac{1}{2 + 3^n}
+    \]
+    Note that this series looks similar to this series, which is a geometric series that converges:
+    \[
+        \sum_{n = 1}^{\infty} \frac{1}{3^n}
+    \]
+    It can be proven that this holds true when $n>1$ (this expression holds true if $n>0$)
+    \[
+        \frac{1}{3^n} > \frac{1}{2 + 3^n}
+    \]
+    Which means the original series converges.
+
+    \newpage
+    \item Determine the convergence of this series:
+    \[
+        \sum_{n = 1}^{\infty} \frac{1}{5 + \sqrt{n}}
+    \]
+    This series look similar to this series:
+    \[
+        \sum_{n = 1}^{\infty} \frac{1}{\sqrt{n}} 
+    \]
+    Notice that 
+    \[
+        \frac{1}{5 + \sqrt{n}} < \frac{1}{\sqrt{n}}
+    \]
+    When $n > 1$. But if we try to apply the convergence test here, we notice that we cannot draw any conclusion,
+    because if the second series diverge, the first one don't have to. We must switch to a new series to solve the problem:
+    \[
+        \sum_{n = 1}^{\infty}\frac{1}{n}
+    \]
+    Notice that 
+    \[
+        \frac{1}{5 + \sqrt{n}} > \frac{1}{n}
+    \]
+    When $n > 8$, this means we can apply the direct comparison test, we know that the second series diverge, 
+    which means the original series \textbf{diverge}.
+
+    We said before that to apply the direct comparision test, $0<a_n\leq b_n$ must hold true for all $n$, but this is a little bit too strict, in fact the requirement of $a_n \leq b_n$ only needs to met eventually.
+
+    Consider two series $a_n$ and $b_n$, for $n < N$, $a_n > b_n$, for $n > N$, $a_n < b_n$, if $b_n$ is a convergent series, then by comparision test $a_n$ is also a convergent series, this is because
+
+    \[
+    \sum_{n=1}^{\infty} a_n = \sum_{n=1}^{N} a_n + \sum_{n=N+1}^{\infty} a_n
+    \]
+    Since $N$ is a finite number, $\displaystyle \sum_{n=1}^{N} a_n$ is also a finite number, meaning that the original series is convergent/divergent only if $\displaystyle \sum_{n=N+1}^{\infty} a_n$ converge/diverge. We can then apply the comparision test for this series to determine the convergence/divergence of this series.
+\end{enumerate}
+
+\section{Limit Comparison Test}
+
+\[
+    \text{If } a_n > 0 \text{ and } b_n > 0 \text{ and } \lim_{n\to \infty} \frac{a_n}{b_n} = L 
+\]
+where $L$ is finite and positive, then the series both converge or diverge. 
+
+If $L=0$ and $b_n$ converges, then $a_n$ also converge.
+
+If $L=\infty$ and $b_n$ diverge, then $a_n$ also diverge.
+
+\subsection{Example Questions}
+\begin{enumerate}
+    \item Determine the convergence of this series:
+    \[
+        \sum_{n = 1}^{\infty} \frac{\sqrt{n}}{n^2 + 1}
+    \]
+    Let's examine this series:
+    \[
+        \sum_{n = 1}^{\infty} \frac{\sqrt{n}}{n^2} = \sum_{n = 1}^{\infty} \frac{1}{n^{\frac{3}{2}}}
+    \]
+    Which is a convergent p-series, now we apply the limit comparison test and use L'Hôpital's rule:
+    \[
+        \begin{split}
+            \lim_{x\to \infty} \frac{\sqrt{n}}{n^2 + 1} \frac{n^2}{\sqrt{n}} & = \lim_{x\to \infty} \frac{n^2}{n^2 + 1}\\
+            & = 1
+        \end{split}
+    \]
+    Which means the original series \textbf{converges}
+
+    \item Determine the convergence of this series:
+    \[
+        \sum_{n = 1}^{\infty} \frac{n2^n}{4n^3 + 1}
+    \]
+    Let's examine this series, to find its convergence, we use the n-th term test:
+    \[
+        \sum_{n = 1}^{\infty} \frac{2^n}{n^2}
+    \]
+    \[
+    \begin{split}
+        \lim_{x\to \infty} \frac{2^n}{n^2} & = \lim_{x\to \infty} \frac{\ln 2\cdot 2^n}{2n}\\
+        & = \lim_{x\to \infty} \frac{\ln 2 \cdot \ln 2 \cdot 2^n}{2} > 0\\
+    \end{split}
+    \]
+    Meaning that this series diverges, then we apply the limit comparison test:
+    \[
+        \begin{split}
+            \lim_{x\to \infty} \frac{n\cdot 2^n}{4n^3 + 1} \frac{n^2}{2^n} & = \lim_{n\to \infty} \frac{n^3}{4n^3 + 1}\\
+            & = \frac{1}{4}
+        \end{split}
+    \]
+    Which means the original series \textbf{diverge}
+\end{enumerate}
+
+\section{Tricks and Tips at selecting the compared series}
+You should see that in order to apply the comparison test, choosing the right series to compare is the key, here are some tricks for choosing the compared series:
+\begin{enumerate}
+    \item If $\displaystyle a_n = \frac{k_1}{k_2 + f(n)}$, where $f(n)$ is a function on $n$, try choosing the compared series as $\displaystyle b_n = \frac{1}{f(n)}$
+    \item If $\displaystyle a_n = \frac{f(n) + k_1}{g(n) + k_2}$ and both $f(n)$ and $g(n)$ are polynomial functions, try choosing the compared series as $\displaystyle b_n = \frac{f_1(n)}{g_1(n)}$, where $f_1(n)$ is the highest term of $f(n)$, $g_1(n)$ is the highest term of $g(n)$
+    \item If $\displaystyle a_n = \frac{f(n)g(n) + k_1}{h(n) + k_2}$, where $f(n)$ and $g(n)$ are polynomials while $g(n)$ is not, try choosing the compared series as $\displaystyle b_n = \frac{f_1(n)}{h_1(n)}\cdot g(n)$, where $f_1(n)$ is the highest term of $f(n)$, $h_1(n)$ is the highest term of $h(n)$
+\end{enumerate}
+However those are not firm guidelines you should follow, be creative when you do problems!
+
+\section{Practice Problems}
+Determine if the following series converge using the comparison test:
+
+$\displaystyle \sum_{n=1}^{\infty} \frac{1}{5+2^n}$
+
+A. Converge 
+
+B. Diverge 
+
+$\displaystyle \sum_{n=2}^{\infty} \frac{1}{n^2-1}$
+
+A. Converge 
+
+B. Diverge 
+
+$\displaystyle \sum_{n=1}^{\infty} \frac{n^2+n}{n^3-n^2+n-1}$
+
+A. Converge 
+
+B. Diverge 
+
+$\displaystyle \sum_{n=1}^{\infty} \frac{\ln n^n}{n^4}$
+
+A. Converge 
+
+B. Diverge 
+
+$\displaystyle \sum_{n=1}^{\infty} \frac{4n}{(n+1)^3}$
+
+A. Converge 
+
+B. Diverge 
+
+\section{Solution}
+
+Consider this series:
+\[
+\sum_{n=1}^{\infty} \frac{1}{2^n}
+\]
+Which is a convergent geometric series
+
+When $n>1$, this always holds true:
+\[
+\frac{1}{2^n} > \frac{1}{5+2^n}
+\]
+
+Meaning that the original series converge, the answer is A.
+
+Consider this series
+\[
+\sum_{n=1}^{\infty} \frac{1}{n^2}
+\]
+Which is a convergent p-series, by limit comparison test:
+
+\[
+\lim_{n\to \infty} \frac{b_n}{a_n} = \lim_{n\to \infty} \frac{n^2-1}{n^2} = 1
+\]
+Which means the original series converge by limit comparison test. The answer is A.
+
+Consider this series
+\[
+\sum_{n=1}^{\infty} \frac{1}{n}
+\]
+By limit comparison test
+\[
+\lim_{n\to \infty} \frac{b_n}{a_n} = \lim_{n\to \infty}\frac{n^2+n}{n^3 - n^2 + n -1} \frac{1}{\frac{1}{n}} = \lim_{n\to \infty}\frac{n^3+n^2}{n^3-n^2+n-1} = 1
+\]
+By limit comparison test the original series diverge, the answer is B.
+
+The original series can be written as:
+\[
+\sum_{n=1}^{\infty} \frac{n\ln n}{n^4} = \sum_{n=1}^{\infty}\frac{\ln n}{n^3}
+\]
+
+Consider this series:
+\[
+\sum_{n=1}^{\infty} \frac{1}{n^2}
+\]
+
+\[
+\lim_{n\to \infty} \frac{\ln n}{n^3} \frac{1}{\frac{1}{n^2}} = \lim_{n\to \infty} \frac{\ln n}{n} = \lim_{n\to \infty} \frac{1}{n} = 0
+\]
+By limit comparison test, the original series converge, the answer is A.
+
+Consider this series:
+\[
+\sum_{n=1}^{\infty} \frac{1}{n^2}
+\]
+By limit comparison test
+\[
+\lim_{n\to \infty} \frac{4n}{(n+1)^3} \frac{1}{\frac{1}{n^2}} = \lim_{n\to \infty} \frac{4n^3}{(n-1)^3} = 4
+\]
+Meaning the original series converge, the answer is A.
+\end{document}
