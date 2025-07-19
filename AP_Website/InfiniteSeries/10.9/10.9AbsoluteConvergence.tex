@@ -1,0 +1,204 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\numberwithin{equation}{section}
+
+\title{Absolute Convergence and Conditional Convergence}
+\author{Polaris}
+\date{2025/07/17}
+
+\begin{document}
+
+\maketitle
+
+Welcome to this guide on Absolute Convergence and Conditional Convergence, this article will guide you through the following:
+
+What is Absolute Convergence?
+
+What is Conditional Convergence?
+
+\section{Absolute/Conditional Convergence}
+Let $\sum a_n$ be an infinte series, if 
+\begin{enumerate}
+    \item $\sum \abs{a_n}$ and $\sum a_n$ both converges, then the series is \textbf{absolutely convergent}.
+    \item $\sum a_n$ converges but $\sum \abs{a_n}$ diverge, then the series is \textbf{conditionally convergent}
+\end{enumerate}
+
+\subsection{Example Questions}
+\begin{enumerate}
+    \item Determine if the series converge absolutely, conditionally, or diverge
+    \[
+    \sum_{n = 1}^{\infty} \frac{(-1)^n}{\sqrt[3]{n}}
+    \]
+    Apply the Alternating series test to this series
+    \begin{enumerate}
+        \item $\displaystyle \lim_{n\to\infty}\frac{1}{\sqrt[3]{n}} = 0$
+        \item The function is decreasing
+    \end{enumerate}
+    Which means by Alternating Series Test, this series converge. 
+    
+    By p-series test, $\displaystyle \sum_{n=1}^{\infty}  \frac{1}{\sqrt[3]{n}}$ diverge, which means the original series \textbf{converge conditionally}.
+
+    \item Determine if the series converge absolutely, conditionally or diverge
+    \[
+    \sum_{n = 1}^{\infty} \frac{\sin n}{n^2}
+    \]
+    Note that this series is \textbf{not} an alternating series. By direct comparison test, we have:
+    \[
+        \sum_{n = 1}^{\infty} \frac{\sin n}{n^2} \leq \sum_{n = 1}^{\infty} \frac{1}{n^2}
+    \]
+    Meaning the original series \textbf{converge absolutely}
+\end{enumerate}
+
+\newpage
+\section{Practice Problems}
+Determine if the following is absolute convergent or conditional convergent 
+
+1. $\displaystyle \sum_{n=1}^{\infty} \frac{n}{3^{n-1}}$
+
+A. Absolutely convergent
+
+B. Conditionally convergent
+
+C. Divergent
+
+2. $\displaystyle \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{3} \frac{1}{2^n}$
+
+A. Absolutely convergent
+
+B. Conditionally convergent
+
+C. Divergent
+
+3. $\displaystyle \sum_{n=1}^{\infty} (-1)^{n-1} \frac{1}{\ln(n+1)}$
+
+A. Absolutely convergent
+
+B. Conditionally convergent
+
+C. Divergent
+
+4. $\displaystyle \sum_{n=1}^{\infty} (-1)^{n+1} \frac{2^{n^2}}{n!}$
+
+A. Absolutely convergent
+
+B. Conditionally convergent
+
+C. Divergent
+
+5. $\displaystyle \sum_{n=2}^{\infty} (-1)^{n+1} \frac{1}{n\ln n}$
+
+A. Absolutely convergent
+
+B. Conditionally convergent
+
+C. Divergent
+
+\newpage
+\section{Solution}
+1. First apply the alternating series test to test the convergence of the original series.
+\begin{enumerate}
+    \item 
+    \[
+    \lim_{n\to\infty} \frac{n}{3^{n-1}} = \lim_{n\to\infty} \frac{1}{\ln 3 \cdot 3^{n-1}} = 0
+    \]
+    Here we applied L'Hopital's Rule
+    \item Let $\displaystyle f(n) = \frac{n}{3^{n-1}}$, find the first order derivative of this function.
+    \[
+    f'(n) = \frac{1}{\left(3^{n-1}\right)^2} \left(3^{n-1} - n\ln 3 \cdot 3^{n-1}\right) = \frac{1 - n\ln 3}{3^{n-1}}
+    \]
+    $f'(n) < 0$ when $\displaystyle n > \frac{1}{\ln 3}$, which means $a_{n+1} < a_n$
+
+    Both condition satisfy, the series is convergent.
+
+    Then check if $\abs{\sum a_n}$ converge, apply the ratio test for convergence.
+    \[
+    \lim_{n\to\infty} \abs{\frac{a_{n+1}}{a_n}} = \lim_{n\to\infty} \abs{\frac{n+1}{3^n} \frac{3^{n-1}}{n}} = \lim_{n\to\infty} \frac{1}{3} \frac{n+1}{n} = \frac{1}{3} < 1
+    \]
+    Which means this series converges as well, the series is absolutely convergent, the answer is A.
+\end{enumerate}
+
+2. First apply the alternating series test to test the convergence of the original series.
+\begin{enumerate}
+    \item 
+    \[
+    \lim_{n\to\infty} \frac{1}{2^n} = 0
+    \]
+    \item Let $\displaystyle f(n) = \frac{1}{2^n} = 2^{-n}$, find the first order derivative of this function.
+    \[
+    f'(n) = -\ln 2 \cdot 2^{-n}
+    \]
+    $f'(n) < 0$ for all real numbers, which means $a_{n+1} < a_n$
+
+    Both condition satisfy, the series is convergent.
+
+    Then check if $\abs{\sum a_n}$ converge, apply the ratio test for convergence.
+    \[
+    \lim_{n\to\infty} \abs{\frac{a_{n+1}}{a_n}} = \lim_{n\to\infty} \abs{\frac{2^n}{2^{n+1}}} = \frac{1}{2} < 1
+    \]
+    Which means this series converges as well, the series is absolutely convergent, the answer is A.
+\end{enumerate}
+
+3. First apply the alternating series test to test the convergence of the original series.
+\begin{enumerate}
+    \item 
+    \[
+    \lim_{n\to\infty} \frac{1}{\ln(n+1)} = 0
+    \]
+    \item Let $\displaystyle f(n) = \frac{1}{\ln(n+1)} = \left(\ln(n+1)\right)^{-1}$, find the first order derivative of this function.
+    \[
+    f'(n) = -\frac{\left(\ln(n+1)\right)^{-2}}{n+1}
+    \]
+    $f'(n) < 0$ for all real numbers, which means $a_{n+1} < a_n$
+
+    Both condition satisfy, the series is convergent.
+
+    Then check if $\abs{\sum a_n}$ converge, here the ratio test cannot draw any conclusion. We turn our attention to comparison test.
+    
+    Let $\displaystyle a_n = \frac{1}{n}$ and $\displaystyle b_n = \frac{1}{\ln n}$. When $n > 1$, $n > \ln n$, meaning $\displaystyle \frac{1}{\ln n} > \frac{1}{n}$, note $a_n$ is a divergent harmonic series, meaning $b_n$ is also divergent.
+
+    This means this series diverge, the series is conditionally convergent, the answer is B.
+\end{enumerate}
+
+4. First apply the alternating series test to test the convergence of the original series.
+    \[
+    \frac{2^{n^2}}{n!} = \frac{2^n\cdot 2^n \cdot 2^n ... \cdot 2^n}{1\cdot 2 \cdot 3 ... \cdot n}
+    \]
+Where there are $n$ $2^n$ multiplying each other, also $2^n > n$, thus each $2^n$ is greater that each of the natrual number in the denominator, as $n$ increase, the fraction will only become larger, meaning the limit is not $0$.
+
+This means this series diverge, the answer is C
+
+5.  First apply the alternating series test to test the convergence of the original series.
+\begin{enumerate}
+    \item 
+    \[
+    \lim_{n\to\infty} \frac{1}{n\ln n} = 0
+    \]
+    \item Let $\displaystyle f(n) = \frac{1}{n\ln n} = (n\ln n)^{-1}$, find the first order derivative of this function.
+    \[
+    f'(n) = -\frac{\ln n + 1}{(n\ln n)^2}
+    \]
+    $f'(n) < 0$ for all real numbers, which means $a_{n+1} < a_n$
+
+    Both condition satisfy, the series is convergent.
+
+    Then check if $\abs{\sum a_n}$ converge, applying the integral test would be the most convenient
+    \[
+    \int_{2}^{\infty} \frac{1}{x\ln x} dx 
+    \]
+    Let $u = \ln x$, $\displaystyle du = \frac{1}{x} dx$, the upper bound turns into $\ln 2$ and $\infty$, thus
+
+    \[
+    \int_{2}^{\infty} \frac{1}{x\ln x} dx = \int_{\ln 2}^{\infty} \frac{1}{u} du = \lim_{b\to\infty} \left(\ln b - \ln (\ln 2)\right) = \infty
+    \]
+    This means this series diverge, the series is conditionally convergent, the answer is B.
+\end{enumerate}
+\end{document}
