@@ -1,0 +1,59 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{positioning,calc,patterns,angles,quotes}
+\numberwithin{equation}{section}
+
+\title{AGN}
+\author{李晨}
+\date{2025/09/13}
+
+\begin{document}
+\maketitle
+
+考虑一个中心天体质量为$M$，光学薄的吸积盘，周围质量以$\dot{M}$的速率吸入盘中。盘中一质量元距离中心天体距离为$r$，质量为$dm$，下落了一小段距离$dr$，因此改变的机械能是
+\[
+\dv{E}{r} = -\dv{r}\frac{GMdm}{2r} = \frac{Gmdm}{2r^2}
+\]
+假设吸积盘是稳定的，那么加入环和离开环的质量应该一样，即$dm = \dot{M}dt$，因此，距离中心天体为$r$，宽度为$dr$的环因引力势能产生的辐射的光度为
+\[
+dL = \frac{GM\dot{M}}{2r^2}dr
+\]
+吸积盘的光度可以由积分给出
+\[
+\int_{R}^{\infty} dL = \int_{R}^{\infty} \frac{GM\dot{M}}{2r^2}dr = \frac{GM\dot{M}}{2R}
+\]
+根据Stefan-Boltzmann定律，可以写出
+\[
+2(2\pi r dr) \sigma T^4 = \frac{GM\dot{M}}{2r^2} dr
+\]
+其中这段环的面积$A = 2 (2\pi r)$，因为环可以在上下两个方向辐射。因此这段环的温度为
+\[
+T(r) = \left(\frac{GM\dot{M}}{8\pi\sigma r^3}\right)^{1/4}
+\]
+考虑到气体下落到主星表面附近遇到的湍流后，温度关于距离的关系式可以这样写出
+\[
+T(r) = \left(\frac{3GM\dot{M}}{8\pi \sigma r^3} \left(1-\sqrt{\frac{r}{R}}\right)\right)^{1/4}
+\]
+其中$R$是吸积盘的内半径。当$r \leq R$时，上式给出的结果近似等于上上式推导的结果。
+
+同时，根据Planck定律，单位频率的辐射能量密度和温度与频率有关
+\[
+B_\nu (T) \propto \nu^3 \left[\exp \left(\frac{h\nu}{kT} - 1\right)\right]^{-1}
+\]
+积分可以得到单位频率的辐射强度
+\[
+S_\nu \propto \int_{R_{\text{min}}}^{R_{\text{max}}} B_\nu (T) 2\pi r dr
+\]
+\end{document}

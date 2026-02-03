@@ -1,0 +1,137 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\numberwithin{equation}{section}
+
+\title{Radius of Convergence}
+\author{Polaris}
+\date{2025/08/24}
+
+\begin{document}
+
+\maketitle
+\section{Radius and Interval of Convergence of Power Series}
+A Power Series takes in a form of
+\[
+    \sum_{n = 1}^{\infty}a_n (x-c)^n
+\]
+Where $c$ is the center of the series, since there is an extra $x$, for some $x$ the series might diverge, for example, consider a series where $a_n = 1$ and $c=0$:
+\[
+\sum_{n=1}^{\infty} x^n
+\]
+If $x\geq1$, this series will diverge to infinity, if $0<x<1$, this series will converge.
+
+There are 3 posibilities of the convergence of a power series:
+\begin{enumerate}
+    \item Converges only at the center (every power series converge at center)
+    \item Converges for some value within a finite distance to the center (we call this distance Radius of Convergence)
+    \item Converge for all values
+\end{enumerate}
+
+\subsection{Interval of Convergence}
+Interval of Convergence is a fancy word for all the values that make the series converge, it is an important parameter of an power series.
+\begin{enumerate}
+    \item Within the radius of convergence, the series will converge \textbf{absolutely}
+    \item At the endpoint of the interval, the series could \textbf{converge absolutely, conditionally or diverge.}
+\end{enumerate}
+To determine the radius of convergence, use the ratio test
+
+If 
+\[
+\rho = \lim_{n\to \infty} \abs{\frac{a_{n+1}}{a_n}}
+\]
+Where $a$ is the coefficient in front of the power term. Then radius of convergence of the series is $R = \dfrac{1}{\rho}$, if $\rho = \infty$, then $R=0$; if $\rho = 0$, $R=\infty$
+\subsection{Example Questions}
+\begin{enumerate}
+\item Find the radius of convergence of this power series:
+\[
+\sum_{n=0}^{\infty}(x+3)^n
+\]
+
+By ratio test:
+\[
+    \lim_{n\to \infty} \abs{\frac{a_{n+1}}{a_n}} = \lim_{n\to\infty} \abs{\frac{1}{1}} = 1
+\]
+Thus the radius of convergence is 1.
+
+To find the interval of convergence for this series, notice that the center is at $x=-3$, and the radius of convergence is $1$, it means that for all values with in $-2$ and $-4$, the series will converge.
+
+To test for the endpoints, substitute the value to the series and test if it converge, for example, to determine the convergence of this series at $x=-2$, substitute $x=-2$ in
+\[
+\sum_{n=0}^{\infty} (-1)^n
+\]
+This is a geometric series with a common ratio of $r=-1$, which diverge, same logic applies to $x=-4$, therefore the interval of convergence for this series is $(-4,-2)$
+\item Find the radius of convergence of this power series:
+\[
+\sum_{n=1}^{\infty}\frac{(-1)^n x^{n+1}}{n^2}
+\]
+
+By ratio test:
+\[
+\lim_{n\to \infty} \abs{\frac{n^2}{(n+1)^2}} = 1
+\]
+Therefore radius of convergence is 1.
+\end{enumerate}
+
+\newpage
+\subsection{Practice Question}
+Determine the radius of convergence of the following power series.
+
+1. $\displaystyle \sum_{n=1}^{\infty} n! x^n$
+
+A. $\infty$
+
+B. $0$
+
+C. $1$
+
+D. $10$
+
+2. $\displaystyle \sum_{n=1}^{\infty} \frac{(x-1)^2}{2^n \cdot n}$
+
+A. $\dfrac{1}{2}$
+
+B. $\infty$
+
+C. $2$
+
+D. $0$
+
+3. $\displaystyle \sum_{n=1}^{\infty} \frac{(2x)^n}{n\cdot 3^n}$
+
+A. $\dfrac{3}{2}$
+
+B. $\dfrac{2}{3}$
+
+C. $2$
+
+D. $3$
+
+\subsection{Solution}
+
+1. By ratio test
+\[
+\rho = \lim_{n\to \infty} \left|\frac{a_{n+1}}{a_n}\right| = \lim_{n\to \infty} \left|\frac{(n+1)!}{n!}\right| = \infty
+\]
+Therefore the radius of convergence is $0$, the answer is B.
+
+2. By ratio test
+\[
+\rho = \lim_{n\to\infty} \left|\frac{2^n \cdot n}{2^{n+1}\cdot (n+1)}\right| = \lim_{n\to\infty} \left|\frac{1}{2}\frac{n}{n+1}\right| = \frac{1}{2}
+\]
+Therefore the radius of convergence of $R = 2$, the answer is C.
+
+3. By ratio test
+\[
+\rho = \lim_{n\to\infty} \left|\frac{2^{n+1}}{(n+1)\cdot 3^{n+1}} \frac{n\cdot 3^n}{2^n}\right| = \frac{3}{2}\lim_{n\to \infty} \left|\frac{n}{n+1}\right| = \frac{2}{3}
+\]
+Therefore the radius of convergence is $\dfrac{3}{2}$, the answer is A.
+\end{document}

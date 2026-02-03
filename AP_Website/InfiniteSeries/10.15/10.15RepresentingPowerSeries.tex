@@ -1,0 +1,139 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\numberwithin{equation}{section}
+
+\title{Representing Functions as Power Series}
+\author{Polaris}
+\date{2025/08/26}
+
+\begin{document}
+\maketitle
+\section{Functions and Power Series}
+As one see in the Taylor Series section, a function (like trigonometric function) can be represented as a infinite series, for example
+\[
+e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!}
+\]
+\[
+\sin x = \sum_{n=0}^{\infty} \frac{(-1)^nx^{2n+1}}{(2n+1)!}
+\]
+This hints us that perhaps all functions can be written as a infinite series. 
+
+\subsection{Example Question}
+1. Represent $f(x) = \displaystyle \int e^{-x^2}dx$ as a power series
+
+This function cannot be obtained easily, since directly integrating $e^{-x^2}$ requires techniques that is not taught in Calc BC, however, recall that
+\[
+e^{-x^2} = \sum_{n=0}^{\infty} (-1)^{n+1}\frac{x^{2n}}{n!} = 1 - x^2 + \frac{x^4}{2!} - \frac{x^6}{3!} + \frac{x^8}{4!} - ...
+\]
+We can integrate this term by term, and obtain this function
+\[
+f(x) = \int e^{-x^2}dx = \int \sum_{n=0}^{\infty} (-1)^{n+1} \frac{x^{2n}}{n!} dx
+\]
+Notice that $(-1)^{n+1}$ and $n!$ are all constant, therefore we only need to worry about the $x$ term in the series.
+\[
+f(x) = \sum_{n=0}^{\infty} \frac{(-1)^{n+1}}{n!} \int x^{2n} dx = \sum_{n=0}^{\infty} (-1)^{n+1} \frac{x^{2n+1}}{(2n+1)n!}
+\]
+
+Just like functions can be represented as a power series, a power series can also be turned into a function.
+
+2. Represent $\displaystyle f(x) = \sum_{n=0}^{\infty} 3x^n$, where $\left|x\right|<1$
+
+In the section on Taylor series, we derived that 
+\[
+\sum_{n=0}^{\infty} x^n = \frac{1}{1-x}
+\]
+Therefore
+\[
+f(x) = \sum_{n=0}^{\infty} 3x^n = \frac{3}{1-x}
+\]
+\section{Practice Problems}
+1. Represent $\arctan x$ as a power series
+
+A. $\displaystyle \sum_{n=0}^{\infty} \frac{x^{2n+1}}{(2n+1)!}$
+
+B. $\displaystyle \sum_{n=0}^{\infty} (-1)^{n} \frac{x^{2n+1}}{(2n+1)!}$
+
+C. $\displaystyle \sum_{n=0}^{\infty} \frac{x^{2n}}{2n!}$
+
+D. $\displaystyle \sum_{n=0}^{\infty} (-1)^{n} \frac{x^{2n}}{2n!}$
+
+2. Represent $f(x) = \dfrac{12}{3+x}$ as a power series
+
+A. $\displaystyle \sum_{n=0}^{\infty} \frac{(-1)^{n+1}4}{3^n}x^{2n}$
+
+B. $\displaystyle \sum_{n=0}^{\infty} \frac{4}{3^n}x^{2n}$
+
+C. $\displaystyle \sum_{n=0}^{\infty} \frac{4}{3^n}x^n$
+
+D. $\displaystyle \sum_{n=0}^{\infty} \frac{(-1)^n 4}{3^n}x^n$
+
+3. Represent $f(x) = 2^x$ as a power series
+
+A. $\displaystyle \sum_{n=0}^{\infty} \frac{x^n}{n!}$
+
+B. $\displaystyle \sum_{n=0}^{\infty} \frac{(\ln 2)^n}{n!}x!$
+
+C. $\displaystyle \sum_{n=0}^{\infty} \frac{x^{n+1}}{(n+1)!}$
+
+D. $\displaystyle \sum_{n=0}^{\infty} \frac{(\ln 2)^{n+1}}{(n+1)!}x^{n+1}$
+
+\section{Solution}
+1. Notice that 
+\[
+\int \frac{1}{1+x^2} dx = \arctan x+C
+\]
+Therefore we can apply term by term integration and find the power series of $\arctan x$, We developed that
+\[
+\sum_{n=0}^{\infty} x^n = \frac{1}{1-x}
+\]
+Therefore 
+\[
+\sum_{n=0}^{\infty} (-1)^{n+1} x^n = \frac{1}{1+x} 
+\]
+Changing $x$ to $x^2$, the series turns to
+\[
+\frac{1}{1+x^2} = \sum_{n=0}^{\infty} (-1)^{n+1} x^{2n}
+\]
+Therefore the power series one desired is
+\[
+\arctan x = \int \frac{1}{1+x^2} dx = \sum_{n=0}^{\infty} (-1)^{n+1} \frac{x^{2n+1}}{(2n+1)!}
+\]
+The answer is A.
+
+2. Divide both the denominator and numerator by $3$
+    \[
+    \dfrac{12}{3+x} = \frac{4}{1-\left(-\dfrac{x}{3}\right)}
+    \]
+    Which looks very similar to the Taylor series of $\displaystyle \sum_{n=0}^{\infty} a_0 x^n = \frac{a_0}{1-x}$, therefore we can construct the power series
+    \[
+    \frac{12}{3+x} = \sum_{n = 0}^{\infty} 4\left(-\frac{x}{3}\right)^n = \displaystyle \sum_{n=0}^{\infty} \frac{(-1)^n 4}{3^n}x^n
+    \]
+    The answer is D.
+
+3. First, recall the Taylor series of $e^x$
+\[
+e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!}
+\]
+Notice that 
+\[
+a^x = e^{x \ln a}
+\]
+Therefore we can turn the Taylor series of $a^x$ into something related to $e^x$
+\[
+a^x = \sum_{n=0}^{\infty} \frac{(\ln a)^n}{n!}x^n
+\]
+When $a=2$, this series turns to the Taylor Series of $2^x$
+\[
+2^x = \sum_{n=0}^{\infty} \frac{(\ln 2)^n}{n!}x^n
+\]
+The answer is B.
+\end{document}

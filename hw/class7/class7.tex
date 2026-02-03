@@ -1,0 +1,155 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{mathtools}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{positioning,calc,patterns,angles,quotes}
+\numberwithin{equation}{section}
+
+\title{Homework 1}
+\author{Chen Li}
+\date{2026/02/01}
+
+\begin{document}
+\maketitle
+\section{Protostellar Phase in the Formation of Stars}
+(a) The mean luminosity of the star during its contraction period is equal to the released energy over the free fall time scale.
+
+By Virial theorem, the energy released during contraction will be half of the avaliable gravitational potential energy
+\[
+E_{\mathrm{released}} = \frac{GM^2}{2R}
+\]
+The average luminosity of the cloud in this period is therefore 
+\[
+L = \frac{E_{\mathrm{released}}}{t_{ff}} = \frac{GM^2}{2R} \sqrt{\frac{32G\rho}{3\pi}}
+\]
+
+(b) I am not entirely sure about what the question is asking
+\section{H II regions and Jeans stability}
+The density of the cloud is $\rho = \mu m_\mathrm{H} n_{\mathrm{HII}} = 8.365\cdot 10^{-19} ~\mathrm{kg/ m^{-3}}$. Here, $\rho = 0.5$ because the mass of electron is neglected.
+
+The Jeans mass of the cloud is therefore 
+\[
+M_J = \left(\frac{5kT}{G\mu m_{\mathrm{H}}}\right)^{3/2} \left(\frac{3}{4\pi \rho}\right)^{1/2} = 1.662 \cdot 10^{37} ~\mathrm{kg}
+\]
+The mass of the cloud is 
+\[
+M = \frac{4}{3}\pi R^3 \rho = 2.966\cdot 10^{33} ~\mathrm{kg}
+\]
+Which is smaller than the Jean's mass, meaning that the cloud will not collapse under its own gravity.
+\section{Magnetic Support in a Molecular Cloud}
+The gravitational binding energy density is 
+\[
+u_G = \frac{U}{V} = \frac{3}{5}\frac{GM^2}{R} \frac{3}{4\pi R^3} = \frac{9GM^2}{20\pi R^4}
+\]
+For the magnetic to have enough support, $u_B = u_G$, which gives 
+\[
+\frac{B^2}{8\pi} = \frac{9GM^2}{20\pi R^4}
+\]
+Which leads to 
+\[
+B_{min} = \sqrt{\frac{18GM^2}{5R^4}}
+\]
+The radius of the cloud can be obtained through the mass and the number density of the cloud.
+\[
+V = \frac{N}{n} = \frac{M}{n_{\mathrm{H}_2} \mu m_p}
+\]
+Combined with the volume of sphere, this gives the radius of sphere to be $5.216\cdot 10^{18}$ cm.
+
+The minimum magnetic field is $B_{min} = 37$ $\mu$G, which is very small. Therefore, magnetic pressure is needs to be accounted for while determining the collapse of molecular clouds.
+\section{Horizontal-Branch Lifetime of the Sun}
+The total number of avaliable Helium atom for triple $\alpha$ process is 
+\[
+N_{\mathrm{He}} = \frac{0.1 M_{s}}{m_{\mathrm{He}}} = 2.993\cdot 10^{55}
+\]
+Each $3\alpha$ reaction requires $3$ helium atom and each reaction release $E_0 = 1.165 \cdot 10^{-12}$ J, the total energy produced by all the helium atom fusing will be 
+\[
+E_{3\alpha} = \frac{N_{\mathrm{He}}}{3} E_0 = 1.162 \cdot 10^{43} ~\mathrm{J}
+\]
+The time sun will spend on horizontal-branch is therefore 
+\[
+\tau = \frac{E_{3\alpha}}{L_{\mathrm{HB}}} = 3.038 \cdot 10^{14} ~\mathrm{s} = 231 ~\mathrm{Myr}
+\]
+\section{Lifetime of a Black Hole (Hawking Radiation)}
+(a) The blackhole lose mass through a rate of 
+\[
+\dot{M} = \frac{\dot{E}}{c^2} = \frac{L}{c^2}
+\]
+The luminosity of the black hole can be given through Stefan-Boltzmann Law
+\[
+L = 4\pi R_c^2 \sigma T^4 = \frac{1}{256\pi^3} \frac{\hbar^4 c^8 \sigma}{G^2 M^2 k_B^4}
+\]
+Where $C = 1.0576\cdot 16{-19}$
+
+Therefore 
+\[
+\frac{dM}{dt} = \frac{1}{256\pi^3} \frac{\hbar^4 c^6 \sigma}{G^2 M^2 k_B^4} = \frac{C}{M^2}
+\]
+Where $C = 3.963 \cdot 10^{15}$
+
+Integrating both sides with respect to time yields 
+\[
+\int_{0}^{M} M^2 dM = C \int_{0}^{\tau} dt
+\]
+Which gives 
+\[
+\tau = \frac{M^3}{3C} = 8.410 \cdot 10^{-17} M^3
+\]
+(b) For a proton mass black hole, the lifespan is 
+\[
+\tau_{p} = 3.94\cdot 10^{-97}s
+\]
+Which is significantly smaller than Planck time
+
+For a black hole with mass of $1000$ kg, the evapoartion time is 
+\[
+\tau_{1000} = 8.41 \cdot 10^{-8} ~\mathrm{s} = 84.1 ~\mathrm{ns}
+\]
+This is around the same as the period of 10 MHz wave.
+
+For a black hole with mass of Earth, the evapoartion time is 
+\[
+\tau_{E} = 1.793\cdot 10^{58} ~\mathrm{s} = 1.363 \cdot 10^{52} ~\mathrm{yr}
+\]
+Which is significantly longer than the lifespan of the universe.
+
+For a black hole with 5 solar mass, the evaporation time is 
+\[
+\tau_{5S} = 8.385\cdot 10^{76} ~\mathrm{s} = 6.377 \cdot 10^{70} ~\mathrm{yr}
+\]
+\section{Equilibrium Abundance of $\prescript{3}{}{\mathrm{He}}$ in the ppI Chain}
+The rate of creation of $\prescript{3}{}{\mathrm{He}}$ is $\lambda_{pd}n_{p} n_{d}$ and the rate of destruction is $\lambda_{33} n_3^2/2$. For $\prescript{3}{}{\mathrm{He}}$ to be at steady state, the sum of the two rates is zero. Which gives 
+\[
+\lambda_{pd}n_{p} n_{d} - \lambda_{33} \frac{n_3^2}{2} = 0
+\]
+Algebraic manipulation yields
+\[
+\frac{\lambda_{pd}}{\lambda_{33}} = \frac{n_3^2}{2n_p n_d}
+\]
+Substitute $n_{pd}$ in terms of $n_{pp}$, one get 
+\[
+\frac{\lambda_{pp}}{\lambda_{33}} = \frac{n_3^2}{n_p^2}
+\]
+This means that the number density of $\prescript{3}{}{\mathrm{He}}$ is 
+\[
+n_3 = n_p \sqrt{\frac{\lambda_{pp}}{\lambda_{33}}}
+\]
+Divide both sides by $n_4$, the ratio between $\prescript{3}{}{\mathrm{He}}$ and $\prescript{4}{}{\mathrm{He}}$ is
+\[
+\frac{n_3}{n_4} = \frac{n_p}{n_4} \sqrt{\frac{\lambda_{pp}}{\lambda_{33}}}
+\]
+In sun, $3n_4 \approx n_p$, therefore 
+\[
+\frac{n_3}{n_4} = 3\sqrt{\frac{\lambda_{pp}}{\lambda_{33}}}
+\]
+\end{document}

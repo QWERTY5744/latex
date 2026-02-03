@@ -1,0 +1,205 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{wrapfig}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{positioning,calc,patterns,angles,quotes,shapes,plotmarks}
+\numberwithin{equation}{section}
+
+\title{戴森环遗迹}
+\author{天体风向}
+\date{2025/08/18}
+
+\begin{document}
+\maketitle
+
+\textbf{前情提要}：本系列的脑洞之一起源于2024年国际天文奥赛集训的参观活动，在本题开始有所体现。在第一届联赛的一道选择大题中，一个未命名的飞船试飞员（一个人类）流落到一个【不知名】的行星上……
+
+在用肢体语言和陆地上的土著告别、并根据上级的指示为这些好奇而暴躁的生物留下一个类似MP4的东西（他阅览后觉得里面的东西狗屁不通）之后，测试员向离岸很远的地方投掷了一个能独立工作的摄像头，然后起飞离开。在轨道上，他发现了围绕恒星的遗迹……
+
+\textbf{本题数据}：不考虑其他行星的引力摄动。假设这个行星系只有一颗主序星，质量为$2M_{\text{日}}$；【不知名】行星的轨道是正圆，半径为1.5AU。
+
+常数：太阳常数$A=1367 \text{W/m}^2$，这是地球轨道处太阳光的能流密度。斯特蕃常量$\sigma = 5.67\cross 10^{-8} \text{W/m}^2 \text{K}^4$。所有题目中给出的条件在本大题其他小题中依然适用。
+
+戴森环科普（已了解可不阅读）：我们认为戴森环是绕恒星运动的一种装置，能够将恒星的电磁辐射转化为其他能量。如果有足够多的戴森环组合，可以将恒星完全包络，从而截获几乎所有的恒星的电磁辐射。
+
+本题的戴森环由\textbf{无数个完全相同的薄长方体板构成}。他们沿相同的轨道上运行，没有相互作用力，板子始终与其前进方向平行。如下图所示，在大多数情况下，它们像瓦片一样互相覆盖，距离可以忽略。因为这个轨道不是正圆，板子之间的覆盖程度时刻变化。在一个轨道周期中，1、2、3号板子之间最近时位于A点，刚好形成两层板子，每层板子首尾相接。1、2、3之间距离拉到最大时位于B点，刚好被拉成连续的一层。
+
+\begin{figure}[H]
+\centering
+
+\begin{tikzpicture}[scale=0.9]
+    \draw[thick] (0,0) rectangle (1.3,0.4);
+    \node at (0.65,0.2) {1};
+    \draw[thick] (1.6,0) rectangle (2.9,0.4);
+    \node at (2.25,0.2) {2};
+    \draw[thick] (0.8,-0.4) rectangle (2.1,0);
+    \node at (1.45,-0.2) {3};
+    \node[below] at (1.7,-0.5) {一般排列状态};
+    
+    \begin{scope}[xshift=4.5cm]
+        \draw[thick] (0,0) rectangle (1.3,0.4);
+        \node at (0.65,0.2) {1};
+        \draw[thick] (1.3,0) rectangle (2.6,0.4);
+        \node at (1.95,0.2) {3};
+        \draw[thick] (2.6,0) rectangle (3.9,0.4);
+        \node at (3.25,0.2) {2};    
+        \node[below] at (1.95,-0.5) {排列最松状态};
+    \end{scope}
+    
+    \begin{scope}[xshift=10cm]
+        \draw[thick] (0,0) rectangle (1.3,0.4);
+        \node at (0.65,0.2) {1};
+        \draw[thick] (1.3,0) rectangle (2.6,0.4);
+        \node at (1.95,0.2) {2};
+        \draw[thick] (0.65,-0.4) rectangle (1.95,0);
+        \node at (1.3,-0.2) {3};
+        \node[below] at (1.55,-0.5) {排列最紧状态};
+    \end{scope}
+\end{tikzpicture}
+\caption{戴森球示意图}
+\end{figure}
+
+\begin{figure}[H]
+    \centering 
+    \begin{tikzpicture}[scale=1.2]
+    \def\a{3}
+    \def\b{2}
+    \def\c{2.236067977}
+    
+    \draw[thick] (0,0) ellipse (\a cm and \b cm);
+    \draw[thick] (-\a,0) -- (\a,0);
+    \draw[thick] (0,-\b) -- (0,\b);
+    \fill[black] (\c,0) circle (2pt);
+    \node[above, black] at (\c,0.2) {中心恒星};
+        
+    \fill[black] (\a,0) circle (2pt);
+    \node[right, black] at (\a,0.2) {A};
+    \fill[black] (-\a,0) circle (2pt);
+    \node[left, black] at (-\a,0.2) {B};
+    \fill[black] (0,\b) circle (2pt);
+    \node[above, black] at (0,\c-0.1) {C};
+\end{tikzpicture}
+    \caption{戴森环遗迹轨道}
+\end{figure}
+
+
+\section{试题}
+\begin{enumerate}
+    \item 如果戴森环在远星点处恰好和【不知名】行星轨道相切，求戴森环恰好完成一次旋转的周期。单位均为地球年。
+    \begin{enumerate}
+        \item 0.84yr
+        \item 1.19yr
+        \item 1.83yr
+        \item 0.91yr
+    \end{enumerate}
+    \item 我们下面考虑轨道短轴一端C点的位置。请计算这里板子和恒星光照的夹角。
+    \begin{enumerate}
+        \item $60^{\circ}$
+        \item $90^{\circ}$
+        \item $70.5^{\circ}$
+        \item $75.5^{\circ}$
+    \end{enumerate}
+    \item 已知质光关系$L\propto M^{3.5}$。请你估计在C点恒星光的能流密度。
+    \begin{enumerate}
+        \item $6874 \text{W/m}^2$
+        \item $4320\text{ W/m}^2$
+        \item $1.547\cross 10^4 \text{ W/m}^2$
+        \item $1.222\cross 10^4 \text{ W/m}^2$
+    \end{enumerate}
+    \item 计算在C点的位置时，3号板子被1、2号板子遮挡的比例
+    \begin{enumerate}
+        \item $0.414$
+        \item $0.586$
+        \item $0.343$
+        \item $0.657$
+    \end{enumerate}
+    \item 本题的戴森环在测试员到达时已经处于关闭状态，因此所有薄板均可视为绝对黑体，能量输入与输出方式均为电磁辐射，板子之间也只通过热辐射进行热交换。假设板子时刻处于热平衡状态，任意一个板子的温度处处相等。请计算C点处内侧（靠近恒星一侧）的板子的温度。
+    
+    提示：根据计算，内侧板子和外侧板子的温度之比为1.1222，你可以直接使用这个值以降低计算量。C点内侧相邻板子（即1、2号板子）之间的温度差可以忽略，两层板子之间的距离可以忽略。
+    \begin{enumerate}
+        \item $594.1$K
+        \item $529.4$K
+        \item $603.3$K
+        \item $537.3$K
+    \end{enumerate}
+
+    测试员在一个纬度较高的位置着陆，发现他出现在一个寂静的建筑群中。控制面板报警称他投放的摄像头所在深度正在迅速增加，他在摄像头画面里看到一个看起来像鱼龙的生物的尾和两只蹼，正在快速摆动。
+    \item 测试员的正北方有一堵东西方向、高为500米的墙，距离测试员50米。测试员通过一段时间的观测发现，有一颗亮恒星（距离在2pc以外）的星轨和墙面的上沿相切，并且不被这堵墙遮挡，并且通过天顶。忽略大气层，请计算测试员所处位置的纬度。
+    \begin{enumerate}
+        \item $87^{\circ}8'41''$N
+        \item $87^{\circ}17'20''$N
+        \item $87^{\circ}17'41''$S
+        \item $86^{\circ}43'1''$N
+    \end{enumerate}
+    \item 我们认为这颗【不知名】行星的自转情况和地球的相似，并且假设第6题中，恒星星轨和墙的边缘实际上留了大约1°的距离（仅对本题有效），那么测试员观察到第6题的天象不能永远持续，直接原因不可能是（假设这堵墙坚不可摧，观测设备位于地面）
+    \begin{enumerate}
+        \item 行星公转轨道改变
+        \item 恒星自行
+        \item 地轴的岁差
+        \item 恒星演化走向末期
+    \end{enumerate}
+\end{enumerate}
+\section{答案}
+    \begin{enumerate}
+        \item 由题意，板子之间的距离，在近星点时相对远星点延长了一倍。而在相同时间内、通过轨道上任意一个静止点（包括远星和近星点）的板子数量都是相等的。因此，戴森环在近星点的速度是在远星点的速度的两倍。由开普勒第二定律或者角动量守恒定律，
+        \[
+        v_{\text{远}}r_{\text{远}} = v_{\text{近}} r_{\text{近}}
+        \]
+        即远星点距离是近星点的两倍，则半长轴
+        \[
+        a=\frac{1.5 + 0.5\cdot 1.5}{2} \text{ AU}=1.125 \text{ AU}
+        \]
+        由开普勒第三定律
+        \[
+        \frac{a^3}{T^2} = \frac{M+m}{M_{\text{日}}}
+        \]
+        解得一个旋转周期为$0.84$yr，答案选A。
+
+        \item 本题目涉及到椭圆的基本知识。画出焦半径后可得夹角为
+        \[
+        \theta = \arccos (\frac{1}{3}) = 70.5^{\circ}
+        \]
+        答案选C，这一题目提示了在下面的问题中需要考虑光照夹角。
+
+        \item 这里的能流密度为
+        \[
+        F = A \cdot \left(\frac{M_s}{M_{\text{日}}}\right)^{3.5} \cdot (\frac{a_{地}}{a})^2 = 1.222 \cross 10^4 \text{ W/m}^2
+        \]
+        答案为D。
+        
+        \item 延续第一问的做法，假设板子之间的距离是A点的$\lambda = r_{\text{远}}/b$倍，b为轨道的半短径，$b=1.0607$AU，被遮挡的比例为
+        \[
+        \eta = 1- (\lambda - 1) = 0.586
+        \]
+        答案选B，第2、3、4问均为第5问的准备。
+
+        \item 记板子的面积为$S$，内侧板子温度为$T_1$，外侧板子温度为$T_2$,列出方程组：
+        \[
+        \begin{cases}
+            SF\sin \theta + S\eta \sigma T_2^4 = 2S\sigma T_1^4\\
+            S(1-\eta)F \sin \theta + S\eta\sigma T_1^4 =2S\sigma T_2^4\\
+        \end{cases}
+        \]
+    解得$T_1=594.1$K，$T2=529.4$K。如果使用了题目所给的温度之比可以减少代数计算时间，答案选A。
+
+    \item 因为面向正北观测，这颗恒星的赤纬圈中心即北天极方向。北天极高度为
+    \[
+    h = \frac{1}{2}\left(90^{\circ} + \arctan \left(\frac{500}{50}\right)\right) = 87^{\circ}8'41'' \text{ N}
+    \]
+    而纬度即北天极高度，因此答案选A。
+
+    \item 行星的公转轨道改变并不影响行星的自转，故不影响观测，答案选A。
+    \end{enumerate}
+\end{document}

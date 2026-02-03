@@ -1,0 +1,323 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{positioning,calc,patterns,angles,quotes}
+\numberwithin{equation}{section}
+
+\title{New Year Homework}
+\author{Chen Li}
+\date{2025/09/29}
+
+\begin{document}
+\maketitle
+\section{Star with changing luminosity}
+
+(a) The luminosity of the star as a function of time is 
+\[
+L(t) = L_0 \cdot 100^{t/100} 
+\]
+Thus 
+\[
+    \begin{split}
+        m-m_6 &= -2.5\lg \left(\frac{F}{F_6}\right)= -2.5 \lg \left(\frac{L}{L_6}\right)\\
+        &= -2.5 \lg \left(100^{-t/100}\right)\\
+        10^{-2t/100}&= 10^{0.4(m-m_6)}\\
+        t&= 50\cdot 0.4(m-m_6) = 170 \text{yr}
+    \end{split}
+\]
+
+(b) Factoring in interstellar extinction, the apparent magitude of this star is 
+\[
+m_0 = m - 0.05 \cdot 100 = 9.5 \text{mag}
+\]
+
+Compare this star with the Sun, where $m_s = -26.74$
+\[
+\begin{split}
+    m-m_s &= -2.5\lg\left(\frac{F}{F_s}\right)\\
+    &= -2.5 \lg\left(\frac{L}{L_s} \frac{d_s^2}{d^2}\right)\\
+    &= - 2.5\lg \frac{L}{L_s} - 5\lg \frac{d_s}{d}\\
+    \frac{L}{L_s} &= 10^{-0.4 (m-m_s + 5\lg (d_s / d))} \approx 1.36\\
+\end{split}
+\]
+Therefore the initial radius of the star in terms of solar radius is
+\[
+\frac{R}{R_s} = \sqrt{\frac{L}{L_s} \frac{T^4_s}{T^4}} \approx 1.55
+\]
+The orbital radius of Jupiter is $5.2$ AU which is equal to $1117 R_s$, therefore, the luminosity of the star will increase by a factor of 
+\[
+\frac{L_J}{L_0} = \frac{R^2_J}{R^2} = 5.19 \cdot 10^5
+\]
+The time it takes is therefore 
+\[
+t = 50 \lg \frac{L_J}{L_0} = 286 \text{yr}
+\]
+
+\section{Shadow's Movement}
+I don't know how to do this problem.
+\section{Tully-Fisher Relation}
+(a) Mass-to-light ratio is defined as $C_1 = M/L$, where $M$ is the mass inside the disk with radius of $R$. Therefore 
+\[
+L = \frac{M}{C_1} = \frac{Rv^2}{C_1G}
+\]
+Making a furthur approximation that the galactic disk have even brightness everywhere, this means that $L/R^2 = C_2$, substitute this in, one arrive at the T-L relation 
+\[
+L = \frac{v^4}{G^2 C_1^2 C_2} \propto v_\infty^4
+\]
+
+(b) The absolute magnitude of Milky way is $M_{mw} \approx -21$ mag, for Milky Way, $v_{\infty, mw} \approx 220$ km/s. From the graph, the redshift at the edge of the galaxy is around $7.7\cdot 10^{-3}$, deduct $3\cdot 10^{-3}$ for the redshift due to expasion of the universe, the rotational velocity of the edge of the galaxy is
+\[
+v_{\infty} = cz = 1410 \text{ km/s}
+\]
+By TF relation, the luminosity of the galaxy is 
+\[
+\frac{L}{L_{mw}} = \frac{v^4_{\infty}}{v^4_{\infty, mw}} = 1687
+\]
+The absolute magnitude of the galaxy is 
+\[
+M_{gal} = M_{mw} - 2.5\lg \left(\frac{L}{L_{mw}}\right) = -29
+\]
+Distance can be estimated from Hubble law ($H_0 = 70$ km/s/Mpc)
+\[
+d = \frac{v}{H_0} = 12.9 \text{ Mpc}
+\]
+The apparent magnitude of the galaxy is therefore 
+\[
+m = M - 5 + 5\lg d = 1.55
+\]
+\section{Colliding Star}
+(a) In the CM frame, the total energy of the system is
+\[
+E = \frac{1}{2} \mu v^2 - \frac{G M_{tot} \mu}{r}
+\]
+Where $\mu$ is the reduced mass. When $E=0$, the system is just bounded. Therefore the farthest distance of binding is
+\[
+r_s = \frac{4GM}{v^2}
+\]
+
+(b) The mean free-path of the system is 
+\[
+l = \frac{1}{n\sigma}
+\]
+Where $\sigma = \pi r_s^2$. The mean collision time is thus 
+\[
+t_{scale} = \frac{1}{n\sigma v}
+\]
+
+(c) For Milky Way $L = 10^3$ ly, $R = 5\cdot 10^4$ ly, $N = 2\cdot 10^{11}$. The number density is therefore 
+\[
+n = \frac{N}{V} = \frac{N}{\pi R^2 L} = 3 \cdot 10^{-50} \text{ /m}^3
+\]
+The velocity dispersion of the stars can be used to approximate the mean velocity between the stars. By virial theorem and dimensional analysis, the velocity dispersion is
+\[
+v = \sqrt{\frac{2GM}{R}} = 3.36 \cdot 10^5 \text{m/s}
+\]
+Substitute everything into the equation, $t_{scale} \approx 1.41 \cdot 10^{24}$s $\approx 4.46 \cdot 10^{16}$yr, which is longer than the age of universe.
+
+(d) The number density of the three types of star is related as such
+\[
+\frac{n_1}{n_2} = \frac{n_2}{n_3} = 0.1^{-2.35} = 223.8
+\]
+The sum of all three densities should equal to the mean density. Thus 
+\[
+n = n_1 + n_2 + n_3 = n_1 + \frac{1}{223.8}n_1 + \frac{1}{223.8^2}n_1 = 1.004 n_1
+\]
+This gives $n_1 = 2.99 \cdot 10^{-50}$/m$^3$, $n_2 = 1.33\cdot 10^{-52}$/m$^3$ and $n_3 = 5.96\cdot 10^{-56}$/m$^3$
+
+The equivalent mean free path is therefore 
+\[
+l_{eq} = \frac{1}{n_1 \sigma_1 + n_2 \sigma_2 + n_3 \sigma_3} = 3.25\cdot 10^{31} \text{m}
+\]
+
+The mean time between collision is 
+\[
+t_{scale} = \frac{l_{eq}}{v} \approx 9.67\cdot 10^{25} \text{s} \approx 3.06 \cdot 10^{18} \text{yr}
+\]
+Which is still longer than the age of the universe.
+
+\section{Energy recieved by Earth}
+(a) At a distance $r$, the energy recieved by Earth per unit area is 
+\[
+f = \frac{L}{4\pi r^2}
+\]
+The energy recieved throughout the year is
+\[
+F = \int_{0}^{T} \frac{L}{4\pi r^2}dt
+\]
+By Kepler's Second Law, one have
+\[
+\frac{dA}{dt} = \frac{1}{2} r^2 \frac{d\theta}{dt} = \frac{h}{2}
+\]
+Thus, by preforming an substituition on the integral above, one have 
+\[
+F = \frac{L}{4\pi}\int_{0}^{2\pi} \frac{1}{r^2} r^2 d\theta = \frac{L}{2h}
+\]
+In an elliptical orbit, reduced angular momentum is 
+\[
+h = \frac{2\pi a^2 \sqrt{1-e^2}}{T}
+\]
+Which means the total energy recieved by unit area throughout an year is 
+\[
+F = \frac{L \cdot T}{4\pi a^2 \sqrt{1-e^2}}
+\]
+The total energy recieved by the land is 
+\[
+E = \frac{1}{4} \pi R_E^2 F = \frac{L T R_E^2}{16a^2 \sqrt{1-e^2}} = 1.37\cdot10^{24} \text{J}
+\]
+
+(b) The temperature change of water is related with the heat the water absorb
+\[
+Q = Cm\Delta T = 5\cdot 10^{26} \text{J}
+\]
+Where $C = 4200$ J/kg$\cdot$K, $m = \rho V = 1.4\cdot 10^{21}$ kg
+
+Assume the Earth rotated $k\pi$ rad by the time the ocean evaporate, the total energy recieved by the Earth is 
+\[
+E = k\frac{L T R_E^2 }{4 a^2 \sqrt{1-e^2}} = Q
+\]
+This gives $k = 91.3$, which translate to $45.6$ rotations around the Sun, or $45.6$ years for the entire ocean to evaporate.
+
+(c) Compare this to the power of TNT
+\[
+n = \frac{E}{16 \text{kiloton of TNT}} = 2\cdot 10^{10}
+\]
+The energy Earth recieve from radiation every year is equivalent to 20 billion nuclear bomb dropped on Hiroshima.
+\section{Farmer and the Dog}
+
+The outer boundary of the places the dog can visit is an ellipse with $a = 12.5$ m and $c = 5$ m, the semi-minor axis of this ellipse is
+\[
+b = \sqrt{a^2 - c^2} = 11.5 \text{m}
+\]
+The total area the dog can gaurd is the area of the ellipse 
+\[
+S = \pi a b = 451.6 \text{m}^2
+\]
+After placing the obstacle on the rope, the area the dog can gaurd is constrain to a circular sector. The opening angle of this sector can be found through cosine law.
+\[
+\theta = \arccos \left(\frac{15^2 - 10^2 - 10^2}{2\cdot 10 \cdot 10}\right) = 82.8^{\circ}
+\]
+The new area the dog can gaurd is 
+\[
+S' = \pi r^2 \cdot \frac{\theta}{360^{\circ}} = 72.3 \text{m}^2
+\]
+The decrease in area is 
+\[
+\Delta S = S - S' = 379.3 \text{m}^2
+\]
+\section{Superluminal jet}
+(a) Converting the proper motion into rad/s: $\mu = 1.23\cdot 10^{-16}$ rad/s 
+
+The velocity of the jet is thus 
+\[
+v_{\text{app}} = \mu D = 2.38\cdot 10^{9} \text{m/s}
+\]
+Therefore 
+\[
+\beta_{\text{app}} = \frac{v_{\text{app}}}{c} = 7.95
+\]
+
+(b) Consider two photons that is emitted at two different time $\Delta t_e$, the first photon will reach the observer at a time of
+\[
+t_1 = \frac{D}{c}
+\]
+The second photon will reach the observer at 
+\[
+t_2 = \Delta t_e + \frac{D - v\Delta t_e \cos \theta}{c}
+\]
+Thus the time difference of observing the photons is 
+\[
+\Delta t = t_2 - t_1 = \Delta t_e - \frac{v\Delta t_e \cos\theta}{c}
+\]
+\[
+v_{\text{app}} = \frac{v\Delta t_e\sin \theta}{\Delta t} = \frac{v \sin\theta}{1-v\cos\theta/c}
+\]
+This is equivalent to
+\[
+\beta_{\text{app}} = \frac{\beta \sin \theta}{1 - \beta \cos \theta}
+\]
+
+(c) Take derivative of the obtained relation, one obtain 
+\[
+\frac{d}{d\theta} \beta_{\text{app}} = \frac{\beta}{(1-\beta \cos \theta)^2} (\cos \theta -\beta)
+\]
+Let this equal to $0$, the maximum apparent velocity will happen when $\beta = \cos\theta$
+
+For superluminal to happen, the following is true 
+\[
+\frac{\beta\sin \theta}{1-\beta \cos \theta} > 1
+\]
+which translate to 
+\[
+\beta > \frac{1}{\sin \theta + \cos \theta}
+\]
+
+(d) Reversing the relationship found in (b), one have 
+\[
+\beta = \frac{\beta_{\text{app}}}{\beta_{\text{app}}\cos \theta + \sin \theta} < 1
+\]
+Isolating $\beta_{\text{app}}$, one have 
+\[
+\beta_{\text{app}} < \frac{\sin \theta}{1-\cos\theta}
+\]
+Which can be translated to 
+\[
+\tan \frac{\theta}{2} > \frac{1}{\beta_{\text{app}}}
+\]
+Therefore the maximum angle is 
+\[
+\theta_{\text{max}} = 2\arctan \frac{1}{\beta_{app}} = 14^{\circ}
+\]
+From the relation, $\theta \propto \beta^{-1}$, which means for smaller $\theta$ (closer to line of sight), superluminal motion appears more extreme.
+
+\section{Coplanar circular orbiting planets}
+(a) By cosine law, the distance between the two planets is depended on the orbital radius of each planet and the angle between the radius vector
+\[
+r^2 = R_1^2 + R_2^2 - 2R_1 R_2 \cos\left(\theta\right)
+\]
+Where $\theta = \omega_{\text{rel}} (t-t_0) = 2\pi (t-t_0) / T_{\text{rel}}$, where $t_0$ is the offset between the arbitrary moment and the moment that the planets are closest to each other.
+
+Therefore 
+\[
+r(t) = \sqrt{R_1^2 + R_2^2 - 2R_1R_2 \cos\left(\frac{2\pi (t-t_0)}{T_{\text{rel}}}\right)}
+\]
+
+(b) From sinusodial regression
+\[
+r^2 = 16.4829 + 16.0498 \cos \left(\frac{2\pi}{T_{\text{rel}}} + 3.1239\right)
+\]
+This gives 
+\[
+\begin{cases}
+    R_1^2 + R_2^2 = 16.4829\\
+    2R_1R_2 = 16.0498\\
+\end{cases}
+\]
+This gives 
+\[
+\begin{cases}
+    R_1 = 3.1813 \mathrm{AU}\\
+    R_2 = 2.5224 \text{AU}
+\end{cases}
+\]
+
+(c) The relative angular velocity is equal to
+\[
+\omega_{\mathrm{rel}} = \omega_2 - \omega_1 = \sqrt{\frac{GM}{R_2^3}} - \sqrt{\frac{GM}{R_1^3}}
+\]
+Compare this to the data of Earth
+\[
+\frac{\omega_{\mathrm{rel}}}{\omega_{E}} = \sqrt{\frac{M}{M_s}} \sqrt{\frac{R_E^3}{R_2^3}} - \sqrt{\frac{M}{M_s}} \sqrt{\frac{R_E^3}{R_1^3}} = \frac{T_e}{T_{\mathrm{rel}}}
+\]
+Substitute the nessasary numbers, the ratio of mass is $M = 1.136 M_s$
+\end{document}

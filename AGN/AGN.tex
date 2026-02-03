@@ -1,0 +1,345 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{positioning,calc,patterns,angles,quotes}
+\numberwithin{equation}{section}
+
+\title{AGN}
+\author{勾陈一}
+\date{2025/09/13}
+
+\begin{document}
+\maketitle
+
+\section{AGN的观测特征}
+\subsection{很宽的emission line}
+AGN有着十分宽的发射线，宽度一般在$1000 \text{km/s}$以上，并且不与任何已知谱线对应。谱线的展宽是由中心黑洞导致的，而谱线的位置和红移有关。
+
+\subsubsection{何为谱线展宽？AGN为何展宽？}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm]{pics/DP.png}
+    \caption{Doppler Broadening}
+\end{figure}
+正常情况下，谱线比较窄。考虑到粒子的速度不是一个固定的值，根据多普勒位移的公式，这些粒子位移的量也不同，总体就呈一个展宽的形式。
+\[
+f = \left(1+\frac{v}{c}\right)f_0
+\]
+
+由于AGN一般是黑洞，距离黑洞近的气体速度非常快，视向速度的变化的范围很大，导致多普勒展宽非常明显，形成所谓的宽线区（broad line region）
+
+\subsection{很多的forbidden emission line}
+AGN和普通星云一样拥有大量的forbidden emission line，这些谱线有助于了解AGN的内部结构。例如窄线区如果绕中心黑洞旋转，会产生double-peaked narrow-line光谱，这样就可以测出绕转速度。这也可以代表黑洞的喷流。
+
+\subsubsection{何为forbidden emission line?}
+我没搞明白这个是啥，向封博士请教下forbidden emission line代表什么，其特殊意义在哪里？
+
+\subsection{偏蓝的总体连续谱}
+AGN的连续谱比普通星系明显偏蓝，这是因为黑洞的高温吸积盘导致的。
+
+\subsection{喷流}
+AGN的中心黑洞会产生喷流，喷流产生的具体机制尚不清楚。
+
+\subsection{X射线}
+AGN的很大一部分（$5 - 40 \%$）的能量辐射来自于X射线辐射。一般认为X射线源于黑洞高温的吸积盘
+
+\section{辐射机制}
+\subsection{Thomson散射}
+Thomson散射是带电粒子和低能光子（$h\nu \ll mc^2$）在非相对论情况下的弹性散射（即粒子散射前后的状态不变，在非相对论的情况下，总动能和不变）。
+
+首先引入经典电子半径（classical electron radius）的概念。一个带电的球体会产生带有势能的电场，如果这个能量等于电子的静止能量，那么就认为这个球的半径是电子的经典半径。
+
+距离小球$r$处，库伦势为
+\[
+U = \frac{1}{4\pi\varepsilon_0} \frac{q}{r}
+\]
+如果$r=r_e$为经典电子半径，测试电荷的势能应该等于电子的静止能量$E = m_ec^2$，联立两个式子，可以得到
+\begin{equation}
+    r_e = \frac{1}{4\pi \varepsilon_0} \frac{e^2}{m_e c^2} = 2.8179 \cdot 10^{-15} \text{m}
+\end{equation}
+因此电子的Thomson散射截面为
+\begin{equation}
+    \sigma_T = \frac{8\pi}{3}r_e^2
+\end{equation}
+（我没看懂这个是怎么得来的）
+
+考虑到粒子在等离子体中运动，有一定概率被散射掉，光深（optical depth）是量化散射概率和散射次数的参数：
+\begin{equation}
+    \tau = \int \sigma_T n_e dx
+\end{equation}
+其中$n_e$为数密度，$dx$为一个光子移动的距离元。平均自由程$\lambda = 1/(\sigma_T n_e)$
+
+\subsection{Compton散射}
+\subsubsection{概述}
+Compton散射是Thomson散射的推广，适用于所有光子与带电粒子的散射。由于光子的能量可以与带电粒子的静止能量相比较（$h\nu \approx mc^2$）在这个过程中，光子会丢失一部分能量，这部分能量传给了带电粒子。
+
+\subsubsection{理论}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=15cm]{pics/CS.png}
+    \caption{建立坐标系}
+\end{figure}
+光子以$E_i$和$p_i$的初始动能和动量入射，并以$E_f$和$p_f$的终末动能和动量离开；电子开始处于静止状态，碰撞后获得$K$和$p$的动能和动量，假设电子是自由的。
+
+根据两个方向上的动量守恒，有
+\[
+\begin{cases}
+    p_f \cos \theta + p \cos \phi = p_i\\
+    p_f \sin \theta = p \sin \phi\\
+\end{cases}
+\]
+稍微变形，平方二式并相加，有
+\[
+\left(p_i - p_f \cos \theta \right)^2 + p_f \sin^2 \theta = p^2(\sin^2 \phi + \cos^2 \phi)
+\]
+展开平方式可以得到
+\begin{equation}
+p^2 = p_i^2 + p_f^2 - 2p_ip_f \cos \theta 
+\label{eq1}
+\end{equation}
+根据动能守恒有
+\[
+E_i - E_f = K
+\]
+且光子的动能可以写成$p = E/c$，因此可以给出动量的另一层关系
+\[
+p_i c - p_f c = K
+\]
+假设电子的能量$E = K + m_ec^2$且相对论中能量$E^2 = (pc)^2 + (m_0 c^2)^2$，联立二式可以得到电子动能和动量的关系
+\begin{equation}
+p^2 = \frac{K^2}{c^2} +2Km_e
+\label{eq2}
+\end{equation}
+联立\ref{eq1}和\ref{eq2}并展开括号可以得到
+\[
+\frac{1}{p_f} - \frac{1}{p_i} = \frac{1}{m_ec} (1-\cos \theta)
+\]
+两边同乘Planck常数$h$并套用De Broglie波长，可以得到
+\begin{equation}
+    \lambda_f - \lambda_i = \frac{h}{m_ec}(1 - \cos \theta)
+\end{equation}
+这表明了散射前后光子波长的改变。由此可以发现两件事
+\begin{enumerate}
+    \item 光子散射前后的波长仅和入射角有关，波长变化的最大值位于$\theta = \pi$，$\Delta \lambda = 2h/m_e c$
+    \item 定义电子的Compton波长为
+    \begin{equation}
+        \lambda_C = \frac{h}{m_ec} = 2.426\cdot 10^{-12} \text{ m}
+    \end{equation}
+    Compton波长给定了光与粒子发生相互作用时，波长变化的基本单位。
+\end{enumerate}
+\subsubsection{理论和实验的分歧}
+实验发现，有一部分光子的波长并不会发生改变。这是因为推导时假设电子是自由的，如果电子和原子核有很强的绑定力，光子不一定击穿这个力并解放电子，故此时可视为光子撞上了原子核。而原子核的质量大很多，对应的Compton波长就小很多，这就导致有一部分光子看似没有被散射（实际上只是散射的程度很小）。
+\subsubsection{Compton波长}
+Compton波长有另一个十分重要的含义。根据Heisenberg不确定性，随着位置不确定性的减少，动量的不确定性会增大
+\[
+\Delta p \gtrsim \frac{h}{\Delta x}
+\]
+把动量换成动能，可以得到能量的不确定性与位置不确定性的关系
+\[
+\Delta E \gtrsim \frac{hc}{\Delta x}
+\]
+如果$\Delta E \approx m_ec^2$，说明某一区域内的能量可以与粒子的静止能量相比，这意味着这些能量可以凭空创造出一个粒子。这说明经典的粒子理论失效了，而这个失效的尺度就在Compton波长上。
+\[
+\Delta x \approx \frac{hc}{\Delta E} \approx \frac{h}{m_e c} 
+\]
+（我没搞明白Compton散射截面这一块）
+
+\subsection{逆Compton散射}
+低频光子和高能电子碰撞时，光子可以从电子中获得能量，这便是逆Compton散射。
+
+（我没有完全搞明白这个过程是怎么发生的，特别是加上了相对论等等过程）
+
+\subsection{Bremsstrahlung辐射}
+Bremsstrahlung辐射（刹车辐射）是当电子与离子碰撞（或发生反应时）得到的辐射。下面是简单的理论理解：
+
+通过高强度运算，单位体积，单位频率Bremsstrahlung的辐射强度：
+\begin{equation}
+    L = \frac{32\pi Z^2e^6}{3c^3 m^2} \bar{g}_\nu n_e n_i\sqrt{\frac{2\pi mkT}{3h^2}}
+\end{equation}
+
+\subsection{成对产生（Pair Production）}
+当极高能的光子撞上原子核（撞上电子也可以）时，一般光子的能量会转化成两个全新的粒子（例如一对正反电子），这便是所谓的成对产生。反应式为
+\[
+\gamma + Z \to e^+ + e^- + Z
+\]
+这里原子核并不会发生改变，只会分担部分光子的动能。这个反应中，原子核是必须的，不然根据动量守恒，电子的速度要达到光速。
+
+这个反应对光子的能量也有要求，光子的能量要大于或者等于创造出的两个粒子的能量，否则无法创造出两个粒子。如果光子的能量大于两个粒子的静止能量，那么多余的能量会转化成产生粒子的动能。
+
+光子之所以不与原子核发生Compton散射是因为高能情况下，Compton散射的截面面积很小，发生的概率很低，因此可以忽略不计。
+
+两个相互反应的光子也可以发生成对产生，这个过程是湮灭过程的逆过程，要求两个光子的能量的乘积非常高。如果光子和光子要发生这种反应，那么光子的能量$E_1$和$E_2$需要满足下述关系
+\[
+E_1 \cdot E_2 = \frac{2(m_e c^2)^2}{\mathbf{u}_1 \cdot \mathbf{u}_2}
+\]
+其中$\mathbf{u}$是光子的方向矢量，$\mathbf{u}_1 \cdot \mathbf{u}_2 = \cos \theta$。
+
+\subsection{同步辐射}
+加速运动的点电荷会释放出电磁辐射，这个辐射由Lamour公式描述。当电荷运动的速度足够快时，需要考虑相对论效应。如果加上加速度垂直于速度的条件，就得到了所谓同步辐射。
+
+自然界中洛伦兹力能很好的满足加速度与速度垂直的条件，故同步辐射一般发生在磁场当中。
+
+\subsubsection{幂律}
+在等离子体不吸收任何光子的情况下可以证明，同步辐射的强度和辐射频率的指数次方呈正比，即
+\[
+\varepsilon (\nu) \propto \nu ^ {-\alpha_R}
+\]
+其中$\alpha_R$为energy index，一般来讲，$\alpha_R \approx 0.5$
+\subsubsection{偏振}
+我不明白偏振是啥，也不知道为什么同步辐射会导致偏振。
+\subsubsection{法拉第效应}
+偏振后的光经过一片磁场时，会被磁场影响，从而改变偏振的方向。改变的大小正比于波长的平方$\Delta \theta \propto \lambda^2$，同时与平行于光束的磁场强度和电子数密度有关。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 10cm]{pics/FE.png}
+    \caption{法拉第效应}
+\end{figure}
+考虑到AGN的光从发射到接受的路程中经历了很多很多星际物质，为了得到真实的数据，必须要对应的修正法拉第效应，尤其是射电波段的数据。
+
+\subsubsection{自吸收}
+根据之前推导的幂律关系$\varepsilon \propto \nu^{-\alpha_R}$会发现在低频率波段的辐射会无上限的增大。这是不对的，因为现实中等离子体也会吸收部分低能光子。从直觉来看光子能量越高逃离等离子体的概率越大。在低频情况下，$\varepsilon \propto \nu^{5/2}$。
+
+两个情况转折点叫做transition frequency，这个频率与很多参数有关
+\[
+\nu_{sa} \propto B^{1/5} f^{2/5}(\nu_{sa}) \Phi^{-4/5}
+\]
+其中$B$为磁场强度，$f(\nu_{sa})$是观测到的transition frequency的辐射强度，$\Phi$是源的角大小。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm]{pics/FEgraph.png}
+    \caption{同步辐射曲线}
+\end{figure}
+当然也可以据此给电子一个“热力学温度”。
+\subsubsection{逆康普顿效应}
+同步辐射的电子会产生光子，这些光子有一部分可以与发射它们的电子发生逆康普顿效应。这个效应的阈温大概为$T_{thresh} \approx 10^{12}$K，高于此温度光子和电子就会发生逆康普顿效应。
+
+\section{黑洞}
+目前认为AGN的中心是黑洞，因此研究AGN基本上成为了研究黑洞。
+
+\subsection{研究黑洞的一些方法}
+\subsubsection{$M-\sigma$关系}
+通过大量的黑洞样本可以观测到黑洞周围的恒星速度弥散和黑洞质量有关
+\[
+\frac{M_{BH}}{10^8 M_S} = \alpha \left(\frac{\sigma}{200 \text{km/s}}\right)^{\beta}
+\]
+根据Silk和Rees提出的模型，超大质量黑洞形成时会扰乱周围的气体，从而导致大量的恒星形成。同时黑洞的吸积会向外释放能量，这些能量被周围的气体吸收掉了，当气体的能量大于黑洞的引力势能时，气体就会逃离黑洞，从而抑制黑洞的生长。而黑洞不生长后喷酒强度就会减弱，气体就会被重新吸积，因此黑洞会恰好保持在一个吸积质量全部转化为对外辐射的能量的过程。
+
+黑洞因为吸积产生的能量为
+\[
+E \sim \eta M_{BH}c^2
+\]
+气体的引力束缚能为
+\[
+E_\text{{bind}} \sim \frac{GM^2_{\text{bulge}}}{R}
+\]
+根据位力定理$M_{\text{bulge}} \propto G\sigma^2/R$，当两个能量相似时，就认为黑洞无法继续吸积
+\[
+\eta M_{\text{BH}} c^2 = M_{\text{bulge}} R\sigma^4
+\]
+将核球视为一个刚体，速度弥散与半径呈正比（速度与半径成正比，因此速度弥散也与半径呈正比），即$R \propto \sigma$。带入就可得到一个简单的$M-\sigma$关系式
+\begin{equation}
+    M_{\text{BH}} \propto \sigma^5
+\end{equation}
+
+\newpage
+\subsubsection{喷流和质量}
+最近的研究表明，黑洞喷流的强度（可以转化为喷流在射电波段的光度）与黑洞的质量和黑洞的吸积强度（可转化为黑洞在X射线波段的强度）有着很好的关系。更重要的是，这和喷流的具体模型没有任何关系。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{pics/FP.png}
+\end{figure}
+其中$L_X$为X射线波段的强度，$L_R$为射电波段的强度，$M$为黑洞质量。
+
+黑洞周围有时会有在毫米波段发射信号的气体源，通过这些毫米波段的信号的多普勒位移，就可测出黑洞附近的一些物理性质，例如黑洞的质量等。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=8cm]{pics/maser.png}
+\end{figure}
+不过我不明白为什么这张图中两个rotation curve是用直线连接的，这是不是正弦函数的近似？
+
+\subsection{吸积过程}
+AGN的喷流一般认为由吸积产生，下面是几种吸积模型
+\subsubsection{Bondi吸积}
+考虑一个静止的黑洞，周围的气体的密度为$\rho$，速度为$v$，因此吸积的速率为
+\[
+\dot{M} = \pi r^2 \rho v
+\]
+其中$r$为吸积截面的有效半径，位于$r$处气体的动能和势能为
+\[
+K = \frac{1}{2} mv^2 \text{ and } U = -\frac{GMm}{r}
+\]
+当气体的动能和势能相等时，气体位于吸积的临界点，此时的临界距离为
+\[
+r = \frac{2GM}{v^2}
+\]
+因此吸积的速率为
+\[
+\dot{M} = \frac{4\pi G^2 \rho M^2}{v^3}
+\]
+
+\subsubsection{爱丁顿极限}
+并不是所有的黑洞都能吸积，由于辐射会导致辐射压，当这个辐射压大于引力压时，黑洞就无法继续吸引物质。此时黑洞的光度称为爱丁顿光度。
+
+假设吸积的物质为氢，黑洞产生的辐射压为
+\[
+\frac{dP}{dr} = -\frac{\sigma_T \rho }{m_p c} \frac{L}{4\pi r^2}
+\]
+其中$\sigma_T$为汤姆森散射截面，$m_p$为质子质量。黑洞产生的引力压强为
+\[
+\frac{dP}{dr} = - \frac{GM\rho}{r^2}
+\]
+两个压力相等时，黑洞处于临界状态，因此爱丁顿光度为
+\[
+L = \frac{4\pi M m_p c}{\sigma_T}
+\]
+
+Bondi吸积并不是AGN吸积的主要成分，因为其能量转换的效率过低。Bondi吸积中的气体会自由落体到黑洞中，这段时间过短，不能有效的把势能转化为辐射。根据银河系中心黑洞的观测数据，Bondi吸积的效率应该非常非常低。
+
+\subsection{吸积盘}
+考虑一个中心天体质量为$M$，光学薄的吸积盘，周围质量以$\dot{M}$的速率吸入盘中。盘中一质量元距离中心天体距离为$r$，质量为$dm$，下落了一小段距离$dr$，因此改变的机械能是
+\[
+\dv{E}{r} = -\dv{r}\frac{GMdm}{2r} = \frac{Gmdm}{2r^2}
+\]
+假设吸积盘是稳定的，那么加入环和离开环的质量应该一样，即$dm = \dot{M}dt$，因此，距离中心天体为$r$，宽度为$dr$的环因引力势能产生的辐射的光度为
+\[
+dL = \frac{GM\dot{M}}{2r^2}dr
+\]
+吸积盘的光度可以由积分给出
+\[
+\int_{R}^{\infty} dL = \int_{R}^{\infty} \frac{GM\dot{M}}{2r^2}dr = \frac{GM\dot{M}}{2R}
+\]
+根据Stefan-Boltzmann定律，可以写出
+\[
+2(2\pi r dr) \sigma T^4 = \frac{GM\dot{M}}{2r^2} dr
+\]
+其中这段环的面积$A = 2 (2\pi r)$，因为环可以在上下两个方向辐射。因此这段环的温度为
+\[
+T(r) = \left(\frac{GM\dot{M}}{8\pi\sigma r^3}\right)^{1/4}
+\]
+考虑到气体下落到主星表面附近遇到的湍流后，温度关于距离的关系式可以这样写出
+\[
+T(r) = \left(\frac{3GM\dot{M}}{8\pi \sigma r^3} \left(1-\sqrt{\frac{r}{R}}\right)\right)^{1/4}
+\]
+其中$R$是吸积盘的内半径。当$r \leq R$时，上式给出的结果近似等于上上式推导的结果。
+
+同时，根据Planck定律，单位频率的辐射能量密度和温度与频率有关
+\[
+B_\nu (T) \propto \nu^3 \left[\exp \left(\frac{h\nu}{kT} - 1\right)\right]^{-1}
+\]
+积分可以得到单位频率的辐射强度
+\[
+S_\nu \propto \int_{R_{\text{min}}}^{R_{\text{max}}} B_\nu (T) 2\pi r dr
+\]
+
+\end{document}

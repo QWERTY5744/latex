@@ -1,0 +1,34 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{tikzpicture}[scale=1.2]
+    % 定义椭圆参数
+    \def\a{3}  % 长半轴
+    \def\b{2}  % 短半轴
+    \def\c{2.236}  % 焦距 c = sqrt(a^2 - b^2) = sqrt(9-4) = sqrt(5) ≈ 2.236
+    
+    % 绘制椭圆
+    \draw[thick] (0,0) ellipse (\a cm and \b cm);
+    
+    % 绘制长轴
+    \draw[thick] (-\a,0) -- (\a,0);
+    
+    % 绘制短轴
+    \draw[thick] (0,-\b) -- (0,\b);
+    
+    % 标注焦点
+    \fill[black] (\c,0) circle (2pt);
+    \node[above, black] at (\c,0.2) {焦点F};
+        
+    % 标注近日点A（距离焦点最近的点）
+    \fill[black] (\a,0) circle (2pt);
+    \node[right, black] at (\a,0.2) {远日点B};
+    
+    % 标注远日点B（距离焦点最远的点）
+    \fill[black] (-\a,0) circle (2pt);
+    \node[left, black] at (-\a,0.2) {近日点A};
+    
+\end{tikzpicture}
+\end{document}

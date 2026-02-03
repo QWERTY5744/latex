@@ -1,0 +1,210 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{wrapfig}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{positioning,calc,patterns,angles,quotes,shapes,plotmarks}
+\numberwithin{equation}{section}
+
+\title{Falling Electron}
+\author{Polaris}
+\date{2026/01/07}
+
+\begin{document}
+
+\maketitle
+
+\section{Classical Disaster - Sprialling Electron}
+
+According to classical electrodynamics, an accelerating charge will lose its energy through the form of radiating electromagnetic waves, causing it to spiral inwards towards the nucleus.
+
+1. The power of this emission is related to the charge of the particle, $q$; the acceleration of the particle $a$; the speed of light, $c$; and the vacuum permittivity, $\varepsilon_0$. By dimensional analysis, obtain an equation for the power emitted by the charge.
+
+Hint: Assume that the radiated power can be written as 
+\[
+P = A q^\alpha a^\beta c^\gamma \varepsilon_0^\delta
+\]
+Where $A = 1 / 6\pi$ is an dimensionless constant.
+
+2. Consider a Hydrogen atom. An electron is initially orbiting around the nucleus with an circular orbit with radius of $r_0$. At time $t=0$, the electron started to spiral inward. Estimate the time it takes for the electron to hit the nucleus. 
+
+Assume that at every moment, the electron can be treated as an electron that is orbiting around the nucleus in a circular orbit with radius $r = a_0$ is the Bohr radius.
+
+3. Using the previous assumption, derive the equation for the trajectory of the electron.
+
+\section{Attempts of repair - Bohr Model}
+The classical model not only not explain the quantized and discrete emmision line of hydrogen, it also introduced the possibility of electrons crashing down into nucleus. To fix this problem, Niels Bohr introduced the Bohr model (which is not the complete solution to the problem).
+
+The Bohr model relys on 3 basic assumptions
+\begin{enumerate}
+    \item Electrons travel in a circular trajectory
+    \item The angular momentum of electrons is quantized, $L = n \hbar$ where $\hbar$ is the reduced Planck constant.
+    \item The central nucleus remains stationary while the electron is rotating
+\end{enumerate}
+1. Derive an equation that predicts the wavelength of the emmision lines of Hydrogen.
+
+Hint: The difference of total energy of a electron when it jump from one state to another will be emmited in the form of radiation
+
+2. The theoretical result from Bohr model is slightly off from the real world observation. Identify the potential cause and derive an equation that predicts the emmision line of hydrogen.
+
+\section{Answer Key}
+\subsection{Part 1}
+1. The dimension of the constant listed are as follow
+\[
+\begin{cases}
+    \mathrm{dim} [q] = I T\\
+    \mathrm{dim} [a] = L T^{-2}\\
+    \mathrm{dim} [c] = L T^{-1}\\
+    \mathrm{dim} [\varepsilon_0] = I^2 L^{-3} T^4 M^{-1}
+\end{cases}
+\]
+The dimension of power is $\mathrm{dim} [P] = L^2 T^{-3} M^1$
+
+Therefore, the following equation can be written through the principle of dimensional analysis.
+\[
+\begin{cases}
+    \alpha -2\beta - \gamma + 4 \delta = -3\\
+    \beta + \gamma - 3 \delta = 2\\
+    -\delta = 1\\
+    \alpha + 2\delta = 0\\
+\end{cases}
+\]
+This gives 
+\[
+\begin{cases}
+    \alpha = 2\\
+    \beta = 2\\
+    \gamma = -3\\
+    \delta = -1\\
+\end{cases}
+\]
+In other word, the radiated power is 
+\[
+P = \frac{q^2 a^2}{6\pi \varepsilon_0 c^3}
+\]
+
+2. The velocity of the electron is 
+\[
+m_e \frac{v^2}{r} = \frac{k e^2}{r^2}
+\]
+or 
+\[
+v = \sqrt{\frac{k e^2}{m_e r}}
+\]
+Therefore the total energy of the electron in orbit is
+\[
+E = \frac{1}{2} m_e v^2 - \frac{ke^2}{r} = -\frac{k e^2}{2r}
+\]
+Which is identical to gravity.
+
+The radiated power equals to the derivative of energy w.r.t time
+\[
+P = \frac{dE}{dt} = \frac{ke^2}{2} \frac{d}{dt} \frac{1}{r} = \frac{ke^2}{2r^2} \frac{dr}{dt}
+\]
+
+On the other hand, the acceleration of the electron is the centripetal acceleration it experience, thus the power of radiation is 
+\[
+P = -\frac{e^2}{6\pi \varepsilon_0 c^3} \frac{v^4}{r^2} = -\frac{e^2}{6\pi \varepsilon_0 c^3} \frac{k^2 e^4}{m^2_e r^4}
+\]
+Negative sign indicates that power is being radiated away.
+
+Equate both equation
+\[
+\frac{ke^2}{2r^2} \frac{dr}{dt} = \frac{-k^2e^6}{6\pi \varepsilon_0 c^3 m_e^2 r^4}
+\]
+Isolating the derivative and solving this differential equation
+\[
+\int_0^t \frac{e^4}{12 \pi^2 \varepsilon_0^2 c^3 m_e^2}dt = \int_r^{r_0} r^2 dr
+\]
+Which gives 
+\[
+r^3 = r_0^3 -\frac{e^4}{12\pi^2 \varepsilon_0^2 c^3 m_e^2} t
+\]
+Let $r = 0$, the time it take for the electron to fall into the nucleus is 
+\[
+t_f = \frac{12\pi^2 \varepsilon_0^2 c^3 m_e^2}{e^4} a_0^3 = 4.668 \cdot 10^{-11} \text{s}
+\]
+Which indicates that the atom cannot exist stably for a long time, the classical theory does not work here.
+
+2. Start from the chain rule
+\[
+\frac{dr}{d\theta} = \frac{dr}{dt} \frac{dt}{d\theta}
+\]
+The angular speed of the electron can be given as 
+\[
+\frac{d\theta}{dr} = \omega = \frac{v}{r} = \sqrt{\frac{ke^2}{m_e r^3}} 
+\]
+Therefore the equation for its trajectory is 
+\[
+\frac{dr}{d\theta} = -\frac{e^4}{12 \pi^2 \varepsilon_0^2 c^3 m_e^2} \frac{1}{r^2} \sqrt{\frac{m_e r^3}{k e^2}} 
+\]
+Integrate both sides
+\[
+\int_{0}^{\theta} -\frac{e^3}{24 \pi^{5/2} \varepsilon^{5/2} c^3 m_e^{3/2}} d\theta = \int_{r_0}^{r} r^{1/2} dr
+\]
+Which gives 
+\[
+r_0^{3/2} - r^{3/2} = \frac{e^3}{24 \pi^{5/2} \varepsilon^{5/2} c^3 m_e^{3/2}} \theta
+\]
+
+\subsection{Part 2}
+1. By virial theorem, $K = -U/2$, thus the total energy $E = K + U = U/2$, therefore
+\[
+E = \frac{1}{8\pi \varepsilon_0} \frac{e^2}{r}
+\]
+By the condition quantized of angular momentum 
+\[
+mvr = m \sqrt{\frac{1}{4\pi \varepsilon_0}\frac{e^2}{m_e r}} r = n \hbar
+\]
+Therefore, the radius of the orbit of the electron can only exist for certain energy level $n$.
+\[
+r = \frac{4\pi \varepsilon_0 \hbar^2}{m_e e^2} n^2
+\]
+The energy of electron at a certain energy level is
+\[
+E = \frac{m_e e^4}{32 \pi^2 \varepsilon_0^2 \hbar^2} \frac{1}{n^2} = \frac{m_e e^4}{8h^2\varepsilon_0^2} \frac{1}{n^2}
+\]
+Therefore, the energy differnece of two different energy level is 
+\[
+\Delta E = \frac{hc}{\lambda} = \frac{m_e e^4}{8h^2\varepsilon_0^2}\left(\frac{1}{n_1^2} - \frac{1}{n_2^2}\right)
+\]
+Simplification results
+\[
+\frac{1}{\lambda} = \frac{m_e e^4}{8h^3 \varepsilon_0^2 c} \left(\frac{1}{n_1^2} - \frac{1}{n_2^2}\right)
+\]
+Bohr model is not the perfect fix to the observed phenomenon in the real life. It cannot explain the inward falling electrons and it only works with hydrogen.
+
+2. The assumption that the nucleus remains stationary is wrong. Due to the mass of electron, it will cause the proton to move around their common center of mass as well.
+
+The total energy is still
+\[
+E = \frac{1}{2} \mu v^2 + \frac{ke^2}{r} = \frac{ke^2}{2r}
+\]
+Where $\mu$ is the reduced mass. The velocity of the electron relative to the proton is 
+\[
+\mu \frac{v^2}{r} = \frac{1}{4\pi \varepsilon_0} \frac{e^2}{r^2}
+\]
+Which gives 
+\[
+v = \sqrt{\frac{1}{4\pi \varepsilon_0}\frac{e^2}{\mu r}}
+\]
+This is the same equation from question 1 except $m_e$ is replaced with $\mu$. The radius of orbit is thus 
+\[
+r = \frac{4\pi \varepsilon_0 \hbar^2}{\mu e^2} n^2
+\]
+Thus the final equation relating wavelength to energy level will turn to 
+\[
+\frac{1}{\lambda} = \frac{\mu e^4}{8 h^3 \varepsilon_0^2 c} \left(\frac{1}{n_1^2} - \frac{1}{n_2^2}\right)
+\]
+\end{document}  

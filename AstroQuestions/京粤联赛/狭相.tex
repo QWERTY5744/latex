@@ -1,0 +1,298 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{positioning,calc,patterns,angles,quotes}
+\numberwithin{equation}{section}
+
+\title{狭义相对论}
+\author{勾陈一}
+\date{2025/08/18}
+
+\begin{document}
+\maketitle
+本题中，你将应用狭义相对论解决一些实际问题，下面是狭义相对论中的时空变换，又称洛伦兹变换，你会频繁的用到它。注意：狭义相对论只在惯性系中成立。
+
+考虑一个坐标系，其中有3个空间坐标，1个时间坐标，即$(x,y,z,t)$。这样，在坐标系中发生的一个事件就可以完整的被记录下来。为了完成下面的题目，你将了解狭义相对论下的坐标转换公式。
+
+如图1所示，考虑两个坐标系，$S$系与$S'$系，$S'$系相对$S$系的$+x$轴有$v$的相对速度，两个参考系的坐标转换公式由下式给出
+\[
+    \begin{cases}
+        x' = \dfrac{x - vt}{\sqrt{1-\beta^2}}\\
+        t' = \dfrac{t - \dfrac{v}{c^2}x}{\sqrt{1-\beta^2}}\\
+        y' = y\\
+        z' = z\\
+    \end{cases}
+\]
+其中$\beta = \dfrac{v}{c}$。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 8cm]{coord.png}
+    \caption{$S$系与$S'$系示意图}
+\end{figure}
+
+\section{试题}
+完成下面问题：
+\begin{enumerate}
+    \item 以下哪个实验说证明了以太不存在，同时也证明了相对论基本原理（即光速不变）？
+    \begin{enumerate}
+        \item 迈克耳孙-莫雷实验
+        \item 卡文迪什扭秤实验
+        \item 托里拆利水银柱实验
+        \item 油滴实验
+    \end{enumerate}
+    \item 考虑一辆高速行驶的火车，火车在进入隧道时的速度为$v = 0.8c$，隧道长$50$m，地面的隧道管理员在火车完全进入隧道时同时关闭隧道两边的大门，在火车驾驶员眼中，两扇门关闭的时间差是什么？火车进入隧道的门称为前门，火车离开隧道的门称为后门，哪扇门先关闭？
+    \begin{enumerate}
+        \item $222.376$ ns，前门
+        \item $222.376$ ns，后门
+        \item $222.376 \text{ }\mu$s，前门
+        \item $222.376 \text{ }\mu$s，后门
+    
+    \end{enumerate}
+    \item 尺缩钟慢是狭义相对论一个重要的效应。定义尺子的长度为一个参考系（S系）内两个地点同一时刻的坐标差，在一个相对于S系运动的系中测量尺子，会发现尺子的长度会发生改变。同理，定义时钟测量的时间差为同一坐标不同时刻的差，在一个运动的参考系中测量时间差也会发现时间差发生了改变。请根据洛伦兹变换求出这个改变量。记$L_0$为尺子的静长度，$t_0$为静止钟测量的时间；$L$为尺子的动长度，$t$为运动钟测量的时间，请给出它们二者的关系
+    \begin{enumerate}
+        \item $L = L_0\sqrt{1-\beta^2}$，$t_0 = t\sqrt{1-\beta^2}$
+        \item $L = L\sqrt{1-\beta^2}$，$t = t_0\sqrt{1-\beta^2}$
+        \item $L_0 = L\sqrt{1-\beta^2}$，$t_0 = t\sqrt{1-\beta^2}$
+        \item $L = L_0\sqrt{1-\beta^2}$，$t = t_0 \sqrt{1-\beta^2}$
+    \end{enumerate}
+
+    \newpage
+    \item 狭义相对论中，多普勒效应也会发生改变，请推导出完整的狭义相对论多普勒效应的公式。
+    
+    提示：考虑一个以$v$速度运动的源，观测者位于$\phi$方位角处，在源参考系和观测者参考系中，单位时间接受到的波峰数一样，即$\nu_0 dt_s = \nu dt_{obs}$，你应该求出$dt_s$与$dt_{obs}$的关系
+
+    \begin{center}
+        \begin{tikzpicture}
+            \draw [->](0,4) -- node[below]{$vdt$} (2,4) node[black,right]{$v$} node[black,below]{$S'$};
+            \draw (0,4) node[black,left]{$S$} -- node[black, above]{$r$} (4,7) node[black,right]{$O$};
+            \draw[dotted] (2,4) --node[below]{$r'$} (4,7);
+
+            \draw (2,4) coordinate (A)--(0,4) coordinate (B)--(4,7) coordinate (C)
+            pic [draw,"$\phi$",black,angle eccentricity = 1.5]{angle = A--B--C};
+        \end{tikzpicture}
+    \end{center}
+
+    \begin{enumerate}
+        \item $\nu = \dfrac{\sqrt{1-\beta^2}}{1-\beta \cos \phi} \nu_0$
+        \item $\nu = \dfrac{1-\beta \cos \phi}{\sqrt{1-\beta^2}} \nu_0$
+        \item $\nu = \left(1-\beta \cos \phi\right)\sqrt{1-\beta^2} \nu_0$
+        \item $\nu_0 = \left(1-\beta \cos \phi\right)\sqrt{1-\beta^2}\nu$
+    \end{enumerate}
+
+    \item 考虑一个面向观测者以$v = 0.99c$运动的H$\alpha$源，观测者眼中的H$\alpha$线波长为多少（实验室系中H$\alpha$发射线的波长为$\lambda = 656.28$nm）
+    \begin{enumerate}
+        \item $9528$ nm
+        \item $465.224 \text{ }\mu$m
+        \item $46.522$ nm
+        \item $0.926$ nm
+    \end{enumerate}
+
+    \item 考虑两个坐标系，$S'$系相对$S$系有$u$的相对速度，如果一个物体在$S$系$x$轴的速度分量为$v$，求$S'$系中该物体$x'$轴的速度分量$v'$。提示：求出$\dfrac{dx}{dt}$和$\dfrac{dx'}{dt'}$，并尝试联立二者。
+    \begin{enumerate}
+        \item $v' = \dfrac{v + u}{1 - \dfrac{uv}{c^2}}$
+        \item $v' = \dfrac{v + u }{1 + \dfrac{uv}{c^2}}$
+        \item $v' = \dfrac{v-u}{1 - \dfrac{uv}{c^2}}$
+        \item $v' = \dfrac{v-u}{1+\dfrac{uv}{c^2}}$
+    \end{enumerate}
+
+    \item 推导狭义相对论中动质量和静质量的关系式。
+    
+    提示：考虑两个小球，一个小球以$v$的速度撞上了一个静止的小球，整个过程质量和动量守恒，碰撞为完全非弹性碰撞。
+    \begin{enumerate}
+        \item $m = m_0 \sqrt{1-\beta^2}$
+        \item $m = \dfrac{m_0}{\sqrt{1-\beta^2}}$
+        \item $m = (1-\beta)m_0 $
+        \item $m = \dfrac{m_0}{1-\beta}$
+    \end{enumerate}
+
+    \item 想必你一定知道相对论的双生子悖论。考虑一对双胞胎，一位兄弟乘坐飞船以$0.99c$的速度远离地球，10年后转向并再花10年回到地球。此时地球上的兄弟认为飞船上的兄弟在高速运动，因此飞船上的兄弟经历的时间更慢；而飞船上的兄弟认为地球上的兄弟在高速远离自己，因此地球上的兄弟经历的时间更慢。这就产生了悖论，请解释悖论为什么不合理
+    \begin{enumerate}
+        \item 年龄是以大部分人类所经历的时间定义的，所以飞船上兄弟对于时间流速的观点不成立
+        \item 因为飞船要转向，所以飞船上的兄弟不一直处于一个惯性系，因此狭义相对论不适用
+        \item 因为在极高速情况下，狭义相对论失效了，需要考虑广义相对论
+        \item 因为光速有限，A 看到 B 的钟走得慢，B 看到 A 的钟走得快
+    \end{enumerate}
+\end{enumerate}
+
+\newpage
+\section{参考答案}
+\begin{enumerate}
+    \item 迈克耳孙-莫雷实验证明了以太不存在，从而引出光速不变，答案是A。卡文迪许扭秤实验测出了万有引力常数值，托里拆利水银柱实验测出了大气压，油滴实验实验测出了基本电荷的大小
+    \item 在地面系中，记前门关闭的坐标为$(x_1, t_1)$，记后门关闭的坐标为$(x_2, t_2)$，根据时间的变换式，有
+    \[
+    t'_2 - t'_1 = \frac{t_2 - t_1 - \dfrac{v}{c^2}(x_2 - x_1)}{\sqrt{1-\beta^2}}
+    \]
+    地面系中，两事件同时发生，即$t_2 - t_1 = 0$，而$x_2 - x_1 = 50$，因此，在火车参考系中，两扇门关闭的时差为
+    \[
+    \Delta t' = \frac{v}{c^2} \frac{x_1 - x_2}{\sqrt{1-\beta^2}} = 222.376 \text{ns}
+    \]
+    $\Delta t' > 0$说明$t'_1 < t'_2$，也就是后门先关，答案是B。
+
+    \item 定义尺子为两个地点同一时刻的坐标差，假设尺子相对一参考系有$v$的速度，因此有
+    \[
+    x'_2 - x'_1 = \frac{x_2 - vt_2 - x_1 + vt_1}{\sqrt{1-\beta^2}}
+    \]
+    其中$L_0 = x'_2 - x'_1$是尺子系中尺子的长度，即尺子的静长度，$L = x_2 - x_1$是静止系中尺子的长度，即尺子的动长度，因此
+    \[
+    L_0 = \frac{L - v(t_1 - t_2)}{\sqrt{1-\beta^2}} = \frac{L}{\sqrt{1-\beta^2}}
+    \]
+    因此有
+    \[
+    L = L_0\sqrt{1-\beta^2}
+    \]
+    可以发现$\sqrt{1-\beta^2} < 1$，因此尺子的动长度永远比静长度短。
+
+    同理，定义钟测量的时间差为同一地点两次测量的时间差，因此有
+    \[
+    t'_2 - t'_1 = \frac{t_2 - t_1 - \dfrac{v}{c^2}(x_2 - x_1)}{\sqrt{1-\beta^2}}
+    \]
+    即
+    \[
+    t = t_0\sqrt{1-\beta^2}
+    \]
+    答案选D。
+
+    \item 当$t=0$时，波源位于$S$点并发射一束光，$dt_s$时刻后，波源运行到了$S'$点并发射第二束光。在观测者$O$眼中，此段时间为
+    \[
+    dt = \frac{dt_s}{\sqrt{1-\beta^2}}
+    \]
+    \begin{center}
+        \begin{tikzpicture}[scale=1.2]
+            % 定义三角形的三个顶点
+            \coordinate (S) at (0,4);
+            \coordinate (S') at (2,4);
+            \coordinate (O) at (4,7);
+            
+            % 绘制三角形的三条边
+            \draw[->] (S) -- node[below]{$vdt$} (S');
+            \draw (S) -- node[above left]{$r$} (O);
+            \draw [dotted] (S') -- node[below right]{$r'$} (O);
+            
+            % 添加顶点标签
+            \node[below left] at (S) {$S$};
+            \node[below right] at (S') {$S'$};
+            \node[above] at (O) {$O$};
+            
+            % 在S'处添加速度标记
+            \node[right] at (S') {$v$};
+            
+            % 绘制角度φ (在顶点S处)
+            \pic [draw, "$\phi$", angle eccentricity=1.3, angle radius=0.8cm] {angle = S'--S--O};
+            
+            % 过S'点做到SO边的高
+            \coordinate (H) at ($(S)!(S')!(O)$);  % H是S'在SO边上的垂足
+            \draw[dashed] (S') -- (H) node[midway, right]{};
+            
+            % 标记垂足
+            \node[left] at (H) {$H$};
+            
+            % 标记直角符号
+            \pic [draw, angle radius=3mm] {right angle = S--H--S'};    
+        \end{tikzpicture}
+    \end{center}
+    $t = \dfrac{r_0}{c}$时，该光束到达$O$点。下面我们要求在$O$参考系中，光束何时到达，源首先用了$dt$时间运动到了$S'$处并发射一束光，运动的距离为$vdt$，这束光在发射后$\dfrac{r'}{c}$被观测者接受。其中
+    \[
+    r' = r-vdt \cos \phi
+    \]
+    这里，我们假设$vdt_s$十分的小，这样$r$和$r'$几乎重合，那么在观测者眼中，两束光到达的时间差为
+    \[
+    dt_{obs} = dt + \frac{r - v dt \cos \phi}{c} - \frac{r}{c} = \left(1-\beta \cos \phi\right)dt = \frac{1-\beta \cos \phi}{\sqrt{1-\beta^2}}dt_s
+    \]
+    因为两个参考系内接受到的波峰数不变，所以
+    \[
+    \nu_0 dt_s = \nu dt_{obs}
+    \]
+    则
+    \[
+    \nu = \nu_0 \frac{dt_s}{dt_{obs}} = \nu_0 \frac{\sqrt{1-\beta^2}}{1-\beta \cos \phi}
+    \]
+    答案选A。
+    \item 波频率和波速有如下关系：
+    \[
+    \lambda \nu = c
+    \]
+    其中$c$为光速，由上一问求出的多普勒效应公式
+    \[
+    \lambda = \frac{1-\beta \cos \phi}{\sqrt{1-\beta^2}} \lambda_0
+    \]
+    带入$\lambda_0 = 656.28$ nm，$\beta = 0.99$，得出观测到的频率为$\lambda = 46.522$ nm，属于极紫外线。答案选C。
+    \item 已知
+    \[
+        \begin{cases}
+            x' = \dfrac{x - vt}{\sqrt{1-\beta^2}}\\
+            t' = \dfrac{t - \dfrac{v}{c^2}x}{\sqrt{1-\beta^2}}\\
+        \end{cases}
+    \]
+    因此
+    \[
+    \frac{dx'}{dt'} = \frac{d\left(\dfrac{x - ut}{\sqrt{1-\beta^2}}\right)}{d\left(\dfrac{t - \dfrac{u}{c^2}x}{\sqrt{1-\beta^2}}\right)}
+    \]
+    化简后得出
+    \[
+    \frac{dx'}{dt'} = \frac{dx - udt}{dt - \dfrac{u}{c^2} dx}
+    \]
+    上下同除$dt$，得到$x$轴速度变换式
+    \[
+    v' = \frac{\dfrac{dx}{dt} - u}{1 - \dfrac{u}{c^2} \dfrac{dx}{dt}v} = \frac{v - u}{1-\dfrac{u}{c^2}v}
+    \]
+
+    \item 这道题有点先射箭再画靶的嫌疑。首先是要证明质量真的和速度有关，然后才能去推导这个动质量和静质量的关系。不过具体证明十分麻烦，就直接当质量和速度有关就好了。
+    
+        设两个球的静质量为$m_0$，以$v$运动时，动质量为$m$；碰撞后的大球质量为$M$，以$u$的速度运动。
+        
+        根据质量守恒和动量守恒，有
+        \[
+            \begin{split}
+                m+m_0 = M\\
+                mv = Mu
+            \end{split}
+        \]
+        可以解出
+        \[
+        m = \dfrac{m_0}{\dfrac{v}{u}-1}
+        \]
+        接下来要求出$v$和$u$的关系，将两个球分别命名为A球和B球，以A球为参考系，B球以$v$的速度运动，碰撞后大球速度为$u$；如果以B球为参考系，那么A球就以$-v$的速度运动，碰撞后大球的速度为$-u$。两个参考系的相对速度为$v$，根据速度变换，有
+        \[
+        -u = \frac{u-v}{1-\dfrac{v}{c^2}u}
+        \]
+        变形后，有
+        \[
+        \frac{uv}{c^2} - 2 + \frac{v}{u} = 0
+        \]
+        令$r = \dfrac{v}{u}$，带入后有
+        
+            \begin{align*}
+                \frac{ru^2}{c^2} - 2 + r &= 0\\
+                u^2 &= \frac{c^2}{r} - 2 + r\\
+                \frac{v^2}{r^2} &= \frac{c^2}{r}(2-r)\\
+            \end{align*}
+        再次化简会得到一个二次方程
+        \[
+        r^2 - 2r + \frac{v^2}{c^2} = 0
+        \]
+        取这个二次方程的正解
+        \[
+        r = \frac{v}{u} = \frac{2+\sqrt{4-4\frac{v^2}{c^2}}}{2} = 1 + \sqrt{1-\frac{v^2}{c^2}}
+        \]
+        因此动质量和静质量的关系为
+        \[
+        m = \frac{m_0}{\sqrt{1-\beta^2}}
+        \]
+        答案是B。
+
+    \item 狭义相对论的前提是惯性系，换句话说洛伦兹变换只在两个有相对运动的惯性系中成立，其中飞船上的兄弟转向时改变的速度矢量，因此他不一直在一个惯性系中，所以飞船上的兄弟不能如此简单的应用狭义相对论，需要考虑广义相对论。答案是B。
+\end{enumerate}
+
+\end{document} 

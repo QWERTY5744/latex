@@ -1,0 +1,119 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\numberwithin{equation}{section}
+
+\title{AP MCQs}
+\author{Polaris}
+\date{2025/01/13}
+
+\begin{document}
+
+\maketitle
+
+\section{AP Calculus BC}
+Evaluate this integral:
+\[
+    \int e^{2x} \sin x \mathrm{d}x
+\]
+A. $ \frac{1}{2} e^{2x} \sin x - \frac{1}{2}e^{2x} \cos x + C$
+
+B. $\frac{2}{3}e^{2x}\sin x - \frac{1}{3} e^{2x} \cos x + C$
+
+C. $\frac{2}{5} e^{2x} \sin x - \frac{1}{5} e^{2x} \cos x + C$
+
+D. $\frac{1}{3} e^{2x} \sin x - \frac{1}{3} e^{2x} \cos x +C$
+
+Explanation:
+
+By integration by parts, the correct way to do the integral is as follow, let $I = \int e^{2x} \sin x \mathrm{d}x$:
+\[
+    \begin{split}
+        \int e^{2x} \sin x \mathrm{d}x & = \frac{1}{2}\int \sin x \mathrm{d}(e^{2x})  (1)\\
+        & = \frac{1}{2} e^{2x} \sin x - \frac{1}{2} \int e^{2x} \cos x \mathrm{d}x  (2)\\
+        & = \frac{1}{2} e^{2x} \sin x - \frac{1}{4} \int \cos x \mathrm{d}(e^{2x})  (3)\\
+        & = \frac{1}{2} e^{2x} \sin x - (\frac{1}{4} e^{2x} \cos x -\frac{1}{4}\int e^{2x} \mathrm{d}(\cos x))  (4)\\
+        & = \frac{1}{2} e^{2x} \sin x - \frac{1}{4} e^{2x} \cos x -\frac{1}{4}\int e^{2x} \sin x \mathrm{d}x(5)\\
+        I & = \frac{1}{2} e^{2x} \sin x - \frac{1}{4} e^{2x} \cos x -\frac{1}{4}I  (6)\\
+        \frac{5}{4} I & = \frac{1}{2} e^{2x} \sin x - \frac{1}{4} e^{2x} \cos x  (7)\\
+        I & =  \frac{2}{5} e^{2x} \sin x - \frac{1}{5} e^{2x} \cos x + C  (8)
+    \end{split}
+\]
+A common mistake is when taking the antiderivative of $e^{2x}$, $\frac{1}{2}$ gets dropped (mistake on line 1), 
+resulting in a missing coefficient of the fraction and leading to choice A.
+
+Another mistake is forgetting to change the sign in line 4, which results in choice B.
+
+Another mistake that could be made is forgetting to multiply $\frac{1}{2}$ on line 3, because there is already a $\frac{1}{2}$, this will results in choice D.
+
+\newpage
+
+Evaluate this integral:
+\[
+    \int \frac{1}{x\sqrt{x^2-1}}{d}x
+\]
+A. $-\arcsin{\frac{1}{x}}+ C$
+
+B. $-\arcsin{x} + C$
+
+C. $\arctan{\frac{1}{x}} + C$
+
+D. $\arctan{x} +C$ 
+
+
+Evaluate this integral:
+
+\[
+    \int_2^3 \frac{2x-3}{\sqrt{4x-x^2}} \mathrm{d}x
+\]  
+A. $\frac{\pi}{12} + 4 - 2\sqrt{3}$
+
+B. $\frac{\pi}{6} + 4 - 2\sqrt{3}$
+
+C. $\frac{\pi}{6} - 4 + 2\sqrt{3}$
+
+D. $\frac{\pi}{3} - 4 + 2\sqrt{3}$
+
+\[
+    \int \frac{ax}{\sqrt{x^2+bx}}\mathrm{d}x = a\sqrt{x^2+bx}-\frac{ab}{2}\ln{\abs{x+\sqrt{x^2+bx}+\frac{b}{2}}}+C
+\]
+
+\[
+W = \tau \Delta \theta = 100 \text{Nm} \cdot 3000\cdot 2\pi = 1.885\cdot 10^6 \text{J}
+\]
+
+\[
+\begin{split}
+    W &= \Delta E_k = \frac{1}{2}I\omega_f^2 - \frac{1}{2}I\omega_i^2\\
+    W &= \frac{1}{2}I\omega_f^2 - 0\\
+    \omega_f &= \sqrt{\frac{2W}{I}} = 5284.436 /s
+\end{split}
+\]
+
+\[
+\bar x
+\]
+
+\[
+E_{tot} = \frac{1}{2}mv^2 + \frac{1}{5}mv^2
+\]
+
+\[
+t=\sqrt{\frac{2h}{g}}
+\]
+
+\[
+g = \frac{GM}{r^2}
+\]
+
+\[
+mr^2 \sqrt{\frac{\frac{2E}{m} + \frac{2GM}{r}-\frac{L^2}{m^2r^2}}{L^2}}\]
+\end{document}

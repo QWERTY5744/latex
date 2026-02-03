@@ -1,0 +1,146 @@
+\documentclass{ctexart}
+\title{当代天体物理学导论答案翻译}
+\author{勾陈一}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx,float}
+\usepackage{physics}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\numberwithin{equation}{section}
+
+\begin{document}
+\maketitle
+\newpage
+\tableofcontents
+
+\newpage
+
+\section{第一章：天球}
+上网好不容易找到的答案是拿英文写的，因此想翻译成中文。（本翻译纯属个人工作，可以免费传播）
+
+\subsection{推导行星的会合周期与其公转周期的关系}
+在一段周期($S$)内，地球绕太阳公转了$\frac{S}{P_e}$圈，某一行星绕太阳公转了$\frac{S}{P}$，当地球比该行星多转一圈时，它们再次回合（初中数学的追及问题），因此：
+\begin{equation}
+    \frac{S}{P_e} = \frac{S}{P} + 1
+\end{equation}
+由此可以解出：
+\begin{equation}
+    \frac{1}{S} = \frac{1}{P_e} - \frac{1}{P}
+\end{equation}
+上式是对于外行星的，采用类似的思路可以证明内行星的公式：
+\begin{equation}
+    \frac{1}{S} = \frac{1}{P} - \frac{1}{P_e}
+\end{equation}
+
+\subsection{设计推算行星轨道半径的方法}
+首先要明确，这道题不能用开普勒定律。我们讨论内行星和外行星两种情况：
+\subsubsection{内行星}
+取内行星和太阳大距的时刻，此时会产生一个直角三角形。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=8cm]{pics/Elongation.jpg}
+    \caption{大距}
+    \label{fig:elongation}
+\end{figure}
+可以发现，标蓝的角是可以被量出来的，记这个角为$\alpha$，那么根据余弦函数，有：
+\begin{equation}
+    \cos \alpha = \frac{b}{c}
+\end{equation}
+再定义$c = 1$的话（相当于定义一个天文单位），即可算出$b$的长度。
+
+\subsubsection{外行星}
+对于外行星，取其在方照的时候求：
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=8cm]{pics/quadrature.jpg}
+    \caption{方照}
+    \label{fig:quadrature}
+\end{figure}
+这个标蓝的角是可以被量出来的，记它为$\beta$，则根据余弦函数，有：
+\begin{equation}
+    \cos \beta = \frac{b}{c}
+\end{equation}
+和之前几乎一样，这次$b$定义为一天文单位，$c$定义为外行星的轨道半径。
+
+\subsection{求金星火星的公转周期}
+\subsubsection{金星公转周期}
+对会合周期的式子稍微变下形：
+\begin{equation}
+    P_v = \frac{S\cdot P_e}{S + P_e}
+\end{equation}
+带入数值，可以求出$P_v = 244.695$天
+\subsubsection{火星的公转周期}
+对会合周期的式子稍微变下形：
+\begin{equation}
+    P_m = \frac{S\cdot P_e}{S - P_e}
+\end{equation}
+带入数值，可以求出$P_e = 686.985$天
+\subsubsection{哪个外行星的会合周期最短？}
+对于外行星，会合周期是：
+\begin{equation}
+    \frac{1}{S} = \frac{1}{P_e} - \frac{1}{P}
+\end{equation}
+变下形：
+\begin{equation}
+    S = \frac{P\cdot P_e}{P - P_e}
+\end{equation}
+我们发现，当$P_e$很大的时候，$P - P_e \approx P$, 因此会合周期趋向于$P_e$，因此，行星的公转周期越大，其回合周期就越短，太阳系内，是海王星（冥王星与2008年被除名行星身份）
+\subsection{太阳赤道坐标}
+春分：$\alpha = 0^h, \delta = 0^{\circ}$\\
+夏至：$\alpha = 6^h, \delta = 23.5^{\circ}$\\
+秋分：$\alpha = 12^h, \delta = 0^{\circ}$\\
+冬至：$\alpha = 18^h, \delta = -23.5^{\circ}$
+
+\newpage
+\section{第二章：天体力学}
+\subsection{椭圆的标准方程}
+\subsection{椭圆的面积}
+\subsection{行星速度分量}
+\subsection{机械能总和}
+二体系统的机械能总和为
+\[
+E = \frac{1}{2} m_1 \abs{\mathbf{v}_1}^2 + \frac{1}{2} m_2 \abs{\mathbf{v}_2}^2 - \frac{Gm_1m_2}{r}
+\]
+根据质心系的定义有$\mathbf{r_1} = -\dfrac{\mu}{m_1} \mathbf{r}$和$\mathbf{r_2} = \dfrac{\mu}{m_2} \mathbf{r}$，求导并带入上式
+\[
+E = \frac{1}{2} m_1 \frac{\mu^2}{m_1^2} v^2 + \frac{1}{2} m_2 \frac{\mu^2}{m_1^2} v^2 - \frac{GM\mu}{r}
+\]
+注意到$\dot{\mathbf{r}} = \mathbf{v}$且$M\mu = m_1 m_2$，再次化简，就可以写出
+\[
+E = \frac{1}{2}\mu v^2 - \frac{GM\mu}{r}
+\]
+\subsection{角动量总和}
+\subsection{太阳-木星系统角动量}
+\subsection{逃逸速度}
+\subsection{地球同步轨道}
+\subsection{引力势能的平均}
+根据平均的定义，有
+\[
+\bar{U} = -\frac{1}{T}\int_0^T \frac{GM\mu}{r(t)}dt
+\]
+同时注意到角动量守恒，有
+\[
+L = \mu r v = \mu r^2 \dot{\theta}
+\]
+可以列出 $dt = \dfrac{\mu r^2}{L} d\theta$，带入并换元，有
+\[
+\bar{U} = -\frac{1}{T} \int_0^{2\pi} \frac{GM\mu}{r} \frac{\mu r^2}{L}d\theta = \frac{GM\mu^2}{L T} \int_0^{2\pi} r(\theta)d\theta
+\]
+带入椭圆的极坐标方程，可以得到
+\[
+\bar{U} = -\frac{GM\mu^2}{L T} \int_0^{2\pi} \frac{a(1-e^2)}{1+e\cos \theta}d\theta = \frac{GM\mu^2 a(1-e^2)}{L T} \frac{2\pi}{\sqrt{1-e^2}}
+\]
+同时带入椭圆轨道角动量的表达式和开普勒第三定律，可以化简出
+\[
+\bar{U} = -\frac{GM\mu}{a}
+\]
+注意：本题的平均不可以这样求
+\[
+\bar{U} = \frac{1}{2\pi} \int_0^{2\pi} \frac{GM\mu}{r(\theta)}d\theta
+\]
+我们希望求的是周期的平均，而上式是关于真近点角求平均。
+\end{document}

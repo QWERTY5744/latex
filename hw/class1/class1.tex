@@ -1,0 +1,241 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{positioning,calc,patterns,angles,quotes}
+\numberwithin{equation}{section}
+
+\title{Homework 1}
+\author{Chen Li}
+\date{2025/09/29}
+
+\begin{document}
+\maketitle
+\section{Time equation}
+
+Time equation is given as 
+\[
+ET = (M-\nu_0) - \arctan(\cos \varepsilon \tan(\nu - \nu_0))
+\]
+Where $\nu_0$ is the true anomaly of vernal equinox, the ascenion of periapsis of Earth $\varpi = 103^{\circ}$. This number is heliocentric, to convert into geocentric ecliptic longitude, $\lambda = 180^{\circ} + \varpi = 287^{\circ}$. Which means $\nu_0 = \lambda = 283^{\circ}$
+
+By the relation between true anomaly and eccentric anomaly
+\[
+\cos \nu = \frac{\cos E - e}{1-e\cos E}
+\]
+Therefore eccentric anomaly of vernal equinox can be easily calculated
+\[
+\cos E = \frac{\cos \nu + e}{1+e\cos \nu}
+\]
+This gives $E = 72.087^{\circ}$.
+
+By Kepler's Equation, the mean anomaly is
+\[
+M = E - e\sin E = 72.071^{\circ}
+\]
+This means when Earth reaches periapsis, it is $72.071^{\circ}/360^{\circ} \cdot 365.2425 \text{d} = 73$ days before vernal equinox, therefore the date when Earth reach periapsis is January 7th.
+
+The time difference between Sept 28th and Jan 7th is 264 days, therefore the mean anomaly is 
+\[
+M' = \frac{264 \text{days}}{365.2425 \text{days}} \cdot 360^{\circ} = 260.211^{\circ}
+\]
+
+Solving the Kepler's Equation numerically, the eccentric anomaly of Sun at Sept 28th is $E' = 260.194 ^{\circ}$, which gives the true anomaly of the Sun
+\[
+\nu' = \arccos \left(\frac{\cos E - e}{1-e\cos E}\right) = 259.252^{\circ}
+\]
+
+Time equation is therefore
+\[
+ET = (M' - \nu_0) - \arctan(\cos \varepsilon \tan(\nu' - \nu_0)) = -0.816^{\circ} = -3.264 \text{min}
+\]
+
+\section{Moon}
+The maximum difference of azimuth on two points of lunar disk is $0.5^\circ$, when differnce between RA is half of it, it means $\Delta \alpha = 0.25^\circ$, which means the latitude line makes an angle of
+\[
+\theta = \arctan \left(\frac{0.25/2}{0.25}\right) = 26.565^{\circ}
+\]
+with respect to the "horizontal line" of the lunar disk.
+
+Since the moon is on the $5^\circ$ latitude line at this day, this means that the angle between the "altitude velocity" and "azimuth velocity" must be the same as $\theta$
+
+The relation between altitude and hour angle is 
+\[
+\sin h = \sin \phi \sin \delta \cos \phi \cos \delta \cos HA
+\]
+Therefore the rate which altitude change is
+\[
+\dot{h} = -\omega \cos \phi \frac{\cos \delta \sin HA}{\cos h}
+\]
+By sine law and five-parts formula
+\[
+\begin{cases}
+    \cos h \sin A = -\cos \delta \sin H\\
+    \cos h \cos A = \cos \phi \cos \delta - \sin \phi \cos \delta \cos H
+\end{cases}
+\]
+Differnetiate both side against time
+\[
+\begin{cases}
+    -\sin A  \sin h \dot{h} + \cos A \cos h \dot{A} = -\omega \cos \delta \cos H\\
+    -\cos A \sin h \dot{h} - \sin A \cos h\dot{A} = \omega \cos \phi \cos \delta \sin H
+\end{cases}
+\]
+Multiply the upper equation by $\cos A$ and lower equation by $\sin A$ to eliminate $\dot{h}$, the expression for $\dot{A}$ is then
+\[
+\dot{A} = -\omega \frac{\cos \delta \cos H \cos A + \cos \phi \sin H \sin A \cos \delta}{\cos h}
+\]
+Factoring in the relations given previously, this can be further simplified to
+\[
+\dot{A} = -\omega \frac{\cos \phi \cos \delta \cos H + \sin \phi \sin \delta}{\cos h}
+\]
+Compare the two velocities
+\[
+\frac{\dot{h}}{\dot{A}} = \frac{\cos \phi \cos \delta \sin HA}{\cos \phi \cos \delta \cos HA + \sin \phi \sin \delta} = \tan \theta
+\]
+Solving this expression numerically, one obtain $\mathrm{HA} = 27.859^\circ$ or $\mathrm{HA} = 332.141^\circ$ because this situation is symmetrical with respect to meridian.
+\section{Moving Stick Shadow}
+At local noon, the hour angle of the Sun $HA = 0^\text{h}$ and reaches a minimum zenith angle of $z = \phi - \delta_S = 6^{\circ} 34'$, therefore the altitude of the Sun is $h = 90^{\circ} - z = 83^{\circ} 26'$
+
+The movement of the direction of the shadow is directly related to the change in azimuth of the Sun
+
+The relationship between azimuth, hour angle, declination of a celetial body and local latitude can be given from sine law:
+\[
+\frac{\sin \mathrm{HA}}{\cos h} = -\frac{\sin A}{\cos \delta}
+\]
+Isolating $A$ and take derivative on both side 
+\[
+\frac{d}{dt} \sin A = -\frac{d}{dt} \left(\frac{\sin \delta}{\cos h} \sin \mathrm{HA}\right)
+\]
+This expression comes out to
+\[
+\cos A \dot{A} = - \cos \delta \frac{\omega_S \cos \mathrm{HA} \cos h + \sin h \sin \mathrm{HA} \dot{h}}{\cos^2 h}
+\]
+Where $\omega_S = 2\pi / 24$hr is the angular velocity of Sun, at zenith, since Sun reaches its maximum altitude, $\dot{h} = 0$, therefore the expression simplifies to
+\[
+\dot{A} = - \frac{\cos HA}{\cos A\cos h} \omega_S \cos \delta
+\]
+At zenith, HA = $0$ and $A = 180^{\circ}$, therefore the derivative with respect to time of azimuth is
+\[
+A = 5.835 \cross 10^{-5} \mathrm{rad/s} = 120.348''\text{/s}
+\]
+\section{Jupiter Opposition}
+The conversion between declination and RA and ecliptic latitude and ecliptic longitude is
+\[
+\begin{cases}
+    \sin \beta = \cos \varepsilon \sin \delta - \sin \varepsilon \cos \delta \sin \alpha\\
+    \cos \lambda = \cos \alpha \dfrac{\cos \delta}{\cos \beta}
+\end{cases}
+\]
+Therefore it is easy to find the ecliptic coordinate of Jupiter
+\[
+\begin{cases}
+    \beta_J = 0^{\circ}\\
+    \lambda_J = 169.193^{\circ}
+\end{cases}
+\]
+By definiiton of opposition, the ecliptic longitude of Sun has a difference of $180^{\circ}$, therefore the ecliptic longitude of Sun is $\lambda_S = 180^{\circ} + \lambda_J = 23^{\text{h}} 16^{\text{m}} 46^{\text{s}}$, therefore the ecliptic coordinate of Sun is
+\[
+\begin{cases}
+    \beta_S = 0^{\circ}\\
+    \lambda_S = 23^{\text{h}} 16^{\text{m}} 46^{\text{s}}
+\end{cases}
+\]
+
+\section{Bob and his well}
+The opening angle of the well is
+\[
+\Delta \theta = 2\arctan \left(\frac{0.5m}{50m}\right) = 0.02 \text{rad}
+\]
+On the celestial sphere, a solid angle element is 
+\[
+d\Omega = \sin \phi d\phi d\theta
+\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm]{pics/scs.png}
+\end{figure}
+Therefore the total solid angle of this strip of sky is 
+\[
+\Omega = \int_{0}^{\pi/6} \int_{\phi - \Delta\theta }^{\phi + \Delta \theta}\sin \phi d\phi d\theta = 7.33\cross 10^{-3} \text{sr}
+\]
+Where $\phi = 90^\circ - \phi_T$
+The percentage of the star Bob can see can be obtained through comparing $\Omega$ with $4\pi$:
+\[
+\eta = \frac{\Omega}{4\pi} \cdot 100\% = 0.058\%
+\]
+
+\section{Diver in the Sea}
+I don't know how to solve this question.
+
+\section{Sun at Toronto}
+The ecliptic longitude of the Sun is
+\[
+\sin \lambda = \frac{\sin \delta}{\sin \varepsilon} = -0.867
+\]
+Which gives $\lambda = 299.871^{\circ}$ or $\lambda =240.129^{\circ}$, the first solution is not possible as it is past winter solstice, therefore take the second solution. This means the number of days after vernal equinox is
+\[
+d = \frac{365.25 \text{ days}}{360^{\circ}} \cdot \lambda = 243 \text{ days}
+\]
+Therefore on that date, sideral time is ahead of solar time by $12 \text{h} + 243 \text{ days} \cdot 3^\text{m} 56^\text{s} /\text{day} - 24 \text{h}= 3^\text{h} 55^\text{m} 44^\text{s}$ behind solar time. 
+
+Toronto is located at GMT-5 with a central meridian of $l = 75^{\circ}$ W, therefore the time difference between local time and zone time is
+\[
+\Delta t = \Delta l \cdot 1^{\text{h}}/15^\circ/ \text{h} = -0^\text{h} 4^\text{m} 24^\text{s}
+\]
+Therefore the local time of Toronto at 10:15 is $10^\text{h} 15^\text{m} 00^\text{s} + 0^\text{h} 4^\text{m} 24^\text{s} = 10^\text{h} 19^\text{m} 24^\text{s}$, the sideral time at is therefore $ST = 14^\text{h} 15^\text{m} 8^\text{s}$
+
+The hour angle of Sun can be obtained
+\[
+t = ST - \alpha = -1^\text{h} 36^\text{m} 38^\text{s} = 22^\text{h} 23^\text{m} 22^\text{s}
+\]
+The relationship between hour angle and declination of star and altitude of the star is
+\[
+\sin h = \sin \phi \sin \delta + \cos \phi \cos \delta \cos t
+\]
+Therefore the altitude of Sun at Toronto at 10:15 is
+\[
+\sin h = \sin \phi \sin \delta + \cos \phi \cos \delta \cos t = 0.381
+\]
+This gives $h = 22^\circ 23' 30''$
+
+\section{Shadow and Wall}
+There are 153 days betweem March 21st and August 21st, he ecliptic longitude of Sun is
+\[
+\lambda = \frac{360^{\circ}}{365.25} \cdot 153 = 150.801^{\circ}
+\]
+Therefore the declination of Sun is
+\[
+\delta = \arcsin(\sin \delta \sin \lambda) = +11.187^{\circ}
+\]
+The RA of Sun is (for Sun $\beta = 0$)
+\[
+\alpha = \arccos \frac{\cos \beta \cos \alpha}{\cos \delta} = 152.853^{\circ}
+\]
+The hour angle of Sun when it just risen is 
+\[
+0 = \sin \phi \sin \delta + \cos \phi \cos \delta \cos \mathrm{HA}
+\]
+Which gives
+\[
+\mathrm{HA} = \arccos (-\tan \phi \tan \delta) = 280.894^{\circ}
+\]
+The street will remain in shadow if the altitude of the Sun does not exceed $h = \arctan 2.5/6 = 22.620^{\circ}$, the hour angle this occur is therefore
+\[
+\mathrm{HA} = \arccos \left(\frac{\sin h - \sin \phi \sin \delta}{\cos \phi \cos \delta}\right) = 290.690^\circ
+\]
+Therefore the time that the whole street remained shadowed is
+\[
+\Delta t = \frac{\Delta \mathrm{HA}}{15^\circ/\mathrm{h}} = 0.653 \mathrm{h} = 39.2 \mathrm{min}
+\]
+\end{document}

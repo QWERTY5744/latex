@@ -1,0 +1,258 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\numberwithin{equation}{section}
+
+\title{Celestial Mechanics}
+\author{Polaris}
+\date{2025/11/06}
+
+\begin{document}
+\maketitle
+
+\section{Polar Coordinate}
+Polar coordinates are convienent when dealing with celestial mechanics problem, the key here is to find the velocity and acceleration in polar coordinate.
+
+Consider a radial direction, denoted as $\mathbf{r}$; a tangential direction, denoted as $\boldsymbol{\theta}$. On each direction, the vectors can be written as
+\begin{equation}
+    \begin{cases}
+        \mathbf{r} = r \hat{r}\\
+        \boldsymbol{\theta} = \theta \hat{\theta}\\
+    \end{cases}
+\end{equation}
+
+\subsection{Velocity}
+To find the tangential and radial velocity. Recall that $\hat{r} = \cos \theta \hat{x} + \sin \theta \hat{y}$, and $\hat{\theta} = -\sin \theta \hat{x} + \cos \theta \hat{y}$ (this is because the two vectors are perpendicular to each other). Where $\hat{x}$ and $\hat{y}$ are base vectors in a Cartesian coordinate system.
+\begin{align*}
+    \derivative{t}\hat{r} &=  \derivative{t} (\cos \theta \hat{x} + \sin \theta \hat{y})\\
+    &= \sin \theta \dot{\theta} \hat{x} + \cos \theta \dot{\theta} \hat{y}\\
+\end{align*}
+Therefore
+\begin{equation}
+    \boxed{\dot{\hat{r}} = \dot{\theta} \hat{\theta}}
+\end{equation}
+Similarly, one can find $\dot{\hat{\theta}}$.
+\begin{align*}
+    \derivative{t}\hat{\theta} &= \derivative{t} (-\sin \theta \hat{x} + \cos \theta \hat{y})\\
+    &= -\cos \theta \dot{\theta} \hat{x} - \sin \theta \dot{\theta} \hat{y}\\
+\end{align*}
+Therefore 
+\begin{equation}
+    \boxed{\dot{\hat{\theta}} = -\dot{\theta} \hat{r}}
+\end{equation}
+
+Velocity is therefore 
+\begin{align*}
+    \mathbf{v} = \derivative{t}\mathbf{r} &= \derivative{t}(r\hat{r})\\
+    &= r \dot{\hat{r}} + \hat{r} + \hat{r}\derivative{t}r\\
+    &= r\dot{\theta} \hat{\theta} + \dot{r}\hat{r}
+\end{align*}
+Here $v_r = \dot{r}$ is the radial component, $v_\theta = r\dot{\theta}$ is the tangential component.
+
+\subsection{Acceleration}
+Diffrientiate velocity against time to find acceleration:
+\begin{align*}
+    \mathbf{a} = \derivative{t}\mathbf{v} &= \derivative{t} (r\dot{\theta} \hat{\theta} + \dot{r}\hat{r})\\
+    &= \hat{\theta} \derivative{t} (r\dot{\theta}) + r\dot{\theta} \derivative{t} \hat{\theta} + \hat{r} \derivative{t}\dot{r} + \dot{r} \derivative{t} \hat{r}\\
+    &= (r\ddot{\theta} + \dot{r} \dot{\theta})\hat{\theta} - r\dot{\theta} \dot{\theta} \hat{r} + \ddot{r} \hat{r} + \dot{r} \dot{\theta} \hat{\theta}\\
+    &= (\ddot{r} - r\dot{\theta}^2) \hat{r} + (\dot{r}\dot{\theta} + r\ddot{\theta}) \hat{\theta}
+\end{align*}
+Here $a_r = \ddot{r} - r\dot{\theta}^2$ is the radial component, $a_\theta = \dot{r} \dot{\theta} + r \ddot{\theta}$ is the tangential component.
+
+\section{Equation of Orbit}
+By chain rule
+\[
+\derivative{r}{\theta} = \derivative{r}{t} \derivative{t}{\theta} = \frac{v_r}{v_\theta / r} = r \frac{v_r}{v_\theta}
+\]
+By the conservation of angular momentum and conservation of energy
+\begin{equation}
+    \begin{cases}
+        L = mrv_\theta\\
+        E = \dfrac{1}{2} m (v_r^2 + v_\theta^2) - \dfrac{GMm}{r}
+    \end{cases}
+\end{equation}
+Therefore tangential and radial velocity can be given as
+\begin{equation}
+    \begin{cases}
+        v_\theta = \dfrac{L}{mr}\\
+
+        v_r = \sqrt{\dfrac{2E}{m} + \dfrac{2GM}{r} - \dfrac{L^2}{m^2 r^2}}
+    \end{cases}
+\end{equation}
+
+Thus the differential equation can be written as
+\begin{equation}
+    \derivative{r}{\theta} = \frac{mr^2}{L} \sqrt{\frac{2E}{m} + \frac{2GM}{r} - \frac{L^2}{m^2 r^2}}
+\end{equation}
+Which has a solution of 
+\begin{equation}
+    r(\theta) = \frac{p}{1+e\cos \theta}
+\end{equation}
+This is the solution of a conic section. $p$ is the semi latus rectum, $p = \dfrac{L^2}{GMm^2}$; $e$ is the eccentricity; $\displaystyle e = \sqrt{1+\frac{2EL^2}{G^2 M^2 m^3}}$.
+
+\section{Laplace-Runge-Lenz Vector}
+Laplace-Runge-Lenz Vector (LRL vector for short) is a constant vector in celestial mechanics. 
+
+Consider the equation of motion of a body under gravitational attraction, let $\mu = GM$:
+
+\begin{equation}
+    \ddot{\mathbf{r}} = - \frac{\mu}{r^3} \mathbf{r}
+\end{equation}
+Let $\mathbf{h} = L/m$, cross product $\mathbf{h}$ on both sides.
+\[
+\ddot{\mathbf{r}} \times \mathbf{h} = -\frac{\mu}{r^3} \mathbf{r} \times \mathbf{h}
+\]
+Notice that 
+\begin{align*}
+    \derivative{t} (\dot{\mathbf{r}} \times \mathbf{h}) = \derivative{t} \mathbf{\dot{r}} \times \mathbf{h} + \dot{\mathbf{r}} \derivative{t}\mathbf{h} = \ddot{\mathbf{r}} \times \mathbf{h}
+\end{align*}
+
+The right hand side of the equation can be written as 
+\begin{align*}
+    - \frac{\mu}{r^3} \mathbf{r} \times \mathbf{h} &= - \frac{\mu}{r^3} \mathbf{r} \times (\mathbf{r} \times \mathbf{\dot{r}})\\
+    &= - \frac{\mu}{r^3} (\mathbf{r} (\mathbf{r} \cdot \mathbf{\dot{r}}) - \dot{\mathbf{r}} (\mathbf{r} \cdot \mathbf{r}))\\
+\end{align*}
+Notice that 
+\[
+\derivative{t}(\mathbf{r} \times \mathbf{r}) = \derivative{t}(r^2) = 2r\dot{r}
+\]
+and 
+\[
+\derivative{t}(\mathbf{r} \times \mathbf{r}) = \mathbf{r} \derivative{t} \mathbf{r} + \mathbf{r} \derivative{t} \mathbf{r} = 2\mathbf{r} \mathbf{\dot{r}}
+\]
+Therefore one can conclude $r\dot{r} = \mathbf{r} \dot{\mathbf{r}}$
+
+Return to the original equation above, one get 
+\begin{align*}
+    &= - \frac{\mu}{r^3} (\mathbf{r} (\mathbf{r} \cdot \mathbf{\dot{r}}) - \dot{\mathbf{r}} (\mathbf{r} \cdot \mathbf{r}))\\
+    &= - \frac{\mu}{r^3} (\mathbf{r} r\dot{r} - \dot{\mathbf{r}} r^2)\\
+    &= -\frac{\mu}{r^2} (\mathbf{r} \dot{r} - \mathbf{\dot{r}}r)\\
+    &= - \frac{\mu}{r^2} \derivative{t} \left(\frac{\mathbf{r}}{r}\right)
+\end{align*}
+Therefore 
+\begin{align*}
+    \derivative{t} (\dot{\mathbf{r}} \times \mathbf{h}) &= \mu \derivative{t} \left(\frac{\mathbf{r}}{r}\right)\\
+    \mathbf{\dot{r}} \times \mathbf{h} - \mu \frac{\mathbf{r}}{r} &= C
+\end{align*}
+We called the above vector Laplace-Runge-Lenz vector, a cosntant vector in celestial mechanics.
+\begin{equation}
+    \boxed{\mathbf{\dot{r}} \times \mathbf{h} - \mu \frac{\mathbf{r}}{r} = C}
+\end{equation}
+The eccentricity of the orbit with a given Laplace-Runge-Lenz vector is 
+\begin{equation}
+    \boxed{e = \frac{\abs{\mathbf{C}}}{\mu}}
+\end{equation}
+
+\section{Example Problems}
+\subsection{Free Fall}
+Consider two bodies of mass with mass $M$ and $m$ with a distance $r$, where $M \gg m$. Determine the time it takes for the smaller body to fall to the larger body.
+
+\textbf{Solution}: Since $M\gg m$, the larger body can be considered as stationary. The velocity of the smaller object is $v = \displaystyle dx/dt$. The mechanical energy of the system is 
+\[
+\epsilon = \frac{1}{2} v^2 - \frac{GM}{x}
+\]
+Where $x$ is the distance to the central object.
+
+Initially, everything is at rest, so the mechanical energy of the system is the graviational potential energy of the system. Which means
+\[
+\epsilon = \frac{1}{2}v^2 - \frac{GM}{x} = -\frac{GM}{r}
+\]
+Rearranging the equation, notice that the distance is decreasing, hence the negative sign
+\[
+\frac{dx}{dt} = -\sqrt{2GM \left(\frac{r-x}{rx}\right)}
+\]
+Rearrange again and integrate on both side
+\[
+\int_r^0 \sqrt{\frac{x}{r-x}} dx= \int_{0}^{T} -\sqrt{\frac{2GM}{r}} dt
+\]
+Preform a trig sub on the LHS. Let $x = r \sin^2 \theta$, thus $dx = 2r \sin x \cos x d\theta$
+\begin{align*}
+    \int_{0}^{r} \sqrt{\frac{r \sin^2 \theta}{r \cos^2 \theta}} 2r\sin x \cos x d\theta &= \sqrt{\frac{2GM}{r}}T\\
+    \int_{0}^{\frac{\pi}{2}} \frac{\sin \theta}{\cos \theta} \sin \theta \cos \theta d\theta = \sqrt{\frac{GM}{4r^3}} T\\
+    \int_{0}^{\frac{\pi}{2}} \sin^2 d\theta = \sqrt{\frac{GM}{4r^3}} T\\
+\end{align*}
+This gives the final result
+\begin{equation}
+    T = \pi \sqrt{\frac{r^3}{8GM}}
+\end{equation}
+Notice that this can also be derived from Kepler's Third Law. The trajectory of $m$ can be seen as an ellipse whose $e \to 1$, therefore, $2a = d$ and $2T = P$. 
+
+\section{Stability and completeness of an orbit}
+Consider a central force with the equation of 
+\begin{equation}
+    F(r) = -\frac{k}{r^n}
+\end{equation}
+Consider a object of mass $m$ moving around the central object with a circular orbit of radius $r_0$. Radially, the equation of motion is 
+\[
+m\left(\ddot{r} - r\dot{\theta}^2\right) = -\frac{k}{r^n}
+\]
+Now, consider a tiny wobble such that the object deviates from the original orbit. Radially, the deviation is $x$, which means 
+\[
+\begin{cases}
+    r = r_0 + x\\
+    \ddot{r} = \ddot{x}\\
+\end{cases}
+\]
+Therefore, the radial equation of motion turns into
+\[
+\ddot{x} - (r_0 + x) \dot{\theta}^2 = -\frac{k}{m(r_0+x)^n}
+\]
+Using the small value approximation of $(1+x)^n \approx 1 + nx$ when $x \ll 1$, the equation turns into
+\[
+\ddot{x} - r\dot{\theta}^2 = -\frac{k}{mr_0^2} \left(1 - n \frac{x}{r_0}\right)
+\]
+For a circular orbit, $\ddot{r} = 0$, which means
+\[
+\dot{\theta}^2 = \frac{k}{mr_0^{n+1}} \text{ and } \dot{\theta} = \frac{h}{r_0^2}
+\]
+This means that for a circular
+\[
+h^2 = \frac{k}{m} r_0^{3-n}
+\]
+This will be useful in a second.
+
+The equation of motion can be further simplified by substituting $\dot{\theta}$
+\[
+\ddot{x} - \frac{h^2}{(r_0+x)^3} = - \frac{k}{mr_0^n} \left(1 - \frac{nx}{r_0}\right)
+\]
+Since the deviation is small, $h^2$ in the circular orbit is nearly identical to the $h^2$ in the deviated orbit. Substituting $h^2$ inside
+\[
+\ddot{x} - \frac{k}{m} r_0^{3-n} \frac{1}{r^3_0} \left(1-3\frac{x}{r_0}\right) = - \frac{k}{mr_0^n} \left(1-\frac{nx}{r_0}\right)
+\]
+Move the RHS to the LHS and do some simplification
+\[
+\ddot{x} - \frac{k}{mr_0^n} + \frac{k}{mr_0^n} \frac{3x}{r_0} + \frac{k}{mr_0^2} - \frac{knx}{mr_0^{n+1}} = 0
+\]
+Finally, we obtain the equation of motion of SHM
+\[
+\ddot{x} + \frac{k}{m r_0^{n+1}} \left(3-n\right) x = 0
+\]
+The radial angular velocity is therefore 
+\begin{equation}
+    \omega_r = \sqrt{\frac{k}{m r_0^{n+1}} (3-n)}
+\end{equation}
+Which only make sense when $3-n > 0$. In other words, the orbit is stable when $n < 3$
+
+The orbital angular velocity is 
+\begin{equation}
+\omega_{\theta} = \dot{\theta} = \sqrt{\frac{k}{mr_0^{n+1}}}
+\end{equation}
+
+For an orbit to be closed, after $n$ radial wobbles, 1 revolution needs to be completed, or 
+\[
+\frac{\omega_r}{\omega_\theta} = \sqrt{3-n}
+\]
+Which means for an orbit to be closed, $\sqrt{3-n}$ must be a integer. 
+
+It just so happens that $n=2$ (which corresponds to gravity) satisfy both the conditions shown. This explains why the orbit of planets are closed.
+
+However, due to effects like relativity and tides and even the shape of the central star, the total force on the orbiting object might not exactly equals to $2$. This explains the precession of the orbits of planets like Mercury.
+\end{document}

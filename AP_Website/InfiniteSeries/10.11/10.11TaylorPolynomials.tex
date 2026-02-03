@@ -1,0 +1,250 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx,float}
+\graphicspath{{images/}}
+\usepackage[none]{hyphenat}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage[letterpaper,top=3cm, left= 3cm,bottom=3cm]{geometry}
+\usepackage{subcaption}
+\numberwithin{equation}{section}
+
+\title{Finding Taylor Polynomial Approximations of Functions}
+\author{assassin3552}
+\date{2025/08/07}
+
+\begin{document}
+
+\maketitle
+\section{What is Taylor Polynomial}
+In the field of physics and engineering, approximations is as important as finding the actual value, therefore, there needs to be a way of approximating functions. Here is where Taylor Polynomials comes into place.
+
+\subsection{Definition of Taylor Polynomial}
+Consider a function $f$, which can be differentiate $n$ times at a constant number $a$. We define the Taylor Polynomial of this function $f$ around $x=a$ as 
+\[
+\boxed{p_n(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + ... + \frac{f^{n}(a)}{n!} (x-a)^n}
+\]
+We call this polynomial function "the $n$th degree Taylor Polynomial of $f$", if $a=0$, the polynomial is called Maclaurin Polynomial.
+
+The details of this will be covered in 10.14 Taylor Series.
+
+\subsection{Applications of Taylor Polynomial}
+The most important real world applications of Taylor Polynomial is approximating a function.
+
+Consider the sine function $f(x) = \sin x$ and its $9$th degree Taylor Polynomial (we will cover how to find this in the next section) $p_9(x) = x - \dfrac{x^3}{3!} + \dfrac{x^5}{5!} - \dfrac{x^7}{7!} + \dfrac{x^9}{9!}$
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{pic/taylor1.png}
+    \caption{The graph of $\sin x$ and $p_9(x)$}
+\end{figure}
+
+From the graph, one can see that for some part of the graph, the blue line and red line match almost perfectly, it is only after a certain value that the line starts to deviate.
+
+This is the purpose of Taylor Polynomials, to approximate functions, the higher its degree, the better approximation it gets. Here is another example of $e^x$ and its $4$th degree Taylor Polynomial.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{pic/taylor2.png}
+    \caption{The graph of $e^x$ and $p_4(x)$}
+\end{figure}
+
+\section{Finding Taylor Polynomial}
+In this section, you will learn how to find Taylor Polynomial.
+
+1. Find the $4$th degree Taylor Polynomial of $\sin x$ centered at $x=0$
+
+To find the desired polynomial, first find the high order derivatives of $\sin x$ at $x=0$
+
+\begin{enumerate}
+        \item $f(x) = \sin x$, $f(0) = 0$
+        \item $f'(x) = \cos x$, $f'(0) = 1$
+        \item $f''(x) = -\sin x$, $f''(0) = 0$
+        \item $f^3 (x) = -\cos x$, $f^3(0) = -1$
+        \item $f^4(x) = \sin x$, $f^4(0) = 0$
+\end{enumerate}
+Now substitute the derivatives into the equation for Taylor Polynomial:
+\[
+p_n(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + ... + \frac{f^{n}(a)}{n!} (x-a)^n
+\]
+\[
+p_4(x) = f(0) + f'(0)(x-0) + \frac{f''(0)}{2!}(x-0)^2 + \frac{f^3(0)}{3!}(x-0)^3 + \frac{f^4(0)}{4!}(x-0)^4
+\]
+\[
+= 0 + 1x + \frac{0}{2!}(x-0)^2 + \frac{-1}{3!}(x-0)^3 + \frac{0}{4!}(x-0)^4
+\]
+\[
+p_4(x)= x - \frac{x^3}{3!}
+\]
+
+2. Find the $4$th degree Taylor Polynomial of the function $f(x) = \ln x$ center at $x=1$
+
+First find the high order derivatives of $\ln x$ at $x=1$
+
+\begin{enumerate}
+        \item $f(x) = \ln x$, $f(1) = 0$
+        \item $f'(x) = \dfrac{1}{x}$, $f'(1) = 1$
+        \item $f''(x) =  -\dfrac{1}{x^2}$, $f''(1) = -1$
+        \item $f^3 (x) = \dfrac{2}{x^3}$, $f^3(1) = 2$
+        \item $f^4(x) = -\dfrac{6}{x^4}$, $f^4(1) = -6$
+\end{enumerate}
+Now substitute the derivatives into the equatin for Taylor Polynomial,
+\[
+p_4(x) = f(1) + f'(1)(x-1) + \frac{f''(1)}{2!}(x-1)^2 + \frac{f^3(1)}{3!}(x-1)^3 + \frac{f^4(1)}{4!}(x-1)^4
+\]
+\[
+= 0 + 1(x-1) - \frac{1}{2}(x-1)^2 + \frac{2}{3!}(x-1)^3 - \frac{6}{4!}(x-1)^4
+\]
+\[
+p_4(x) = (x-1) - \frac{1}{2}(x-1)^2 + \frac{1}{3}(x-1)^3 - \frac{1}{4}(x-1)^4
+\]
+
+\section{Practice Problems}
+1. Find the $3$rd order Taylor Polynomial of $f(x) = e^x$ centered at $x=0$
+
+A. $1 + x + \dfrac{x^2}{2!} + \dfrac{x^3}{3!}$
+
+B. $1 - x + \dfrac{x^2}{2!} - \dfrac{x^3}{3!}$
+
+C. $1 + x + x^2 + x^3$
+
+D. This Taylor Polynomial cannot be obtained
+
+2. Find the $4$th order Taylor Polynomial of $f(x) = \ln x$ centered at $x=0$
+
+A. $x - \frac{1}{2}x^2 + \frac{1}{3} x^3 - \frac{1}{4} x^4$
+
+B. $1 - x + \frac{1}{2}x^2 - \frac{1}{3} x^3 + \frac{1}{4} x$
+
+C. $-x + \frac{1}{2}x^2 - \frac{1}{3} + \frac{1}{4}x^4$
+
+D. This Taylor Polynomial cannot be obtained
+
+3. Use the $3$rd degree Taylor Polynomial of $f(x) = \cos x$ centered at $x=0$ to approximate $\cos(0.1)$
+
+A. $0.0998$
+
+B. $0.9947$
+
+C. $0.9950$
+
+D. This Taylor Polynomial cannot be obtained, hence $\cos(0.1)$ cannot be approximated
+
+4. Use the $3$th degree Taylor Polynomial of $f(x) = \arcsin (x)$ centered at $x=0$ to find the approximate value of $\arcsin (0.1)$
+
+A. $0.9998$
+
+B. $0.1002$
+
+C. $0.9767$
+
+D. This Taylor Polynomial cannot be obtained, hence $\arcsin(0.1)$ cannot be approximated
+
+5. Find the approximate value of $\sqrt[3]{30}$ using $3$rd order Taylor Polynomial centered at $x=27$
+
+A. $2.89275$
+
+B. $3.10767$
+
+C. $3.10725$
+
+D. This Taylor Polynomial cannot be found, therefore $\sqrt[3]{30}$ cannot be approximated.
+
+
+\section{Solution}
+1. First find the high order derivatives of $e^x$ at $x=0$
+
+\begin{enumerate}
+        \item $f(x) = e^x$, $f(0) = 1$
+        \item $f'(x) = e^x$, $f'(0) = 1$
+        \item $f''(x) =  e^x$, $f''(0) = 1$
+        \item $f^3 (x) = e^x$, $f^3(0) = 1$
+\end{enumerate}
+Now substitute the derivatives into the equatin for Taylor Polynomial,
+\[
+p_3(x) = f(1) + f'(1)(x-1) + \frac{f''(1)}{2!}(x-1)^2 + \frac{f^3(1)}{3!}(x-1)^3
+\]
+\[
+= 1 + 1x - \frac{1}{2}x^2 + \frac{1}{3!}x^3 
+\]
+\[
+1 + x + \dfrac{x^2}{2!} + \dfrac{x^3}{3!}
+\]
+The answer is A.
+
+2. The function $f(x) = \ln x$ is not defined at $x=0$, meaning that this Taylor Polynomial cannot be obtained.
+
+The answer is D.
+
+3. First find the high order derivatives of $\cos x$ at $x=0$
+
+\begin{enumerate}
+        \item $f(x) = \cos x$, $f(0) = 1$
+        \item $f'(x) = -\sin x$, $f'(0) = 0$
+        \item $f''(x) = -\cos x$, $f''(0) = -1$
+        \item $f^3 (x) = \sin x$, $f^3(0) = 0$
+\end{enumerate}
+Now substitute the derivatives into the equation for Taylor Polynomial,
+\[
+p_3(x) = f(0) + f'(1)x + \frac{f''(1)}{2!}x^2 + \frac{f^3(1)}{3!}x^3
+\]
+\[
+= 1 + 0x - \frac{1}{2}x^2 + 0x^3 
+\]
+\[
+1 - \dfrac{x^2}{2!} 
+\]
+Substitute $x=0.1$,
+\[
+\cos (0.1) \approx 1 - \dfrac{0.1^2}{2} = 0.9950
+\]
+The answer is C.
+
+4. First find the high order derivatives of $\arcsin x$ at $x=0$
+
+\begin{enumerate}
+        \item $f(x) = \arcsin x$, $f(0) = 0$
+        \item $f'(x) = (1-x^2)^{-\frac{1}{2}}$, $f'(0) = 1$
+        \item $f''(x) = x(1-x^2)^{-\frac{3}{2}}$, $f''(0) = 0$
+        \item $f^3 (x) = (1-x^2)^{-\frac{3}{2}} + 3x^2 (1-x^2)^{-\frac{5}{2}}$, $f^3(0) = 1$
+\end{enumerate}
+Now substitute the derivatives into the equation for Taylor Polynomial,
+\[
+p_3(x) = f(0) + f'(1)x + \dfrac{f''(1)}{2!}x^2 + \frac{f^3(1)}{3!}x^3
+\]
+\[
+= 0 + 1x - \dfrac{0}{2}x^2 + \frac{1}{3!}x^3 
+\]
+\[
+= x - \dfrac{x^3}{3!} 
+\]
+Substitute $x=0.1$,
+\[
+\arcsin (0.1) \approx 0.1 + \dfrac{0.1^3}{3!} = 0.1002
+\]
+The answer is C.
+
+5. First find the high order derivatives of $\sqrt[3]{x}$ at $x=27$
+
+\begin{enumerate}
+        \item $f(x) = \sqrt[3]{x}$, $f(27) = 3$
+        \item $f'(x) = \dfrac{1}{3}x^{-2/3}$, $f'(27) = \dfrac{1}{27}$
+        \item $f''(x) = -\dfrac{2}{9}x^{-5/3}$, $f''(27) = -\dfrac{2}{2187}$
+        \item $f^3 (x) = \dfrac{10}{27}x^{-8/3} $, $f^3(27) = \dfrac{10}{177147}$
+\end{enumerate}
+Now substitute the derivatives into the equation for Taylor Polynomial,
+\[
+p_3(x) = f(0) + f'(1)x + \dfrac{f''(1)}{2!}x^2 + \frac{f^3(1)}{3!}x^3
+\]
+\[
+= 3 + \dfrac{1}{27}(x-27) - \dfrac{2}{2187}\dfrac{1}{2!}(x-27)^3 + \dfrac{10}{177147}\dfrac{1}{3!}(30-27)^3 
+\]
+
+Substitute $x=0.1$,
+\[
+\sqrt[3]{30} \approx  3 + \dfrac{1}{27}(30-27) - \dfrac{2}{2187}\dfrac{1}{2!}(30-27)^3 + \dfrac{10}{177147}\dfrac{1}{3!}(30-27)^3 =3.10725
+\] 
+The answer is C.
+\end{document}
